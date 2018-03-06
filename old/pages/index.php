@@ -5,7 +5,12 @@ require '../classes/UserAccount.php';
 <html lang="en">
     <head>
         <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
-        
+        <style type="text/css">
+            #chart-container {
+                width: 640px;
+                height: auto;
+            }
+        </style>
 		
     </head>
 <?php
@@ -149,74 +154,16 @@ require '../classes/UserAccount.php';
 								<br>
 							    </h4>
 
-                            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-                            <script src="assets/js/highcharts.js"></script>
-                            <script src="assets/js/exporting.js"></script>
-                            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                            <script type="text/javascript">
 
-                            $.getJSON(
-                                'https://cdn.rawgit.com/highcharts/highcharts/v6.0.5/samples/data/usdeur.json',
-                                function (data) {
+                                <div id="chart-container">
+                                    <canvas id="mycanvas"></canvas>
+                                </div>
 
-                                    Highcharts.chart('container', {
-                                        chart: {
-                                            zoomType: 'x'
-                                        },
-                                        title: {
-                                            text: 'USD to EUR exchange rate over time'
-                                        },
-                                        subtitle: {
-                                            text: document.ontouchstart === undefined ?
-                                                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-                                        },
-                                        xAxis: {
-                                            type: 'datetime'
-                                        },
-                                        yAxis: {
-                                            title: {
-                                                text: 'Exchange rate'
-                                            }
-                                        },
-                                        legend: {
-                                            enabled: false
-                                        },
-                                        plotOptions: {
-                                            area: {
-                                                fillColor: {
-                                                    linearGradient: {
-                                                        x1: 0,
-                                                        y1: 0,
-                                                        x2: 0,
-                                                        y2: 1
-                                                    },
-                                                    stops: [
-                                                        [0, Highcharts.getOptions().colors[0]],
-                                                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                    ]
-                                                },
-                                                marker: {
-                                                    radius: 2
-                                                },
-                                                lineWidth: 1,
-                                                states: {
-                                                    hover: {
-                                                        lineWidth: 1
-                                                    }
-                                                },
-                                                threshold: null
-                                            }
-                                        },
+                                <script type="text/javascript" src="js/jquery.min.js"></script>
+                                <script type="text/javascript" src="js/Chart.min.js"></script>
+                                <script type="text/javascript" src="js/app.js"></script>
 
-                                        series: [{
-                                            type: 'area',
-                                            name: 'USD to EUR',
-                                            data: data
-                                        }]
-                                    });
-                                }
-                            );
-                                    </script>
+                            
                         </div>
 
                      </div>
