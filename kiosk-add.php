@@ -123,14 +123,7 @@
                                             
                                         </div>
 
-                                <?php
-                                    
-
-                                    if(isset($_POST['save'])){
-                                        $sql = "INSERT INTO users (kioskId, kioskName, location, ipAddress) 
-                                            VALUES ('".$_POST["kioskName"]."','".$_POST["kioskId"]."','".$_POST["location"]."', '".$_POST["ipAddress"]."')";
-                                    }
-                                ?>
+                                
 
                                 <div class="row">
                                     <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
