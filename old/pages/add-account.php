@@ -116,53 +116,48 @@
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
                             <legend style = "font-family: special elite;">New Account</legend>
-
-                             <div class="form-group">
-                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-size: 110%;">Enter new username </label>
+                            
+                              <div class="form-group">
+                              <label for="accountNo" class="col-lg-2 control-label" style = "font-size: 110%;">Account Number</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputUsername" placeholder="<?php echo $profileqry['address'] ?>">
+                                <input type="number" class="form-control" name="accountNo">
                               </div>
-                            </div>    
+                              </div>  
                               
-                              
-                                  
-                             <div class="form-group">
-                              <label for="inputname" class="col-lg-2 control-label" style = "font-size: 110%;">Name</label>
+                              <div class="form-group">
+                              <label for="roleId" class="col-lg-2 control-label" style = "font-size: 110%;">Role ID</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputname" placeholder="<?php echo $profileqry['username'] ?>">
-                              </div>
-                              </div>     
-
-                            <div class="form-group">
-                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-size: 110%;">Address</label>
-                              <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputAddress" placeholder="<?php echo $profileqry['password'] ?>" value="">
+                                <input type="text" class="form-control" name="roleId">
                               </div>
                             </div>  
                               
+                              <div class="form-group">
+                              <label for="inputname" class="col-lg-2 control-label" style = "font-size: 110%;">Name</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" name="name">
+                              </div>
+                              </div> 
+                              
+                             <div class="form-group">
+                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-size: 110%;">New username </label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" name="username">
+                              </div>
+                            </div>    
+                                  
+
                             <div class="form-group">
-                            <label for="roleId" class="col-lg-2 control-label" style = "font-size: 110%;">Account Type</label>
-                            <div class="col-lg-10">
-                            <select name="user">
-                                <option value="">Account Type</option>
-                                <option value="">Staff</option>
-                                <option value="">Admin</option>
-                            </select>
-                            </div>
-                            </div>
+                              <label for="address" class="col-lg-2 control-label" style = "font-size: 110%;">Address</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" name="address">
+                              </div>
+                            </div>  
                             
                             <div class="form-group">
-                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-size: 110%;">Password</label>
+                              <label for="password" class="col-lg-2 control-label" style = "font-size: 110%;">Password</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputPassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
+                                <input type="text" class="form-control" name="password">
                               </div>
-                            </div>
-
-                              <div class="form-group">
-                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-size: 110%;">Re-enter Password</label>
-                                  <div class="col-lg-10">
-                                      <input type="text" class="form-control" name="inputRePassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
-                                  </div>
                             </div>
                               
                               <?php
@@ -179,6 +174,31 @@
 
                     </div>
                         
+                                    
+                        <?php
+                        if(! empty($_POST)){
+                            $db = mysqli_connect("localhost", "root", "", "wifira");
+
+                            $accountNo = $_POST['accountNo'];
+                            $roleId = $_POST['roleId'];
+                            $name = $_POST['name'];
+                            $address = $_POST['address'];
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+
+                            $query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image) VALUES ('$accountNo', '$roleId', '$name', '$address', '$username', '$password', 'Enable', null)";
+                            $insert = $db->query($query);
+
+                            if($insert){
+                                echo "Success!";
+                            } else {
+                                die ("Error: {$db->errno} : {$db->error}");
+                            }
+
+                            $db->close();
+
+                        }
+                        ?>
                 </div>
             </div>
         </div>
