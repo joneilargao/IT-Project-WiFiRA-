@@ -5,7 +5,14 @@ require '../classes/UserAccount.php';
 <html lang="en">
     <head>
         <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
-        
+        <style type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            #chart-container {
+                width: 640px;
+                height: auto;
+            }
+        </style>
 		
     </head>
 <?php
@@ -97,16 +104,52 @@ require '../classes/UserAccount.php';
                      </div>
                  </div>
 
-                 <div class="col-md-3 col-sm-6 col-xs-6"> 
+             <div class="col-md-3 col-sm-6 col-xs-6"> 
                     <a class="btn btn-lg btn-success" href="#">
-
                         <div class="text-box" >
-
                             <h4 align="center">
-                                <i class="fa fa-print fa-2x pull-left"></i>
-                                <strong>
-                                     Print Voucher
-                                </strong>
+                                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher</button>
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="myModal2" role="dialog">
+                                <div class="modal-dialog">
+
+                                  <!-- Modal content-->
+                                  <div class="modal-content2">
+                                    <div class="modal-header">
+                                               
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Print Voucher</h4>
+                        <form role="form" method="post" action="" autocomplete="off">
+
+                            <div class="form-group">
+                                  <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Quota" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Expiration Time" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="Notes" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit</button>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
                             </h4>
                         </div>
                      </a>
@@ -116,27 +159,79 @@ require '../classes/UserAccount.php';
                     <a class="btn btn-lg btn-success" href="#">
 
                         <div class="text-box" >
+                            <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal"><strong>Add Kiosk</strong></button>
+                             <!-- Modal -->
+                              <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
 
-                            <h4 align="center">
-                                <i class="fa fa-plus fa-2x pull-left"></i>
-                                <strong>
-                                     Add Kiosk
-                                </strong>
-                            </h4>
-                        </div>
-                     </a>
-                 </div>
-            
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
 
+                                    <?php
+                                        if(! empty($_POST)){
 
-
+                                            $mysqli = new mysqli('localhost', 'root', '', 'wifira');
 
 
+                                            $kioskName = $_POST['kioskName'];
+                                            $kioskId = $_POST['kioskId'];
+                                            $location = $_POST['location'];
+                                            $ipAddress = $_POST['ipAddress'];
 
-                          
+
+                                            $sqlkiosk = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES('$kioskId', '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                                            $insertkiosk = $mysqli->query($sqlkiosk);
+
+                                            if ( $insertkiosk ) {
+                                                echo "Success!";
+                                            } else {
+                                                die ("Error: {$mysqli->errno} : {$mysqli->error}");
+                                            }
+
+                                            $mysqli->close();
+
+                                        }
+                                    ?>
+
+                                               
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <form role="form" method="post" action="" autocomplete="off">
+
+                                        <div class="form-group">
+                                            <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <input type="float" name="ipAddress" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="2">
+                                                </div>
+                                            </div>
+                                        </div>
                 
-        </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit</button>
+                                    </div>
+                                  </div>
 
+                                </div>
+                              </div>
+                            </h4>
+                        </div>
+                     </a>
+                 </div>  
+      
+        </div>
 
                     
                         <div class="text-box" >
@@ -149,74 +244,16 @@ require '../classes/UserAccount.php';
 								<br>
 							    </h4>
 
-                            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-                            <script src="assets/js/highcharts.js"></script>
-                            <script src="assets/js/exporting.js"></script>
-                            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                            <script type="text/javascript">
 
-                            $.getJSON(
-                                'https://cdn.rawgit.com/highcharts/highcharts/v6.0.5/samples/data/usdeur.json',
-                                function (data) {
+                                <div id="chart-container">
+                                    <canvas id="mycanvas"></canvas>
+                                </div>
 
-                                    Highcharts.chart('container', {
-                                        chart: {
-                                            zoomType: 'x'
-                                        },
-                                        title: {
-                                            text: 'USD to EUR exchange rate over time'
-                                        },
-                                        subtitle: {
-                                            text: document.ontouchstart === undefined ?
-                                                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-                                        },
-                                        xAxis: {
-                                            type: 'datetime'
-                                        },
-                                        yAxis: {
-                                            title: {
-                                                text: 'Exchange rate'
-                                            }
-                                        },
-                                        legend: {
-                                            enabled: false
-                                        },
-                                        plotOptions: {
-                                            area: {
-                                                fillColor: {
-                                                    linearGradient: {
-                                                        x1: 0,
-                                                        y1: 0,
-                                                        x2: 0,
-                                                        y2: 1
-                                                    },
-                                                    stops: [
-                                                        [0, Highcharts.getOptions().colors[0]],
-                                                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                                                    ]
-                                                },
-                                                marker: {
-                                                    radius: 2
-                                                },
-                                                lineWidth: 1,
-                                                states: {
-                                                    hover: {
-                                                        lineWidth: 1
-                                                    }
-                                                },
-                                                threshold: null
-                                            }
-                                        },
+                                <script type="text/javascript" src="js/jquery.min.js"></script>
+                                <script type="text/javascript" src="js/Chart.min.js"></script>
+                                <script type="text/javascript" src="js/app.js"></script>
 
-                                        series: [{
-                                            type: 'area',
-                                            name: 'USD to EUR',
-                                            data: data
-                                        }]
-                                    });
-                                }
-                            );
-                                    </script>
+                            
                         </div>
 
                      </div>
