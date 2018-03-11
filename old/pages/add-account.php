@@ -116,18 +116,14 @@
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
                             <legend style = "font-family: special elite;">New Account</legend>
-                            
-                              <div class="form-group">
-                              <label for="accountNo" class="col-lg-2 control-label" style = "font-size: 110%;">Account Number</label>
-                              <div class="col-lg-10">
-                                <input type="number" class="form-control" name="accountNo">
-                              </div>
-                              </div>  
                               
                               <div class="form-group">
-                              <label for="roleId" class="col-lg-2 control-label" style = "font-size: 110%;">Role ID</label>
+                              <label for="roleId" class="col-lg-2 control-label" style = "font-size: 110%;">Account Type</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="roleId">
+                                <select class="form-control" name="roleId">
+                                    <option>Staff</option>
+                                    <option>Admin</option>
+                                  </select>
                               </div>
                             </div>  
                               
@@ -139,7 +135,7 @@
                               </div> 
                               
                              <div class="form-group">
-                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-size: 110%;">New username </label>
+                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-size: 110%;">Username </label>
                               <div class="col-lg-10">
                                 <input type="text" class="form-control" name="username">
                               </div>
@@ -179,14 +175,14 @@
                         if(! empty($_POST)){
                             $db = mysqli_connect("localhost", "root", "", "wifira");
 
-                            $accountNo = $_POST['accountNo'];
+                           
                             $roleId = $_POST['roleId'];
                             $name = $_POST['name'];
                             $address = $_POST['address'];
                             $username = $_POST['username'];
                             $password = $_POST['password'];
 
-                            $query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image) VALUES ('$accountNo', '$roleId', '$name', '$address', '$username', '$password', 'Enable', null)";
+                            $query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', NULL)";
                             $insert = $db->query($query);
 
                             if($insert){
