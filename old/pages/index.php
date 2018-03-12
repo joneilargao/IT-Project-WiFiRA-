@@ -144,7 +144,7 @@ require '../classes/UserAccount.php';
 
                         </form>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit</button>
+                                      <button class="btn btn-default" onclick="location.href='print.php'" type="button">Submit</button>
                                     </div>
                                   </div>
 
