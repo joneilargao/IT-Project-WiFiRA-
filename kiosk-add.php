@@ -68,18 +68,19 @@
                                             $mysqli = new mysqli('localhost', 'root', '', 'wifira');
 
 
-
                                             $kioskName = $_POST['kioskName'];
-                                            $kioskId = $_POST['kioskId'];
                                             $location = $_POST['location'];
                                             $ipAddress = $_POST['ipAddress'];
 
 
-                                            $sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES('$kioskId', '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                                            $sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+
+
+                                            
                                             $insert = $mysqli->query($sql);
 
                                             if ( $insert ) {
-                                                echo "Success!";
+                                                echo "New Kiosk Added!";
                                             } else {
                                                 die ("Error: {$mysqli->errno} : {$mysqli->error}");
                                             }
@@ -103,9 +104,6 @@
                                             <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
                                         </div>
 
-                                        <div class="form-group">
-                                            <input type="number" name="kioskId" id="kioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                                        </div>
                                         
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 col-md-6">
