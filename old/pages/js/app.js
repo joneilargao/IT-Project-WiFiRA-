@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 			for(var i in data) {
 				dateused1.push(data[i].dateUsed);
-				salesid1.push(data[i].salesID);
+				salesid1.push(data[i].totalsales);
 			}
 
 			var chartdata = {
@@ -17,9 +17,9 @@ $(document).ready(function(){
 				datasets : [
 					{
 						label: 'Sales',
-						backgroundColor: 'rgba(200, 200, 200, 0.75)',
+						backgroundColor: 'hsl(120, 60%, 70%)',
 						borderColor: 'rgba(200, 200, 200, 0.75)',
-						hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+						hoverBackgroundColor: 'hsl(30, 100%, 60%)',
 						hoverBorderColor: 'rgba(200, 200, 200, 1)',
 						data: salesid1
 					}
