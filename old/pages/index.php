@@ -219,9 +219,9 @@ require '../classes/UserAccount.php';
                                     <canvas id="mycanvas"></canvas>
                                 </div>
 
-                                <script type="text/javascript" src="js/jquery.min.js"></script>
-                                <script type="text/javascript" src="js/Chart.min.js"></script>
-                                <script type="text/javascript" src="js/app.js"></script>
+                                <script type="text/javascript" src="jscript/jquery.min.js"></script>
+                                <script type="text/javascript" src="jscript/Chart.min.js"></script>
+                                <script type="text/javascript" src="jscript/app.js"></script>
 
                             
                         </div>
