@@ -23,7 +23,6 @@
         echo "<td>" . $query['name'] . "</td>";
         echo "<td>" . $query['address'] . "</td>";
         echo "<td>" . $query['username'] . "</td>";
-        echo "<td>" . $query['password'] . "</td>";
 
         echo "</td>";
         echo "</tr>";
