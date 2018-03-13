@@ -34,7 +34,7 @@ require '../classes/UserAccount.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 style = "font-family: special elite; color:#000000">Manage Accounts</h1>
+                        <h1 style = "font-family: special elite; color:#000000">Manage Staff Accounts</h1>
                         
                         <form id="search-form" name="search" action="accounts-entity.php" method="get">
                             <select name = "entity">
@@ -84,7 +84,7 @@ require '../classes/UserAccount.php';
                                     <?php
                                     include('fragments/connection.php');
                                     if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
-                                    $result = $pdo->prepare("SELECT accountNo, roleId, name, address, username, password FROM accounts WHERE address=:a");
+                                    $result = $pdo->prepare("SELECT accountNo, roleId, name, address, username, password FROM accounts WHERE roleId='Staff' and address=:a");
                                     $result->bindParam(':a', $entity);
                                     $result->execute();
                                     for($i=0; $row = $result->fetch(); $i++){
