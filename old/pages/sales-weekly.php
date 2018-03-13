@@ -37,7 +37,7 @@ require '../classes/UserAccount.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 style = "font-family: special elite; color:#000000">Sales</h1>
+                        <h1 style = "font-family: special elite; color:#000000">Weekly Sales</h1>
                         
     <form id="search-form" name="search" action="" method="get">
     <input id="search-input" name="search" type="text">
@@ -69,10 +69,8 @@ require '../classes/UserAccount.php';
                     </table>
                 </div>
                        <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-                    <a class="btn btn-primary" href="#">
-                    <i class="fa fa-plus-square fa-lg"></i> Update Status</a>
-                    <a class="btn btn-success" href="#">
-                    <i class="fa fa-file-text fa-lg"></i> Generate</a>
+                    <a class="btn btn-primary" href="sales-weekly-total.php">
+                    <i class="fa fa-plus-square fa-lg"></i>Total</a>
             </div>
         </div>
     </div>
