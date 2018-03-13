@@ -36,13 +36,32 @@ require '../classes/UserAccount.php';
                     <div class="col-md-12">
                         <h1 style = "font-family: special elite; color:#000000">Manage Accounts</h1>
                         
-    <form id="search-form" name="search" action="" method="get">
-    <input id="search-input" name="search" type="text">
-    <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                    <a class="btn btn-primary" href="#">
-                    <i class="fa fa-pencil fa-lg"></i> Edit Account</a>
-                    <a class="btn btn-danger" href="#">
-                    <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                        <form id="search-form" name="search" action="accounts-entity.php" method="get">
+                            <select name = "entity">
+                                <option value="">Choose Address</option> 
+                                <?php 
+                                    require_once 'fragments/connection.php';
+                                    $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
+                                    $usersQuerry->execute();
+                                    $users = $usersQuerry->fetchAll();
+
+                                    foreach ($users as $user){
+                                        echo "<option>" . $user['address'] . "</option>";
+                                    }
+                                ?>
+
+                        </form>
+
+                        <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                        <a class="btn btn-primary" href="#">
+                        <i class="fa fa-pencil fa-lg"></i> Edit Account</a>
+                        <a class="btn btn-danger" href="#">
+                        <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+
+                        <form action="">
+                            <a class="btn btn-info" name="archive" value="archive" onclick="archive()" >
+                            <i class="fa fa-archive fa-lg"></i> Archive </a>
+                        </form>
 
                     </div>    
                 </div>
