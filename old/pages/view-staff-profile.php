@@ -34,7 +34,7 @@ require '../classes/UserAccount.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 style = "font-family: special elite; color:#000000">Manage Accounts</h1>
+                        <h1 style = "font-family: special elite; color:#000000">Manage Staff Accounts</h1>
                         
                         <form id="search-form" name="search" action="accounts-entity.php" method="get">
                             <select name = "entity">
