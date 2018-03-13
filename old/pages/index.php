@@ -109,13 +109,12 @@ require '../classes/UserAccount.php';
                         <div class="text-box" >
                             <h4 align="center">
                                 <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher</button>
-
                               <!-- Modal -->
                               <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog">
 
                                   <!-- Modal content-->
-                                  <div class="modal-content2">
+                                  <div class="modal-content">
                                     <div class="modal-header">
                                                
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -159,7 +158,7 @@ require '../classes/UserAccount.php';
                     <a class="btn btn-lg btn-success" href="#">
 
                         <div class="text-box" >
-<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2"><strong>Add Kiosk</strong></button>
+                        <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2"><strong>Add Kiosk</strong></button>
                              <!-- Modal -->
                               <div class="modal fade" id="myModal2" role="dialog">
                                 <div class="modal-dialog">
