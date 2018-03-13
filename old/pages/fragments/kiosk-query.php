@@ -2,7 +2,7 @@
     $user= $_SESSION['userAccount'];
     $usr = $_SESSION['username'];
     $user_id = $user->getAccountId();
-    $query = $pdo->prepare("SELECT kioskId, kioskName, location, ipAddress, kioskStatus FROM `kiosk machine` ");
+    $query = $pdo->prepare("SELECT kioskId, kioskName, location, ipAddress, kioskStatus FROM `kioskmachine` ");
     $query->execute();
     $result = $query->fetchAll();
 
