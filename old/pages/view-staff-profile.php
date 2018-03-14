@@ -54,12 +54,7 @@ require '../classes/UserAccount.php';
 
                         <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
                         <a class="btn btn-danger" href="view-staff-profile-archive.php">
-                        <i class="fa fa-trash-o fa-lg"></i> Archive</a>
-
-                        <form action="">
-                            <a class="btn btn-info" name="archive" value="archive" onclick="archive()" >
-                            <i class="fa fa-archive fa-lg"></i> Archive </a>
-                        </form>
+                        <i class="fa fa-archive fa-lg"></i> Archive</a>
 
                     </div>    
                 </div>
