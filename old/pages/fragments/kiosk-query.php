@@ -21,7 +21,15 @@
         echo "<td>" . $query['kioskName'] . "</td>";
         echo "<td>" . $query['location'] . "</td>";
         echo "<td>" . $query['ipAddress'] . "</td>";
-        echo "<td>" . $query['kioskStatus'] . "</td>";        
+        echo "<td><label class='switch'>
+                            <div class='slider round'>
+                            	<input type='checkbox' id='togBtn'>
+                            	
+                            		<span class='enable'>Enable</span>
+                            		<span class='disable'>Disable</span>
+                            	</div>
+                            </label>
+                            </td>";        
         echo "</td>";
         echo "</tr>";
         
