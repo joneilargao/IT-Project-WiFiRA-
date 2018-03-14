@@ -91,7 +91,7 @@ require '../classes/UserAccount.php';
                                     <?php
                                     $datenow = date("Y-m");
                                     require_once 'fragments/connection.php';
-                                    $query = $pdo->prepare("SELECT * FROM `kiosk machine` WHERE kioskStatus='Enable' "); 
+                                    $query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
                                     $query->execute();
                                     $result = $query->fetchAll();
                                     echo count($result);                                          
