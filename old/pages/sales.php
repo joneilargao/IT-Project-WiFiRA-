@@ -50,11 +50,11 @@ require '../classes/UserAccount.php';
                             <option value="">Choose Entity</option>
                             <?php 
                                 require_once 'fragments/connection.php';
-                                $usersQuerry = $pdo->prepare("SELECT accountNo FROM wifira.accounts  union SELECT kioskId FROM wifira.`kioskmachine`;");
+                                $usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
                                 $usersQuerry->execute();
                                 $users = $usersQuerry->fetchAll();
                             foreach ($users as $user){
-                                echo "<option>" . $user['accountNo'] . "</option>";
+                                echo "<option>" . $user['name'] . "</option>";
                             }
                             ?>
                         </select>

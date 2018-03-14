@@ -50,11 +50,11 @@ require '../classes/UserAccount.php';
                             <option value="">Choose Entity</option>
                             <?php 
                                 require_once 'fragments/connection.php';
-                                $usersQuerry = $pdo->prepare("SELECT accountNo FROM wifira.accounts  union SELECT kioskId FROM wifira.`kioskmachine`;");
+                                $usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
                                 $usersQuerry->execute();
                                 $users = $usersQuerry->fetchAll();
                             foreach ($users as $user){
-                                echo "<option>" . $user['accountNo'] . "</option>";
+                                echo "<option>" . $user['name'] . "</option>";
                             }
                             ?>
                         </select>
@@ -83,7 +83,10 @@ require '../classes/UserAccount.php';
                                     <?php
                                     include('fragments/connection.php');
                                     if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
-                                    $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted, accountNo, kioskId FROM vouchers WHERE accountNo=:a OR kioskId=:a");
+                                    $result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
+                                        vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
+                                        FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
+                                        ON vouchers.kioskId = kioskmachine.kioskId WHERE accounts.name=:a OR kioskmachine.kioskName=:a");
                                     $result->bindParam(':a', $entity);
                                     $result->execute();
                                     for($i=0; $row = $result->fetch(); $i++){
