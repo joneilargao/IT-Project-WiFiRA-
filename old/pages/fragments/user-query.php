@@ -23,7 +23,7 @@
         echo "<td>" . $query['name'] . "</td>";
         echo "<td>" . $query['address'] . "</td>";
         echo "<td>" . $query['username'] . "</td>";
-
+		echo "<td><input type='submit'name='ResetPasswordForm' value='Reset Password' query='update password from accounts'></td>";
         echo "</td>";
         echo "</tr>";
         
