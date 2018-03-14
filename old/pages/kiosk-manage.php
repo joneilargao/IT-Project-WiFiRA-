@@ -63,15 +63,18 @@ require '../classes/UserAccount.php';
                             
                         ?>   
                             <label class="switch">
-                                <input type="checkbox" >
-                                <span class="slider round"></span>
+                            	<input type="checkbox" id="togBtn">
+                            	<div class="slider round"><!--ADDED HTML -->
+                            		<span class="enable">Enable</span>
+                            		<span class="disable">Disable</span><!--END-->
+                            	</div>
                             </label>
-                            <style>
-                            .switch {
+<style>
+ .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 25px;
+  width: 100px;
+  height: 28px;
 }
 
 .switch input {display:none;}
@@ -83,7 +86,7 @@ require '../classes/UserAccount.php';
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #FF0000;
+  background-color: #ca2222;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -91,9 +94,10 @@ require '../classes/UserAccount.php';
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
+  height: 20px;
   width: 20px;
   left: 4px;
+  top: 4px;
   bottom: 4px;
   background-color: white;
   -webkit-transition: .4s;
@@ -101,7 +105,7 @@ require '../classes/UserAccount.php';
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2ab934;
 }
 
 input:focus + .slider {
@@ -109,10 +113,36 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(70px);
 }
+
+/*------ ADDED CSS ---------*/
+.enable
+{
+  display: none;
+}
+
+.enable, .disable
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  right: 10px;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .enable
+{display: block;}
+
+input:checked + .slider .disable
+{display: none;}
+
+/*--------- END --------*/
 
 /* Rounded sliders */
 .slider.round {
@@ -120,10 +150,8 @@ input:checked + .slider:before {
 }
 
 .slider.round:before {
-  border-radius: 50%;
-}
-
-                            </style>
+  border-radius: 50%;}
+  </style>
 
                     </table>
                 </div>
