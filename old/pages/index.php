@@ -91,7 +91,7 @@ require '../classes/UserAccount.php';
                                     <?php
                                     $datenow = date("Y-m");
                                     require_once 'fragments/connection.php';
-                                    $query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
+                                    $query = $pdo->prepare("SELECT * FROM `kiosk machine` WHERE kioskStatus='Enable' "); 
                                     $query->execute();
                                     $result = $query->fetchAll();
                                     echo count($result);                                          
@@ -105,7 +105,6 @@ require '../classes/UserAccount.php';
                  </div>
 
              <div class="col-md-3 col-sm-6 col-xs-6"> 
-                    <a class="btn btn-lg btn-success" href="#">
                         <div class="text-box" >
                             <h4 align="center">
                                 <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher</button>
@@ -115,7 +114,7 @@ require '../classes/UserAccount.php';
                                 <div class="modal-dialog">
 
                                   <!-- Modal content-->
-                                  <div class="modal-content2">
+                                  <div class="modal-content">
                                     <div class="modal-header">
                                                
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -144,7 +143,7 @@ require '../classes/UserAccount.php';
 
                         </form>
                                     <div class="modal-footer">
-                                      <button class="btn btn-default" onclick="location.href='print.php'" type="button">Submit</button>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit</button>
                                     </div>
                                   </div>
 
@@ -156,7 +155,6 @@ require '../classes/UserAccount.php';
                  </div>
 
                  <div class="col-md-3 col-sm-6 col-xs-6"> 
-                    <a class="btn btn-lg btn-success" href="#">
 
                         <div class="text-box" >
 <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2"><strong>Add Kiosk</strong></button>
@@ -219,9 +217,9 @@ require '../classes/UserAccount.php';
                                     <canvas id="mycanvas"></canvas>
                                 </div>
 
-                                <script type="text/javascript" src="jscript/jquery.min.js"></script>
-                                <script type="text/javascript" src="jscript/Chart.min.js"></script>
-                                <script type="text/javascript" src="jscript/app.js"></script>
+                                <script type="text/javascript" src="js/jquery.min.js"></script>
+                                <script type="text/javascript" src="js/Chart.min.js"></script>
+                                <script type="text/javascript" src="js/app.js"></script>
 
                             
                         </div>
