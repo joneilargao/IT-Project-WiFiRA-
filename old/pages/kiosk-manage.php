@@ -7,7 +7,7 @@ require '../classes/UserAccount.php';
         <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
     </head>
 <?php
-    include 'fragments/head.php';
+    include 'fragments/head.php';   
 ?>
 <body>
        <?php
@@ -18,14 +18,11 @@ require '../classes/UserAccount.php';
         } else {
             header("location: login.php");
         }
-
         function echoActiveClassIfRequestMatches($requestUri){
             $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
-
             if ($current_file_name == $requestUri)
                 echo 'class="active-menu"';
         }
-
     ?>
     
     <div id="wrapper">
@@ -39,36 +36,103 @@ require '../classes/UserAccount.php';
                     <div class="col-md-12">
                         <h1 style = "font-family: special elite; color:#000000">Manage Kiosks</h1>
                         
-    <form id="search-form" name="search" action="" method="get">
-    <input id="search-input" name="search" type="text">
-    <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+    						<form id="search-form" name="search" action="kiosk-entity.php" method="get">
+    							<select name = "entity">
+    								<option value="">Choose Location</option>
+    								<?php 
+                                		require_once 'fragments/connection.php';
+                                		$usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");
+                                		$usersQuerry->execute();
+                                		$users = $usersQuerry->fetchAll();
+
+                                		foreach ($users as $user){
+                                			echo "<option>" . $user['location'] . "</option>";
+                             			}
+                            		?>
+    							</select>
+    						
+                                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                            </form>	
                     </div>    
                 </div>
+
                 <div class="jumbotron"> 
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">              
                         <?php
                             include 'fragments/kiosk-query.php';
-                            if(isset($_POST['request_done'])){
-                                $rid=$_POST['requestId'];
-                                $sql = $pdo->prepare("update service_request set request_status=4, end_servicing = curdate()  where request_id = '$rid';");
-                                $sql->execute();
-                                //echo "<meta http-equiv='refresh' content='0'>";
-                            }
+                            
+                        ?>   
+                            <label class="switch">
+                                <input type="checkbox" >
+                                <span class="slider round"></span>
+                            </label>
+                            <style>
+                            .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+}
 
-                            if(isset($_POST['request_cancel'])){
-                                $rid=$_POST['requestId'];
-                                $sql = $pdo->prepare("update service_request set request_status=5 where request_id = '$rid';");
-                                $sql->execute();
-                                //echo "<meta http-equiv='refresh' content='0'>";
-                            }
-                        ?>
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FF0000;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+                            </style>
+
                     </table>
                 </div>
                        <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
+
                     <a class="btn btn-primary" href="#">
-                    <i class="fa fa-pencil fa-lg"></i> Edit Kiosk</a>
+                    <i name="edit" class="fa fa-pencil fa-lg"></i> Edit Kiosk</a>
                     <a class="btn btn-danger" href="#">
-                    <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                    <i name="delete" class="fa fa-trash-o fa-lg"></i> Delete</a>
             </div>
         </div>
     </div>
@@ -84,14 +148,11 @@ require '../classes/UserAccount.php';
                 <div class="modal-body">
                     <p>
                         <?php
-                         require_once 'fragments/connection.php';
+                        require_once 'fragments/connection.php';
 
                          $usr = $_SESSION['username'];
                          echo $usr;
 
-                        $query = $pdo->prepare("
-                                      SELECT * from kioskmachine;");
-                        $query->execute();
                         $result = $query->fetchAll();
 
                         
