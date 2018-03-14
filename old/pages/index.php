@@ -120,6 +120,14 @@ require '../classes/UserAccount.php';
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Print Voucher</h4>
                         <form role="form" method="post" action="" autocomplete="off">
+								<div class="form-group">
+								<label for="kiosId" class="col-lg-2 control-label"></label>
+                                <select class="form-control input-lg" name="kioskId" id="KiosID"  placeholder="Types of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">			 
+							    <option class="form-control input-lg" value="10peso">10 Peso</option>
+							    <option class="form-control input-lg" value="20peso">20 Peso</option>
+				   		        </select>
+                            </div>
+
 
                             <div class="form-group">
                                   <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
