@@ -1,3 +1,4 @@
+<!-- Selects the yearly sales from the database -->
 <?php
     $user= $_SESSION['userAccount'];
     $usr = $_SESSION['username'];
