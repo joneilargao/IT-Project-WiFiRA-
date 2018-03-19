@@ -43,6 +43,9 @@
             	<li>
                     <a  href="vouchers-unsold.php"><i class="fa fa-barcode"></i>Unsold Vouchers</a>
                 </li>
+				<li>
+                    <a  href="vouchers-create.php"><i class="fa fa-barcode"></i>Create Voucher</a>
+                </li>
 			</ul>
         </li>		
 		
