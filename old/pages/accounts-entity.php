@@ -39,6 +39,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Address
                   </option> 
+				  <!-- /. Selects all enabled accounts from the database -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
@@ -85,6 +86,7 @@ echo "<option>" . $user['address'] . "</option>";
                   </tr>
                 </thead>
                 <tbody>
+				  <!-- /. Select attributes from accounts entity  -->
                   <?php
 include('fragments/connection.php');
 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 

@@ -27,7 +27,7 @@ echo 'class="active-menu"';
 ?>
     <div id="wrapper">
       <?php include 'fragments/page-head.php'; ?>
-      <!-- /. NAV TOP  -->
+      <!-- /. Changes data-attribute from the database  -->
       <?php
 if(isset($_POST['saveprofile'])){
 $account = $_SESSION["userAccount"];

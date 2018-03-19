@@ -45,6 +45,7 @@ $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
 $qry->execute();
 $profileqry = $qry->fetch();                                               
 ?>  
+			  <!-- /. Registers kiosk machine and adds it to the database -->
               <?php
 if(! empty($_POST)){
 $mysqli = new mysqli('localhost', 'root', '', 'wifira');

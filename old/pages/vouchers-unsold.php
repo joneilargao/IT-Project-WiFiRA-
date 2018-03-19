@@ -39,6 +39,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Status
                   </option>
+				   <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT voucherstatus FROM vouchers; ");

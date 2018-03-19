@@ -40,6 +40,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Location
                   </option>
+				  <!-- /. Selects all kiosk machine with specified location -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");

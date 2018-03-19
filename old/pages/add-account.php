@@ -148,6 +148,7 @@ include 'draft.php';
               </fieldset>
             </form>
           </div>
+		  <!-- /. Creates a new account and adds it to the database -->
           <?php
 if(! empty($_POST)){
 $db = mysqli_connect("localhost", "root", "", "wifira");

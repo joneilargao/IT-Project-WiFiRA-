@@ -39,6 +39,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Location
                   </option> 
+				 <!-- /. Selects all kiosk machine from the database  -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");
@@ -70,6 +71,7 @@ echo "<option>" . $user['location'] . "</option>";
                 </tr>
               </thead>
               <tbody>
+			    <!-- /. Select attributes from kioskMachine entity  -->
                 <?php
 include('fragments/connection.php');
 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 

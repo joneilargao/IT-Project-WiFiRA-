@@ -39,6 +39,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Address
                   </option> 
+				  <!-- /. Selects all accounts from the database -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
