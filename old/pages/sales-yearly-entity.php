@@ -86,7 +86,7 @@ require '../classes/UserAccount.php';
                                         vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
                                         FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
                                         ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
-                                        (YEAR(vouchers.datePrinted)=YEAR(CURRENT_DATE())) and (vouchers.voucherStatus='sold'') ORDER BY vouchers.datePrinted DESC");
+                                        (YEAR(vouchers.datePrinted)=YEAR(CURRENT_DATE())) and (vouchers.voucherStatus='sold') ORDER BY vouchers.datePrinted DESC");
                                     $result->bindParam(':a', $entity);
                                     $result->execute();
                                     for($i=0; $row = $result->fetch(); $i++){
