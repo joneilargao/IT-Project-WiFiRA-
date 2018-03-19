@@ -2,7 +2,7 @@
     $user= $_SESSION['userAccount'];
     $usr = $_SESSION['username'];
     $user_id = $user->getAccountId();
-    $query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE YEAR(datePrinted)=YEAR(CURRENT_DATE()) ORDER BY datePrinted");
+    $query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE YEAR(datePrinted)=YEAR(CURRENT_DATE()) AND voucherStatus='sold' ORDER BY datePrinted DESC");
     $query->execute();
     $result = $query->fetchAll();
     $now = new DateTime(null, new DateTimeZone('Asia/Manila'));

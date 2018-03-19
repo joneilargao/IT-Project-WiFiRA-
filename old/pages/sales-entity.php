@@ -75,8 +75,8 @@ require '../classes/UserAccount.php';
                                     <th> Voucher Type </th>
                                     <th> Amount </th>
                                     <th> Date </th>
-                                    <th> Account No </th>
-                                    <th> Kiosk ID </th>
+                                    <th> Account Name </th>
+                                    <th> Kiosk Name </th>
                                 </tr>
                             </thead>
                                 <tbody>
@@ -86,7 +86,8 @@ require '../classes/UserAccount.php';
                                     $result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
                                         vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
                                         FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
-                                        ON vouchers.kioskId = kioskmachine.kioskId WHERE accounts.name=:a OR kioskmachine.kioskName=:a");
+                                        ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
+                                        (vouchers.voucherStatus='sold')");
                                     $result->bindParam(':a', $entity);
                                     $result->execute();
                                     for($i=0; $row = $result->fetch(); $i++){
@@ -96,8 +97,9 @@ require '../classes/UserAccount.php';
                                     <td><?php echo $row['voucherType']; ?></td>
                                     <td><?php echo $row['voucherAmount']; ?></td>
                                     <td><?php echo $row['datePrinted']; ?></td>
-                                    <td><?php echo $row['accountNo']; ?></td>
-                                    <td><?php echo $row['kioskId']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['kioskName']; ?></td>
+
                                     </tr>
                                     <?php
                                     }
@@ -128,32 +130,6 @@ require '../classes/UserAccount.php';
                         <?php
                          require_once 'fragments/connection.php';
 
-                         $usr = $_SESSION['username'];
-                         echo $usr;
-
-                        $query = $pdo->prepare("
-                                      SELECT b.username AS sp_username, a.username AS cust_username, 
-                                      request_status, pet_service.service_name, start_servicing, end_servicing,  service_price 
-                                              FROM service_request 
-                                              INNER JOIN user_account AS b ON service_request.sp_id = b.account_id  
-                                              INNER JOIN user_account AS a ON service_request.account_id = a.account_id  
-                                              INNER JOIN pet_service ON service_request.service_id = pet_service.service_id 
-                                              WHERE request_status = 03 AND b.username = '$usr';");
-                        $query->execute();
-                        $result = $query->fetchAll();
-
-                        
-                        foreach($result as $query){
-                            echo "<tr>";
-                            echo "<td>" . $query['start_servicing'] . "</td>";
-                            echo "<td>" . $query['end_servicing'] . "</td>";
-                            echo "<td>" . $query['request_status'] . "</td>";
-                            echo "<td>" . $query['service_name'] . "</td>";
-                            echo "<td>" . $query['cust_username'] . "</td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</table>";
 
                         ?>
 

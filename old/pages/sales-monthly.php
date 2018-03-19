@@ -42,9 +42,9 @@ require '../classes/UserAccount.php';
     <form id="search-form" name="search" action="" method="get">
     <input id="search-input" name="search" type="text">
     <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                    
-                    <form action="sales.php" method="get">
-                        <select name="user">
+    </form>               
+                    <form action="sales-monthly-entity.php" method="get">
+                        <select name="entity">
                             <option value="">Choose Entity</option>
                             <?php 
                                 require_once 'fragments/connection.php';
@@ -56,6 +56,7 @@ require '../classes/UserAccount.php';
                             }
                             ?>
                         </select>
+                        <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                     </form>
                     
                     </div>    

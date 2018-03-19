@@ -42,9 +42,10 @@ require '../classes/UserAccount.php';
     <form id="search-form" name="search" action="" method="get">
     <input id="search-input" name="search" type="text">
     <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                    
-                    <form action="sales.php" method="get">
-                        <select name="user">
+    </form>   
+
+                    <form action="sales-weekly-entity.php" method="get">
+                        <select name="entity">
                             <option value="">Choose Entity</option>
                             <?php 
                                 require_once 'fragments/connection.php';
@@ -56,6 +57,7 @@ require '../classes/UserAccount.php';
                             }
                             ?>
                         </select>
+                        <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                     </form>
                     
                     </div>    
@@ -84,41 +86,10 @@ require '../classes/UserAccount.php';
                     <h4 class="modal-title">Request Details</h4>
                 </div>
                 <div class="modal-body">
-                    <p>
+                    
                         <?php
-                         require_once 'fragments/connection.php';
-
-                         $usr = $_SESSION['username'];
-                         echo $usr;
-
-                        $query = $pdo->prepare("
-                                      SELECT b.username AS sp_username, a.username AS cust_username, 
-                                      request_status, pet_service.service_name, start_servicing, end_servicing,  service_price 
-                                              FROM service_request 
-                                              INNER JOIN user_account AS b ON service_request.sp_id = b.account_id  
-                                              INNER JOIN user_account AS a ON service_request.account_id = a.account_id  
-                                              INNER JOIN pet_service ON service_request.service_id = pet_service.service_id 
-                                              WHERE request_status = 03 AND b.username = '$usr';");
-                        $query->execute();
-                        $result = $query->fetchAll();
-
-                        
-                        foreach($result as $query){
-                            echo "<tr>";
-                            echo "<td>" . $query['start_servicing'] . "</td>";
-                            echo "<td>" . $query['end_servicing'] . "</td>";
-                            echo "<td>" . $query['request_status'] . "</td>";
-                            echo "<td>" . $query['service_name'] . "</td>";
-                            echo "<td>" . $query['cust_username'] . "</td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</table>";
-
-                        ?>
-
-
-                    </p>
+                         require_once 'fragments/connection.php'; ?>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">Accept</button>
