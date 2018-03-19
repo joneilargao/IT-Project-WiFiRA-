@@ -12,6 +12,7 @@
     echo "<th>location </th>";
     echo "<th>IP Address</th>";
     echo "<th>Status</th>";
+    echo "<th></th>";
     echo "</tr>";
 
     foreach($result as $query){
@@ -21,6 +22,7 @@
         echo "<td>" . $query['kioskName'] . "</td>";
         echo "<td>" . $query['location'] . "</td>";
         echo "<td>" . $query['ipAddress'] . "</td>";
+        echo "<td>" . $query['kioskStatus'] . "</td>";
         echo "<td><label class='switch'>
                           <input type='checkbox' id='togBtn'>
                               <div class='slider round'>
