@@ -22,13 +22,12 @@
         echo "<td>" . $query['location'] . "</td>";
         echo "<td>" . $query['ipAddress'] . "</td>";
         echo "<td><label class='switch'>
-                            <div class='slider round'>
-                            	<input type='checkbox' id='togBtn'>
-                            	
-                            		<span class='enable'>Enable</span>
-                            		<span class='disable'>Disable</span>
-                            	</div>
-                            </label>
+                          <input type='checkbox' id='togBtn'>
+                              <div class='slider round'>
+                                <span class='enable'>Enable</span>
+                                <span class='disable'>Disable</span>
+                            </div>
+                          </label>
                             </td>";        
         echo "</td>";
         echo "</tr>";

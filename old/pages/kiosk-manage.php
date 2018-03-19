@@ -4,7 +4,8 @@ require '../classes/UserAccount.php';
 ?>
 <html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">	
+        <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>	
     </head>
 <?php
     include 'fragments/head.php';   
@@ -59,101 +60,11 @@ require '../classes/UserAccount.php';
                 <div class="jumbotron"> 
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">              
                         <?php
-                            include 'fragments/kiosk-query.php';
-                            
-                        ?>   
-                            <label class="switch">
-                            	<input type="checkbox" id="togBtn">
-                            	<div class="slider round"><!--ADDED HTML -->
-                            		<span class="enable">Enable</span>
-                            		<span class="disable">Disable</span><!--END-->
-                            	</div>
-                            </label>
-<style>
- .switch {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 28px;
-}
-
-.switch input {display:none;}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ca2222;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 4px;
-  top: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2ab934;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(55px);
-  -ms-transform: translateX(55px);
-  transform: translateX(70px);
-}
-
-/*------ ADDED CSS ---------*/
-.enable
-{
-  display: none;
-}
-
-.enable, .disable
-{
-  color: white;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  top: 50%;
-  left: 50%;
-  right: 10px;
-  font-size: 10px;
-  font-family: Verdana, sans-serif;
-}
-
-input:checked+ .slider .enable
-{display: block;}
-
-input:checked + .slider .disable
-{display: none;}
-
-/*--------- END --------*/
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;}
-  </style>
-
-                    </table>
+                          include 'fragments/kiosk-query.php';
+                          
+                        ?> 
+                         
+                     </table>
                 </div>
                        <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
 
@@ -165,48 +76,5 @@ input:checked + .slider .disable
         </div>
     </div>
 
-    <!-- The Modal -->
-   <div id="reply_modal" class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Request Details</h4>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <?php
-                        require_once 'fragments/connection.php';
-
-                         $usr = $_SESSION['username'];
-                         echo $usr;
-
-                        $result = $query->fetchAll();
-
-                        
-                        foreach($result as $query){
-                            echo "<tr>";
-                            echo "<td>" . $query['kioskId'] . "</td>";
-                            echo "<td>" . $query['kioskName'] . "</td>";
-                            echo "<td>" . $query['location'] . "</td>";
-                            echo "<td>" . $query['ipAddress'] . "</td>";
-                            echo "<td>" . $query['kioskStatus'] . "</td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</table>";
-
-                        ?>
-
-
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Accept</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Reject</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
-</html>    
+</html>
