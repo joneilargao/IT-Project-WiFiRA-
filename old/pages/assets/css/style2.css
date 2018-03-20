@@ -156,10 +156,10 @@ input:checked + .slider:before {
   font-family: Verdana, sans-serif;
 }
 
-input:checked+ .slider .enable
+input:checked+ .slider .enable .sold
 {display: block;}
 
-input:checked + .slider .disable
+input:checked + .slider .disable .unsold
 {display: none;}
 
 /*--------- END --------*/
@@ -171,3 +171,29 @@ input:checked + .slider .disable
 
 .slider.round:before {
   border-radius: 50%;}
+  
+  .enable
+{
+  display: none;
+}
+
+  .sold
+{
+  display: none;
+}
+
+
+.sold, .unsold
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  right: 20px;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+
+  

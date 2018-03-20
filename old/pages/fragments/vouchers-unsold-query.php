@@ -18,6 +18,7 @@ echo "<th>Voucher Type</th>";
 echo "<th>Amount </th>";
 echo "<th>Date</th>";
 echo "<th>Status</th>";
+echo "<th></th>";
 echo "</tr>";
 foreach($result as $query){
 $rid = $query['voucherCode'];
@@ -27,6 +28,14 @@ echo "<td>" . $query['voucherType'] . "</td>";
 echo "<td>" . $query['voucherAmount'] . "</td>";
 echo "<td>" . $query['datePrinted'] . "</td>";
 echo "<td>" . $query['voucherStatus'] . "</td>";
+echo "<td><label class='switch'>
+<input type='checkbox' id='togBtn'>
+<div class='slider round'>
+<span class='sold'>Sold</span>
+<span class='unsold'>Unsold</span>
+</div>
+</label>
+</td>";       
 echo "</td>";
 echo "</tr>";
 }
