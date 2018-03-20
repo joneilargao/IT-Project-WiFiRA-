@@ -65,12 +65,52 @@ $vouchers = $unifi_connection->stat_voucher($voucher_result[0]->create_time);
 /**
  * provide feedback (the newly created vouchers) in json format
  */
+//echo json_encode($vouchers);
 echo json_encode($vouchers, JSON_PRETTY_PRINT);
 //echo print_r($vouchers);
-//var_dump($data);
-//var_export($data);
+//var_dump($vouchers);
+//var_export($vouchers);
 
 //echo print_r($vouchers[code]);
 //echo $vouchers[0]['code'];
 //echo $vouchers['code'];
-//echo $vouchers->code;
+//$vouchers1 = json_decode(json_encode($vouchers[0]),true);
+//$vouchers1 = json_decode($vouchers);
+//$vouchers1 = json_decode($vouchers[0], true);
+//echo $vouchers1[0]['code'];
+//$vouchers1 = json_decode($vouchers);
+//echo $vouchers1[0]->code;
+//echo $vouchers1->code;
+
+$vouchers1 = json_decode(json_encode($vouchers), true);
+//echo $vouchers1[0]['code'];
+
+foreach ($vouchers1 as $vouchers1) {
+	//echo $vouchers1['code'] . '<br>';
+if ($voucher_expiration == "120") {
+    	$voucherType = "A";
+		$voucherAmount = "10";
+} else {
+    	$voucherType = "B";
+		$voucherAmount = "20";
+}
+
+	$voucherCode = $vouchers1['code'];
+	$db = mysqli_connect("localhost", "root", "", "wifira");
+
+	$voucherStatus = "Unsold";
+	$accountNo = $user->getAccountId();
+
+
+	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), '$accountNo', NULL)";
+                            $insert = $db->query($query);
+
+                            if($insert){
+                                echo "Success!";
+                            } else {
+                                die ("Error: {$db->errno} : {$db->error}");
+                            }
+
+                            $db->close();
+
+}
