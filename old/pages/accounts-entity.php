@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page selects accounts with specified address.
+* 
+* @author Cyrene Dispo
+*/ 
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This is the add-account page where new accounts are added.
+* 
+* @author Katherine Turqueza
+*/
 require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];

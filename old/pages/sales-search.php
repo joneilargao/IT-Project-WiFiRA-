@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page selects sales from specified date from sales.php.
+* 
+* @author Darren Sison
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

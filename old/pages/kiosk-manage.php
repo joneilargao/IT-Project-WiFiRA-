@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+/**
+* This is the kiosk-manage page where kiosk machine information are displayed.
+* 
+* @author Cyrene Dispo
+		  Joneil Argao
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

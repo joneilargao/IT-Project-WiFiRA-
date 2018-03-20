@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays the yearly sales of specified entity.
+* 
+* @author Joneil Argao
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

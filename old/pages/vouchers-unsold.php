@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays all unsold vouchers.
+* 
+* @author Darren Sison
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

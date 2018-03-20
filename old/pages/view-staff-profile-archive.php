@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page views staff profile that are archived.
+* 
+* @author Darren Sison
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

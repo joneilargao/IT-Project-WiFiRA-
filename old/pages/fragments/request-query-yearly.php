@@ -1,5 +1,10 @@
-<!-- Selects the yearly sales from the database -->
 <?php
+/**
+* Selects the yearly sales from the database.
+* 
+* @author Darren Sison
+		  Joneil Argao
+*/
     $user= $_SESSION['userAccount'];
     $usr = $_SESSION['username'];
     $user_id = $user->getAccountId();

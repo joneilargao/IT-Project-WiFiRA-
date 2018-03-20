@@ -1,5 +1,10 @@
-<!-- Selects the daily sales from the database -->
 <?php
+/**
+* Selects the daily sales from the database.
+* 
+* @author Joneil Argao
+		  Darren Sison
+*/
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();

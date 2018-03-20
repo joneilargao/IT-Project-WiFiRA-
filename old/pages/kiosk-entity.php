@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This is the kiosk-entity page where kiosk machines are filtered according to location.
+* 
+* @author Cyrene Dispo
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">
@@ -39,7 +44,7 @@ echo 'class="active-menu"';
                 <select name = "entity">
                   <option value="">Choose Location
                   </option> 
-				 <!-- /. Selects all kiosk machine from the database  -->
+				 <!-- /. Selects all kiosk machine location from the database  -->
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");
@@ -71,7 +76,7 @@ echo "<option>" . $user['location'] . "</option>";
                 </tr>
               </thead>
               <tbody>
-			    <!-- /. Select attributes from kioskMachine entity  -->
+			    <!-- /. Select attributes from specified location  -->
                 <?php
 include('fragments/connection.php');
 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 

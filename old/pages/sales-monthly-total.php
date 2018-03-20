@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays the total sold vouchers for the month.
+* 
+* @author Darren Sison
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

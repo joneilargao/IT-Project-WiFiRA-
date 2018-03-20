@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This is the edit-profile page where user's information can be edited. 
+* 
+* @author Joneil Argao
+*/
 require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];

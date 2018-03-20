@@ -1,5 +1,9 @@
-<!-- Select user accounts from the database -->
 <?php
+/**
+* Select user accounts from the databasee.
+* 
+* @author Darren Sison
+*/
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();

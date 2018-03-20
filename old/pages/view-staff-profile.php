@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page views staff profile.
+* 
+* @author Darren Sison
+		  Joneil Argao
+		  Katherine Turqueza
+		  Dispo Cyrene
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays the total sales.
+* 
+* @author Darren Sison
+*/ 
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

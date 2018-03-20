@@ -1,5 +1,12 @@
-<!-- Select kiosks from the database -->
 <?php
+/**
+* Select kiosks from the database.
+* 
+* @author Darren Sison
+		  Joneil Argao
+		  Katherine Turqueza
+		  Cyrene Dispo
+*/ 
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();

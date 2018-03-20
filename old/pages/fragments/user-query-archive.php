@@ -1,5 +1,9 @@
-<!-- Archive the user accounts -->
 <?php
+/**
+* Archive the user accounts.
+* 
+* @author Darren Sison
+*/
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();

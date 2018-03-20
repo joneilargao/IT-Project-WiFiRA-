@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This is the kiosk-add page where new kiosk machines are added.
+* 
+* @author Cyrene Dispo
+*/
 require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];

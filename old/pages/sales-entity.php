@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page select sales with specified entity from sales.php.
+* 
+* @author Darren Sison
+		  Joneil Argao
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays the sold vouchers.
+* 
+* @author Darren Sison
+		  Joneil Argao
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

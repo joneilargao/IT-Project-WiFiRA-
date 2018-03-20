@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page select vouchers with specified status.
+* 
+* @author Darren Sison
+*/
 require '../classes/UserAccount.php';
 ?>
 <html lang="en">

@@ -1,4 +1,9 @@
 <?php
+/**
+* kiosk.php
+* 
+* @author Joneil Argao
+*/
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>

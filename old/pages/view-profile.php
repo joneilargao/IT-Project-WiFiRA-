@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <?php
+/**
+* This page displays user information.
+* 
+* @author Darren Sison
+		  Joneil Argao
+*/
 require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];

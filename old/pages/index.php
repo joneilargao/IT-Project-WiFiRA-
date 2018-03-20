@@ -1,4 +1,14 @@
 <?php
+/**
+* This is the main page where in the basic details can be viewed.
+* 
+* @author Darren Sison
+		  Joneil Argao
+		  James Anonuevo
+		  Maureen Calpito
+		  Cyrene Dispo
+		  Alfa Leones
+*/
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>

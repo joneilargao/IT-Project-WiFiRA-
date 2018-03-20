@@ -1,5 +1,9 @@
-<!-- Select unsold vouchers from the database -->
 <?php
+/**
+* Select unsold vouchers from the database.
+* 
+* @author Darren Sison
+*/
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
