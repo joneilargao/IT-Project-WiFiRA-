@@ -4,6 +4,7 @@
 * This page displays all unsold vouchers.
 * 
 * @author Darren Sison
+*         Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
@@ -41,6 +42,11 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#000000">Vouchers
               </h1>
+              <form action="search-voucher-unsold.php" method="get">
+                Voucher Search: <input type="text" name="su1" class="tcal" value="" /> 
+                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                (xxxxx-xxxxx format)
+              </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity">
                   <option value="">Choose Status
