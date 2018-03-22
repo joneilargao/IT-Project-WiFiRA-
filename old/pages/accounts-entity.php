@@ -91,6 +91,7 @@ echo "<option>" . $user['address'] . "</option>";
                   </tr>
                 </thead>
                 <tbody>
+                
 				  <!-- /. Select attributes from accounts entity  -->
                   <?php
 include('fragments/connection.php');
@@ -121,6 +122,13 @@ for($i=0; $row = $result->fetch(); $i++){
                     </td>
                   </tr>
                   <?php
+                  include 'fragments/connection.php';
+
+if(isset($_POST['archiveAccount'])){
+
+    $archivequery = $pdo->prepare(" UPDATE visibility SET visibility = 'Hidden' WHERE username=$username ");
+
+}
 }
 ?>
                 </tbody>
@@ -129,46 +137,6 @@ for($i=0; $row = $result->fetch(); $i++){
           </div>
         </div>
       </div>
-      <!-- The Modal -->
-      <div id="reply_modal" class="modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-              </button>
-              <h4 class="modal-title">Request Details
-              </h4>
-            </div>
-            <div class="modal-body">
-              <p>
-                <?php
-require_once 'fragments/connection.php';
-$usr = $_SESSION['username'];
-echo $usr;
-$query = $pdo->prepare("
-SELECT * from accounts;");
-$query->execute();
-$result = $query->fetchAll();
-foreach($result as $query){
-echo "<tr>";
-echo "<td>" . $query['roleId'] . "</td>";
-echo "<td>" . $query['name'] . "</td>";
-echo "<td>" . $query['address'] . "</td>";
-echo "<td>" . $query['accountStatus'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
-?>
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Accept
-              </button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Reject
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       </body>
     </html>    
