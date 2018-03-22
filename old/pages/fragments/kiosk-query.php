@@ -29,14 +29,22 @@ echo "<td>" . $query['kioskName'] . "</td>";
 echo "<td>" . $query['location'] . "</td>";
 echo "<td>" . $query['ipAddress'] . "</td>";
 echo "<td>" . $query['kioskStatus'] . "</td>";
-echo "<td><label class='switch'>
-<input type='checkbox' id='togBtn'>
-<div class='slider round'>
-<span class='enable'>Enable</span>
-<span class='disable'>Disable</span>
+echo "<td>";
+
+if ($query['kioskStatus']=='Disable')
+{
+	echo '<a href="fragments/kiosk-enable.php?id='.$query['kioskId'].'"><button class="button">Enable</button></a>';
+}
+else
+{
+	echo '<a href="fragments/kiosk-disable.php?id='.$query['kioskId'].'"><button class="button">Disable</button></a>';
+}
+?>
 </div>
 </label>
-</td>";        
+</td>
+
+<?php
 echo "</td>";
 echo "</tr>";
 }
