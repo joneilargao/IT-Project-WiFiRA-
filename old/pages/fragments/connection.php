@@ -2,7 +2,7 @@
 /**
 * Establishes connection.
 * 
-* @author Joneil Argao
+* @author Darren Sison
 */
 try{
 $pdo = new PDO("mysql:host=localhost;dbname=wifira","root","");

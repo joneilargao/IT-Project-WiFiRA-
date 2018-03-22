@@ -2,8 +2,9 @@
 /**
 * Selects the daily sales from the database.
 * 
-* @author Joneil Argao
-		  Darren Sison
+* @author Darren Sison
+		  Joneil Argao
+		  
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

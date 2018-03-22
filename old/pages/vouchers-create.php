@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <?php
+/**
+* This page is used to create vouchers.
+* 
+* @author Darren Sison
+*/
     require '../classes/UserAccount.php';
     session_start();
     $sessionUserAccount = $_SESSION["userAccount"];

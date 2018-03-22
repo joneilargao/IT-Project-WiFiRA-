@@ -4,6 +4,7 @@
 * This is the add-account page where new accounts are added.
 * 
 * @author Katherine Turqueza
+* @author Darren Sison
 */
 require '../classes/UserAccount.php';
 session_start();

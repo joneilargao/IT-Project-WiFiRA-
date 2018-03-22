@@ -2,7 +2,8 @@
 /**
 * Selects the sales.
 * 
-* @author Joneil Argao
+* @author Darren Sison
+		  Joneil Argao
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

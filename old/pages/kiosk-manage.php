@@ -3,7 +3,8 @@
 /**
 * This is the kiosk-manage page where kiosk machine information are displayed.
 * 
-* @author Cyrene Dispo
+* @author Darren Sison
+		  Cyrene Dispo
 		  Joneil Argao
 */
 require '../classes/UserAccount.php';

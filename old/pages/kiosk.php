@@ -2,7 +2,7 @@
 /**
 * kiosk.php
 * 
-* @author Joneil Argao
+* @author Darren Sison
 */
 require '../classes/UserAccount.php';
 ?>
