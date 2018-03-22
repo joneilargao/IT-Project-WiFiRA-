@@ -31,13 +31,14 @@
             ?>
 
             <div id="wrapper">
+                
                 <?php include 'fragments/page-head.php'; ?>
                 <!-- /. NAV TOP  -->
                 <?php
+                
                 if(isset($_POST['saveprofile'])){
                     $account = $_SESSION["userAccount"];
                     $accountNo = $account->getAccountId();
-
 
                     $username = $_POST['inputUsername'];
                     $password = $_POST['inputPassword'];
@@ -94,9 +95,10 @@
                         $user = $_SESSION["userAccount"];
                         $user_id = $user->getAccountId();
                         
-                        $qry = $pdo->prepare("select * accounts where accountNo = '$user_id'");
+                        //QUERY THE ACCOUNT DATA
+                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, password FROM accounts WHERE accountNo = '$user_id'");
                         $qry->execute();
-                        $profileqry = $qry->fetch();     
+                        $profileqry = $qry->fetch(); 
                         
                     ?> 
                         
@@ -114,35 +116,35 @@
                              <div class="form-group">
                               <label for="inputname" class="col-lg-2 control-label" style = "font-family: milonga; font-size: 110%;">Name</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputname" placeholder="<?php echo $profileqry['name'] ?>" value="<?php echo $_SESSION["userAccount"]->getName() ?>">
+                                <input type="text" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
                               </div>
                               </div>     
 
                             <div class="form-group">
                               <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Username</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputUsername" placeholder="<?php echo $profileqry['username'] ?>" value="<?php echo $_SESSION["userAccount"]->getUsername() ?>">
+                                <input type="text" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
                               </div>
                             </div>  
                               
                             <div class="form-group">
                               <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Address</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputAddress" placeholder="<?php echo $profileqry['address'] ?>" value="<?php echo $_SESSION["userAccount"]->getAddress() ?>">
+                                <input type="text" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
                               </div>
                               </div>
 
                             <div class="form-group">
                               <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Password</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputPassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
+                                <input type="password" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
                               </div>
                             </div>
 
                               <div class="form-group">
                                   <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Re-enter Password</label>
                                   <div class="col-lg-10">
-                                      <input type="text" class="form-control" name="inputRePassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
+                                      <input type="password" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
                                   </div>
                             </div>
                             
@@ -152,6 +154,7 @@
                                     <button type="submit" name="saveprofile" class="btn btn-primary" id="saveprofile" value="submit">Confirm</button>
                                   </div>
                                 </div>
+                              
                             </fieldset>
                         </form>
                         
