@@ -4,7 +4,7 @@
 * This page select sales with specified entity from sales.php.
 * 
 * @author Darren Sison
-		  Joneil Argao
+*		  Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
@@ -47,6 +47,11 @@ echo 'class="active-menu"';
                 <input type="text" name="d2" class="tcal" value="" />
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                 (yyyy-mm-dd format)
+              </form>
+              <form action="search-voucher.php" method="get">
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
+                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                (xxxxx-xxxxx format)
               </form>
               <form action="sales-entity.php" method="get">
                 <select name="entity">

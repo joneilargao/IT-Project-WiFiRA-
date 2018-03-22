@@ -4,6 +4,7 @@
 * This page selects sales from specified date from sales.php.
 * 
 * @author Darren Sison
+*         Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
@@ -47,6 +48,12 @@ echo 'class="active-menu"';
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                 (yyyy-mm-dd format)
               </form>
+              
+              <form action="search-voucher.php" method="get">
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
+                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                (xxxxx-xxxxx format)
+              </form>
               <!--
 <form id="search-form" name="search" action="" method="get">
 <input id="search-input" name="search" type="text">
@@ -57,11 +64,11 @@ echo 'class="active-menu"';
                   </option>
                   <?php 
 require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT accountNo FROM wifira.accounts  union SELECT kioskId FROM wifira.`kioskmachine`;");
+$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
 $usersQuerry->execute();
 $users = $usersQuerry->fetchAll();
 foreach ($users as $user){
-echo "<option>" . $user['accountNo'] . "</option>";
+echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
@@ -88,7 +95,8 @@ echo "<option>" . $user['accountNo'] . "</option>";
 include('fragments/connection.php');
 if (isset($_GET["d1"])) { $d1  = $_GET["d1"]; } else { $d1=0; }; 
 if (isset($_GET["d2"])) { $d2  = $_GET["d2"]; } else { $d2=0; }; 
-$result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE datePrinted BETWEEN :a AND :b");
+$result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE (datePrinted BETWEEN :a AND :b) 
+  and (voucherStatus='sold')");
 $result->bindParam(':a', $d1);
 $result->bindParam(':b', $d2);
 $result->execute();
@@ -137,33 +145,7 @@ for($i=0; $row = $result->fetch(); $i++){
             </h4>
           </div>
           <div class="modal-body">
-            <p>
-              <?php
-require_once 'fragments/connection.php';
-$usr = $_SESSION['username'];
-echo $usr;
-$query = $pdo->prepare("
-SELECT b.username AS sp_username, a.username AS cust_username, 
-request_status, pet_service.service_name, start_servicing, end_servicing,  service_price 
-FROM service_request 
-INNER JOIN user_account AS b ON service_request.sp_id = b.account_id  
-INNER JOIN user_account AS a ON service_request.account_id = a.account_id  
-INNER JOIN pet_service ON service_request.service_id = pet_service.service_id 
-WHERE request_status = 03 AND b.username = '$usr';");
-$query->execute();
-$result = $query->fetchAll();
-foreach($result as $query){
-echo "<tr>";
-echo "<td>" . $query['start_servicing'] . "</td>";
-echo "<td>" . $query['end_servicing'] . "</td>";
-echo "<td>" . $query['request_status'] . "</td>";
-echo "<td>" . $query['service_name'] . "</td>";
-echo "<td>" . $query['cust_username'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
-?>
-            </p>
+           
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary">Accept
