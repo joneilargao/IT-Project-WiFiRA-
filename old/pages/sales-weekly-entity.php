@@ -88,7 +88,7 @@ $result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouc
 vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
 FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
 ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
-( kioskmachine.kioskName='UIOP') and ((WEEK(vouchers.datePrinted)=WEEK(CURRENT_DATE())) AND (MONTH(vouchers.datePrinted)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.datePrinted)=YEAR(CURRENT_DATE())))
+((WEEK(vouchers.datePrinted)=WEEK(CURRENT_DATE())) AND (MONTH(vouchers.datePrinted)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.datePrinted)=YEAR(CURRENT_DATE())))
 and (vouchers.voucherStatus='sold') ORDER BY vouchers.datePrinted DESC");
 $result->bindParam(':a', $entity);
 $result->execute();

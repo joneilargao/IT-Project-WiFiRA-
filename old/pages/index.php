@@ -205,11 +205,11 @@ echo count($result);
         </div>
         <div class="text-box" >
           <h4 align="left">
-            <input type="submit" name='submit' class="btn btn-warning" value="Daily" class="col s6" class='submit' style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>
-            <input type="submit" name='submit' class="btn btn-warning" value="Weekly" class="col s6" class='submit' style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>
-            <input type="submit" name='submit' class="btn btn-warning" value="Monthly" class="col s6" class='submit' style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>
-            <input type="submit" name='submit' class="btn btn-warning" value="Yearly" class="col s6" class='submit' style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>
-            <br />
+            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Daily</a>
+            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Weekly</a>
+            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Monthly</a>
+            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Yearly</a>
+            <br>
             <br>
           </h4>
           <div id="chart-container">
