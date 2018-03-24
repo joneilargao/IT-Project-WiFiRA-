@@ -58,7 +58,6 @@ foreach ($users as $user){
 echo "<option>" . $user['address'] . "</option>";
 }
 ?>
-                  
                 <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
                 <a class="btn btn-danger" href="view-staff-profile-archive.php">
                   <i class="fa fa-archive fa-lg">

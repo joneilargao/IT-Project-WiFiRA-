@@ -16,7 +16,7 @@ echo "<th>Role ID</th>";
 echo "<th>Name </th>";
 echo "<th>Address</th>";
 echo "<th>Username</th>";
-echo "<th>Password</th>";
+echo "<th>Actions</th>";
 echo "</tr>";
 foreach($result as $query){
 $rid = $query['accountNo'];
@@ -26,6 +26,8 @@ echo "<td>" . $query['roleId'] . "</td>";
 echo "<td>" . $query['name'] . "</td>";
 echo "<td>" . $query['address'] . "</td>";
 echo "<td>" . $query['username'] . "</td>";
+echo "<td>";
+echo '<a href="fragments/account-restore.php?id='.$query['accountNo'].'"><button class="btn btn-success">Restore</button></a>';
 echo "</td>";
 echo "</tr>";
 }

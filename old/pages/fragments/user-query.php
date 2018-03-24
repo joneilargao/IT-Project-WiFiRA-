@@ -8,7 +8,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT accountNo, roleId, name, address, username, password, visibility FROM accounts WHERE roleId='Staff' ");
+$query = $pdo->prepare("SELECT accountNo, roleId, name, address, username, password, visibility FROM accounts WHERE roleId='Staff' AND visibility='Visible' ");
 $query->execute();
 $result = $query->fetchAll();
 echo "<tr>";
@@ -17,7 +17,7 @@ echo "<th>Role ID</th>";
 echo "<th>Name </th>";
 echo "<th>Address</th>";
 echo "<th>Username</th>";
-echo "<th>Password</th>";
+echo "<th>Actions</th>";
 echo "<th> </th>";
 echo "<th></th>";
 echo "</tr>";
@@ -33,14 +33,7 @@ echo "<td>";
 echo '<a href="fragments/user-reset-password.php?id='.$query['accountNo'].'"><button class="btn btn-primary">Reset Password</button></a>';
 echo "</td>";
 echo "<td>";
-if ($query['visibility']=='Visible')
-{
-	echo '<a href="fragments/account-visible.php?id='.$query['accountNo'].'"><button class="btn btn-success">Archive</button></a>';
-}
-else
-{
-	echo '<a href="fragments/account-hide.php?id='.$query['accountNo'].'"><button class="btn btn-info">Archived</button></a>';
-}
+	echo '<a href="fragments/account-hide.php?id='.$query['accountNo'].'"><button class="btn btn-success">Archive</button></a>';
 ?>
 </div>
 </label>
