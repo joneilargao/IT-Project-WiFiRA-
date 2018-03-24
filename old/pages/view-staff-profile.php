@@ -58,76 +58,25 @@ foreach ($users as $user){
 echo "<option>" . $user['address'] . "</option>";
 }
 ?>
-                  </form>
+                  
                 <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
                 <a class="btn btn-danger" href="view-staff-profile-archive.php">
                   <i class="fa fa-archive fa-lg">
                   </i> Archive
                 </a>
+                </form>
                 </div>    
             </div>
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php
 include 'fragments/user-query.php';
-if(isset($_POST['request_done'])){
-$rid=$_POST['requestId'];
-$sql = $pdo->prepare("update service_request set request_status=4, end_servicing = curdate()  where request_id = '$rid';");
-$sql->execute();
-//echo "<meta http-equiv='refresh' content='0'>";
-}
-if(isset($_POST['request_cancel'])){
-$rid=$_POST['requestId'];
-$sql = $pdo->prepare("update service_request set request_status=5 where request_id = '$rid';");
-$sql->execute();
-//echo "<meta http-equiv='refresh' content='0'>";
-}
 ?>
               </table>
             </div>
           </div>
         </div>
       </div>
-      <!-- The Modal -->
-      <div id="reply_modal" class="modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-              </button>
-              <h4 class="modal-title">Request Details
-              </h4>
-            </div>
-            <div class="modal-body">
-              <p>
-                <?php
-require_once 'fragments/connection.php';
-$usr = $_SESSION['username'];
-echo $usr;
-$query = $pdo->prepare("
-SELECT * from accounts;");
-$query->execute();
-$result = $query->fetchAll();
-foreach($result as $query){
-echo "<tr>";
-echo "<td>" . $query['roleId'] . "</td>";
-echo "<td>" . $query['name'] . "</td>";
-echo "<td>" . $query['address'] . "</td>";
-echo "<td>" . $query['accountStatus'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
-?>
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Accept
-              </button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Reject
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
       </body>
     </html>    

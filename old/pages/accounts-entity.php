@@ -63,14 +63,8 @@ echo "<option>" . $user['address'] . "</option>";
                 <a class="btn btn-danger" href="#">
                   <i class="fa fa-trash-o fa-lg">
                   </i> Delete
-                </a>
-                <form action="">
-                  <a class="btn btn-info" name="archive" value="archive" onclick="archive()" >
-                    <i class="fa fa-archive fa-lg">
-                    </i> Archive 
-                  </a>
-                </form>
-                </div>    
+                </a>             
+               </div>    
             </div>
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
@@ -121,16 +115,7 @@ for($i=0; $row = $result->fetch(); $i++){
                       <?php echo $row['password']; ?>
                     </td>
                   </tr>
-                  <?php
-                  include 'fragments/connection.php';
-
-if(isset($_POST['archiveAccount'])){
-
-    $archivequery = $pdo->prepare(" UPDATE visibility SET visibility = 'Hidden' WHERE username=$username ");
-
-}
-}
-?>
+                 
                 </tbody>
               </table>
             </div>
