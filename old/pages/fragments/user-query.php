@@ -32,7 +32,7 @@ echo "<td>" . $query['username'] . "</td>";
 echo "<td>";
 echo '<a href="fragments/user-reset-password.php?id='.$query['accountNo'].'"><button class="btn btn-primary">Reset Password</button></a>';
 echo "</td>";
-
+echo "<td>";
 if ($query['visibility']=='Visible')
 {
 	echo '<a href="fragments/account-visible.php?id='.$query['accountNo'].'"><button class="btn btn-success">Archive</button></a>';
