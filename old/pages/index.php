@@ -23,9 +23,13 @@ require '../classes/UserAccount.php';
         height: auto;
       }
     </style>
+    <?php   
+include_once 'fragments/connection.php';  
+?>
   </head>
   <?php
 include 'fragments/head.php';
+
 ?>
   <body id="index">
     <?php 
@@ -129,20 +133,20 @@ echo count($result);
                               </select>
                             </div>
                             <div class="form-group">
-                              <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                              <input type="number" name="noOfVoucher" id="noOfVoucher" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['noOfVoucher']; } ?>" tabindex="2">
                             </div>
                             <div class="form-group">
-                              <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Quota" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                              <input type="number" name="quota" id="qouta" class="form-control input-lg" placeholder="Quota" value="<?php if(isset($error)){ echo $_POST['qouta']; } ?>" tabindex="2">
                             </div>
                             <div class="row">
                               <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                  <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Expiration Time" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                                  <input type="text" name="expirationTime" id="expirationTime" class="form-control input-lg" placeholder="Expiration Time" value="<?php if(isset($error)){ echo $_POST['expirationTime']; } ?>" tabindex="2">
                                 </div>
                               </div>
                               <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                  <input type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="Notes" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                                  <input type="float" name="notes" id="notes" class="form-control input-lg" placeholder="Notes" value="<?php if(isset($error)){ echo $_POST['notes']; } ?>" tabindex="2">
                                 </div>
                               </div>
                             </div>
@@ -172,35 +176,61 @@ echo count($result);
                     <div class="modal-content">
                       <button type="button" class="close" data-dismiss="modal">&times;
                       </button>
-                      <form role="form" method="post" action="" autocomplete="off">
-                        <div class="form-group">
-                          <input type="text" name="kioskname" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                        </div>
-                        <div class="form-group">
-                          <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                            </div>
-                          </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
-                          </button>
-                        </div>
-                        </div>
+                       <h1 style = "font-family: special elite; color:#000000">Add Kiosk</h1>
+                        <?php
+$user = $_SESSION["userAccount"];
+$user_id = $user->getAccountId();
+$qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
+$qry->execute();
+$profileqry = $qry->fetch();                                               
+?>  
+        <!-- /. Registers kiosk machine and adds it to the database -->
+              <?php
+if(! empty($_POST)){
+$mysqli = new mysqli('localhost', 'root', '', 'wifira');
+$kioskName= $_POST['kioskName'];
+$location= $_POST['location'];
+$ipAddress= $_POST['ipAddress'];
+$sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+$insert = $mysqli->query($sql);
+if ( $insert ) {
+echo "New Kiosk Added!";
+} else {
+die ("Error: {$mysqli->errno} : {$mysqli->error}");
+}
+$mysqli->close();
+}
+?>
+              <form role="form" method="post" action="" autocomplete="off">
+                <?php
+if(isset($errMsg)){
+echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+}
+?>
+                <div class="form-group">
+                  <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
                     </div>
                   </div>
-                  </h4>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                    </div>
+                  </div>
+                </div>
+                          <div class="row">
+                  <div class="col-xs-6 col-md-6">
+                    <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                  </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              </a>
           </div>  
         </div>
         <div class="text-box" >
