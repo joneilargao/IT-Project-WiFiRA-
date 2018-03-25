@@ -7,12 +7,13 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted, voucherStatus FROM vouchers WHERE voucherStatus = 'Unsold' ");
+$query = $pdo->prepare("SELECT * FROM `vouchers`");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));
 echo $now->format('D M-j-G:i:sa');    // MySQL datetime format
 echo "<tr>";
+echo "<th>Voucher Id</th>";
 echo "<th>Voucher Code</th>";
 echo "<th>Voucher Type</th>";
 echo "<th>Amount </th>";
@@ -21,22 +22,27 @@ echo "<th>Status</th>";
 echo "<th></th>";
 echo "</tr>";
 foreach($result as $query){
-$rid = $query['voucherCode'];
+$rid = $query['voucherId'];
 echo "<tr>";
+echo "<td>" . $query['voucherId'] . "</td>";
 echo "<td>" . $query['voucherCode'] . "</td>";
 echo "<td>" . $query['voucherType'] . "</td>";
 echo "<td>" . $query['voucherAmount'] . "</td>";
 echo "<td>" . $query['datePrinted'] . "</td>";
 echo "<td>" . $query['voucherStatus'] . "</td>";
-echo "<td><label class='switch'>
-<input type='checkbox' id='togBtn'>
-<div class='slider round'>
-<span class='sold'>Sold</span>
-<span class='unsold'>Unsold</span>
-</div>
-</label>
-</td>";       
+echo "<td>";
+  
+if ($query['voucherStatus']=='Unsold')
+{
+	echo '<a href="fragments/vouchers-sold.php?id='.$query['voucherId'].'"><button class="button">Sold</button></a>';
+}
+else
+{
+	echo '<a href="fragments/vouchers-unsold2.php?id='.$query['voucherId'].'"><button class="button">Unsold</button></a>';
+}
+
 echo "</td>";
 echo "</tr>";
 }
 ?>
+
