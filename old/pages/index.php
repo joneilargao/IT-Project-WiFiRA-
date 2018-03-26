@@ -1,12 +1,11 @@
 <?php
 /**
 * index.php
-*
-* Main page of the system
 * 
+* Main page of the system
+*
 * @author Darren Sison
 * @author Joneil Argao
-* @author James Anonuevo
 * @author Maureen Calpito
 * @author Cyrene Dispo
 */
@@ -72,7 +71,7 @@ echo  $_SESSION["username"];
                     <i class="fa fa-tags fa-2x pull-left">
                     </i>
                     <strong>
-                      <!-- /. Displays the number of vouches sold -->
+					  <!-- /. Displays the number of vouches sold -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -93,7 +92,7 @@ echo count($result);
                     <i class="fa fa-barcode fa-2x pull-left">
                     </i>
                     <strong>
-                      <!-- /. Displays the number of kiosk enabled -->
+					  <!-- /. Displays the number of kiosk enabled -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -126,7 +125,7 @@ echo count($result);
                             <div class="form-group">
                               <label for="kiosId" class="col-lg-2 control-label">
                               </label>
-                              <select class="form-control input-lg" name="kioskId" id="KiosID"  placeholder="Types of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">             
+                              <select class="form-control input-lg" name="kioskId" id="KiosID"  placeholder="Types of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">			 
                                 <option class="form-control input-lg" value="10peso">10 Peso
                                 </option>
                                 <option class="form-control input-lg" value="20peso">20 Peso

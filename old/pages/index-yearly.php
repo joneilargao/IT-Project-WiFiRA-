@@ -2,7 +2,7 @@
 /**
 * index-yearly.php
 *
-* Shows the yearly sales for the graph
+* Shows the yearly sales for the grap
 * 
 * @author Joneil Argao
 */

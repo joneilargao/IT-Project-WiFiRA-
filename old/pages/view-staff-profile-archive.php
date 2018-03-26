@@ -2,7 +2,7 @@
 /**
 * view-staff-profile-archive.php 
 *
-* Views staff profile that are archived
+* View staff profile that are archived
 * 
 * @author Darren Sison
 */

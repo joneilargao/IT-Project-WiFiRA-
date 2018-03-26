@@ -65,7 +65,7 @@ echo "<option>" . $user['name'] . "</option>";
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php
-include 'fragments/request-query-daily-total.php';
+include 'fragments/sales-query-daily-total.php';
 ?>
               </table>
             </div>

@@ -2,7 +2,7 @@
 /**
 * add-account.php
 *
-* New accounts are added
+* Add new account
 * 
 * @author Katherine Turqueza
 * @author Darren Sison

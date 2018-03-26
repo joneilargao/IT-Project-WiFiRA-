@@ -2,8 +2,8 @@
 /**
 * kiosk-manage.php 
 *
-* This is the kiosk-manage page where kiosk machine information are displayed
-* 
+* Kiosk machine's information are displayed
+*
 * @author Darren Sison
 * @author Cyrene Dispo
 */

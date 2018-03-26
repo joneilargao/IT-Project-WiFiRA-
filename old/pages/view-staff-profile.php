@@ -2,7 +2,7 @@
 /**
 * view-staff.php
 *
-* Views staff profile
+* View staff profile
 * 
 * @author Darren Sison
 * @author Katherine Turqueza

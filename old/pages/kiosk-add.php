@@ -3,7 +3,7 @@
 * kiosk-add.php
 *
 * New kiosk machines are added
-* 
+*
 * @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';

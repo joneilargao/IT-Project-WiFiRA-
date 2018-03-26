@@ -68,7 +68,7 @@ echo "<option>" . $user['name'] . "</option>";
           <div class="jumbotron"> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
-include 'fragments/request-query-yearly.php';
+include 'fragments/sales-query-yearly.php';
 ?>
             </table>
           </div>
@@ -77,32 +77,6 @@ include 'fragments/request-query-yearly.php';
             <i class="fa fa-plus-square fa-lg">
             </i>Total
           </a>
-        </div>
-      </div>
-    </div>
-    <!-- The Modal -->
-    <div id="reply_modal" class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-            </button>
-            <h4 class="modal-title">Request Details
-            </h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              <?php
-require_once 'fragments/connection.php';
-?>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Accept
-            </button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Reject
-            </button>
-          </div>
         </div>
       </div>
     </div>
