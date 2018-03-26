@@ -31,7 +31,7 @@ echo "<td>" . $query['voucherAmount'] . "</td>";
 echo "<td>" . $query['datePrinted'] . "</td>";
 echo "<td>" . $query['voucherStatus'] . "</td>";
 echo "<td>";
-echo '<a href="fragments/vouchers-sold.php?id='.$query['voucherId'].'"><button class="button">Sold</button></a>';
+echo '<a href="fragments/vouchers-sold.php?id='.$query['voucherId'].'"><button class="btn btn-info">Sold</button></a>';
 echo "</td>";
 echo "</tr>";
 }
