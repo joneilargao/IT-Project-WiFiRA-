@@ -1,8 +1,11 @@
 <?php
 /**
-* Select unsold vouchers from the database.
+* voucher-unsold-query.php
+*
+* Select unsold vouchers from the database
 * 
 * @author Darren Sison
+* @author Alfa Leones
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

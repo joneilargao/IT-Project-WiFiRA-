@@ -1,6 +1,8 @@
 <?php
 /**
-* Selects the total yearly sales from the database.
+* sales-query-yearly-total.php
+*
+* Selects the total yearly sales from the database
 * 
 * @author Darren Sison
 */

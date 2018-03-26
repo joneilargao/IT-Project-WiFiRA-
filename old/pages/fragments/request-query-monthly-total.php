@@ -1,6 +1,8 @@
 <?php
 /**
-* Selects total monthly sales from the database.
+* sales-query-monthly-total.php
+*
+* Selects total monthly sales from the database
 * 
 * @author Darren Sison
 */

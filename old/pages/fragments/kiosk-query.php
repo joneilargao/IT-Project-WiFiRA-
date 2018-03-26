@@ -1,11 +1,11 @@
 <?php
 /**
-* Select kiosks from the database.
+* kiosk-query.php 
+*
+* Select kiosks from the database
 * 
 * @author Darren Sison
-		  Joneil Argao
-		  Katherine Turqueza
-		  Cyrene Dispo
+* @author Cyrene Dispo
 */ 
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

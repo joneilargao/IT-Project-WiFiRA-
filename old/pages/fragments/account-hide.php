@@ -1,8 +1,10 @@
 <?php
 /**
-* Updates the visibility of the accounts to Visible.
+* account-hide.php
+*
+* Updates the visibility of the accounts to Visible
 * 
-* @author Cyrene Jane Dispo
+* @author Cyrene Dispo
 */ 
 include 'connection.php';
 $id=$_GET['id'];

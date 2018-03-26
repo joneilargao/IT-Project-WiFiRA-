@@ -1,9 +1,11 @@
 <?php
 /**
-* Select user accounts from the databasee.
+* user-query.php
+*
+* Select user accounts from the database
 * 
 * @author Darren Sison
-		  Cyrene Jane Dispo
+* @author Cyrene Jane Dispo
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

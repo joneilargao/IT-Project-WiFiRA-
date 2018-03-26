@@ -1,6 +1,8 @@
 <?php
 /**
-* Selects the total daily sales from the database.
+* sales-query-daily-total.php
+*
+* Selects the total daily sales from the database
 * 
 * @author Darren Sison
 */

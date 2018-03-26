@@ -1,9 +1,11 @@
 <?php
 /**
-* Selects the monthly sales from the database.
+* sales-query-monthly.php
+*
+* Selects the monthly sales from the database
 * 
 * @author Darren Sison
-		  Joneil Argao
+* @author Joneil Argao
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

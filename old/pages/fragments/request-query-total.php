@@ -1,6 +1,8 @@
 <?php
 /**
-* Selects the total sales.
+* sales-query-total.php
+*
+* Selects the total sales
 * 
 * @author Darren Sison
 */

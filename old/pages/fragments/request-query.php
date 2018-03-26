@@ -1,9 +1,11 @@
 <?php
 /**
-* Selects the sales.
+* sales-query.php
+*
+* Selects the sales
 * 
 * @author Darren Sison
-		  Joneil Argao
+* @author Joneil Argao
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];

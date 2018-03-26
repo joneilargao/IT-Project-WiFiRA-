@@ -1,5 +1,11 @@
 <?php
-
+/**
+* data-daily.php
+*
+* Selects daily sales from the database
+* 
+* @author Joneil Argao
+*/
 header('Content-Type: application/json');
 
 define('DB_HOST', '127.0.0.1');

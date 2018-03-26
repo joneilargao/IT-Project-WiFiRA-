@@ -1,6 +1,8 @@
 <?php
 /**
-* Archive the user accounts.
+* user-query-archive.php
+*
+* Archive the user accounts
 * 
 * @author Darren Sison
 */

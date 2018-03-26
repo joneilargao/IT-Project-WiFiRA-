@@ -1,5 +1,12 @@
 <?php
-
+/**
+* user-reset-password.php
+*
+* Select user accounts from the database
+* 
+* @author Darren Sison
+* @author Katherine Turqueza
+*/
 include 'connection.php';
 
 $id = $_GET['id'];

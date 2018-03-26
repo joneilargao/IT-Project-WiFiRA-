@@ -1,6 +1,8 @@
 <?php
 /**
-* Establishes connection.
+* connection.php
+*
+* Establishes connection to the database
 * 
 * @author Darren Sison
 */

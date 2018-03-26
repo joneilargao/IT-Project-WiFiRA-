@@ -1,6 +1,8 @@
 <?php
 /**
-* Updates the status of the kiosk.
+* kiosk-enable.php
+*
+* Updates the status of the kiosk
 * 
 * @author Darren Sison
 */ 

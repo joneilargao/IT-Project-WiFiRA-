@@ -1,6 +1,8 @@
 <?php
 /**
-* Selects the total weekly sales from the database.
+* sales-query-weekly-total.php
+*
+* Selects the total weekly sales from the database
 * 
 * @author Darren Sison
 */

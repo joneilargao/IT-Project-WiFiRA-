@@ -1,6 +1,8 @@
 <?php
 /**
-* Updates the visibility of the account to be Hidden.
+* account-restore.php
+*
+* Updates the visibility of the account to be Hidden
 * 
 * @author Darren Sison
 */ 
