@@ -1,14 +1,12 @@
+<!DOCTYPE html>
 <?php
 /**
-* kiosk-entity.php
-* 
-* Kiosk machines are filtered according to location
+* This is the kiosk-entity page where kiosk machines are filtered according to location.
 * 
 * @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">        

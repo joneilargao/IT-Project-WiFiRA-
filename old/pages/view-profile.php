@@ -1,8 +1,7 @@
+<!DOCTYPE html>
 <?php
 /**
-* view-profile.php
-*
-* Displays user information
+* This page displays user information.
 * 
 * @author Darren Sison
 */
@@ -10,7 +9,6 @@ require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		

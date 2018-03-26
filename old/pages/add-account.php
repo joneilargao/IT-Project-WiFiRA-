@@ -1,8 +1,7 @@
+<!DOCTYPE html>
 <?php
 /**
-* add-account.php
-*
-* New accounts are added
+* This is the add-account page where new accounts are added.
 * 
 * @author Katherine Turqueza
 * @author Darren Sison
@@ -11,7 +10,6 @@ require '../classes/UserAccount.php';
 session_start();
 $sessionUserAccount = $_SESSION["userAccount"];
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>WiFiRA ISP

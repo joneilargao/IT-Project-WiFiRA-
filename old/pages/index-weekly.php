@@ -1,10 +1,13 @@
 <?php
 /**
-* index-weekly.php
-*
-* Shows the weekly sales for the graph
+* This is the main page where in the basic details can be viewed.
 * 
-* @author Joneil Argao
+* @author Darren Sison
+		  Joneil Argao
+		  James Anonuevo
+		  Maureen Calpito
+		  Cyrene Dispo
+		  Alfa Leones
 */
 require '../classes/UserAccount.php';
 ?>

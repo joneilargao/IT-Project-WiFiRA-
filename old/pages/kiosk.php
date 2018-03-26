@@ -2,8 +2,6 @@
 /**
 * kiosk.php
 * 
-* Displays the kiosks
-*
 * @author Darren Sison
 */
 require '../classes/UserAccount.php';
