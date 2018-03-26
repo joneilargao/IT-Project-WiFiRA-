@@ -1,12 +1,14 @@
-<!DOCTYPE html>
 <?php
 /**
-* This page displays the weekly sales of specified entity.
+* sales-weekly-entity.php
+*
+* Displays the weekly sales of specified entity
 * 
 * @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">        
