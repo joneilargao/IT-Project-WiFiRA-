@@ -1,13 +1,10 @@
 <?php
 /**
-* This is the main page where in the basic details can be viewed.
+* index-daily.php
+*
+* Shows the daily sales for the graph
 * 
-* @author Darren Sison
-		  Joneil Argao
-		  James Anonuevo
-		  Maureen Calpito
-		  Cyrene Dispo
-		  Alfa Leones
+* @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>

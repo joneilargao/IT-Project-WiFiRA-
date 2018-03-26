@@ -7,7 +7,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT * FROM `vouchers`");
+$query = $pdo->prepare("SELECT * FROM `vouchers` where voucherStatus = 'Unsold' ");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));
@@ -31,16 +31,7 @@ echo "<td>" . $query['voucherAmount'] . "</td>";
 echo "<td>" . $query['datePrinted'] . "</td>";
 echo "<td>" . $query['voucherStatus'] . "</td>";
 echo "<td>";
-  
-if ($query['voucherStatus']=='Unsold')
-{
-	echo '<a href="fragments/vouchers-sold.php?id='.$query['voucherId'].'"><button class="button">Sold</button></a>';
-}
-else
-{
-	echo '<a href="fragments/vouchers-unsold2.php?id='.$query['voucherId'].'"><button class="button">Unsold</button></a>';
-}
-
+echo '<a href="fragments/vouchers-sold.php?id='.$query['voucherId'].'"><button class="btn btn-info">Sold</button></a>';
 echo "</td>";
 echo "</tr>";
 }

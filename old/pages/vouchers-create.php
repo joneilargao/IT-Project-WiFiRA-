@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-
 <?php
 /**
-* This page is used to create vouchers.
+* voucher-create.php
+*
+* Create vouchers
 * 
 * @author Darren Sison
 */
@@ -10,7 +10,7 @@
     session_start();
     $sessionUserAccount = $_SESSION["userAccount"];
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
