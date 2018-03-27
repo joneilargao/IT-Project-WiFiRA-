@@ -98,13 +98,10 @@
                               </div>
                             </div>
                               
-                              <?php
-                                include 'draft.php';
-                              ?>
                               
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Account</button>
+                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
                                   </div>
                                 </div>
                             </fieldset>
