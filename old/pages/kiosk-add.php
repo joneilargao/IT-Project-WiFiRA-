@@ -62,9 +62,12 @@ $ipAddress = $_POST['ipAddress'];
 $sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
 $insert = $mysqli->query($sql);
 if ( $insert ) {
-echo "New Kiosk Added!";
+echo '<script type="text/javascript">
+	alert("New Kiosk Added Successfully!");
+    location="kiosk-manage.php";
+    </script>';
 } else {
-die ("Error: {$mysqli->errno} : {$mysqli->error}");
+    die ("Error: {$mysqli->errno} : {$mysqli->error}");
 }
 $mysqli->close();
 }
