@@ -133,7 +133,7 @@ $print = $query->fetch();
               </a>
             </li>
             <li>
-              <a href="add-account.php">
+              <a href="user-add-account.php">
                 <i class="fa fa-plus-circle fa-2x">
                 </i> Add Account
               </a>
