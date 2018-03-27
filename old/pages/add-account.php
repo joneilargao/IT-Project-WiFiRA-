@@ -144,9 +144,7 @@ $profileqry = $qry->fetch();
                     <input type="text" class="form-control" name="password">
                   </div>
                 </div>
-                <?php
-include 'draft.php';
-?>
+                
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
                     <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Account
