@@ -176,6 +176,9 @@ echo count($result);
                         </div>
                       </div>
                     </div>
+                    </h4>
+                  </div>
+                </a>
             </div>
             <br>
             <div class="col-md-3 col-sm-6 col-xs-6"> 
