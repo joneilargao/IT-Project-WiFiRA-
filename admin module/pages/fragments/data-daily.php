@@ -1,8 +1,8 @@
 <?php
 /**
-* data.php
+* data-daily.php
 *
-* 
+* Selects daily sales from the database
 * 
 * @author Joneil Argao
 */
@@ -19,7 +19,9 @@ if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
 
-$squery = sprintf("SELECT COUNT(salesID) as totalsales, dateUsed FROM `sales` group by dateUsed ORDER BY dateUsed");
+$squery = sprintf("SELECT COUNT(salesID) as totalsales, dateUsed FROM `sales` WHERE  
+(dateUsed=CURDATE())
+ group by dateUsed ORDER BY dateUsed");
 
 $sresult = $mysqli->query($squery);
 

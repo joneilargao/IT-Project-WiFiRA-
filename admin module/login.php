@@ -2,11 +2,10 @@
 /**
 * login.php
 *
-* Login for staff module
+* Login for admin module
 * 
 * @author Darren Sison
-* @author Maureen Nicole
-*/ 
+*/
 require 'classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
@@ -62,8 +61,8 @@ require 'classes/UserAccount.php';
             require "pages/fragments/connection.php";
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' and accountStatus='Enable' ";
-            $queryFail = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' and 
+            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' and accountStatus='Enable' ";
+            $queryFail = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' and 
               accountStatus='Enable' ";
             $records = $pdo->query($queryLogin);
             $records->execute();
@@ -140,7 +139,7 @@ require 'classes/UserAccount.php';
             require "pages/fragments/connection.php";
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' ";
+            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' ";
 
             $records = $pdo->query($queryLogin);
             $records->execute();

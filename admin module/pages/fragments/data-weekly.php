@@ -1,8 +1,8 @@
 <?php
 /**
-* data.php
+* data-weekly.php
 *
-* 
+* Selects weekly sales from the database
 * 
 * @author Joneil Argao
 */
@@ -19,7 +19,9 @@ if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
 
-$squery = sprintf("SELECT COUNT(salesID) as totalsales, dateUsed FROM `sales` group by dateUsed ORDER BY dateUsed");
+$squery = sprintf("SELECT COUNT(salesID) as totalsales, dateUsed FROM `sales` WHERE  
+(WEEK(dateUsed)=WEEK(CURRENT_DATE())) and ((MONTH(dateUsed)=MONTH(CURRENT_DATE())) AND (YEAR(dateUsed)=YEAR(CURRENT_DATE())))
+ group by dateUsed ORDER BY dateUsed");
 
 $sresult = $mysqli->query($squery);
 

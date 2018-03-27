@@ -2,7 +2,7 @@
 /**
 * data.php
 *
-* 
+* Selects sales from the database
 * 
 * @author Joneil Argao
 */

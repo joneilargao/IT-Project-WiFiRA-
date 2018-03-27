@@ -1,4 +1,11 @@
 <?php
+/**
+* code_exec2.php
+*
+* Insert kiosks in kioskmachine table in the database
+* 
+* @author Darren Sison
+*/
 session_start();
 include('connection.php');
 $kioskId=$_POST['kioskId'];

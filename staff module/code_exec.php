@@ -1,4 +1,11 @@
 <?php
+/**
+* code_exec.php
+*
+* Insert users in accounts table in the database
+* 
+* @author Darren Sison
+*/
 session_start();
 include('connection.php');
 $first_name=$_POST['first_name'];
