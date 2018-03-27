@@ -12,5 +12,12 @@ $id=$_GET['id'];
 $query = $pdo->prepare("UPDATE kioskmachine SET kioskStatus='Enable' WHERE kioskId=$id");
 $query->execute();
 
-header("location:../kiosk-manage.php");
+if($query){
+        echo '<script type="text/javascript">
+              alert("Kiosk Enabled!");
+              location="../kiosk-manage.php";
+              </script>';
+    } else {
+        echo '<script>alert("Kiosk Enable Failed.")</script>';
+    }
 ?>
