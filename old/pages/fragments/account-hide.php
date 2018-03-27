@@ -12,5 +12,13 @@ $id=$_GET['id'];
 $query = $pdo->prepare("UPDATE accounts SET visibility='Hidden' WHERE accountNo=$id");
 $query->execute();
 
-header("location:../view-staff-profile.php");
+if($query){
+        echo '<script type="text/javascript">
+              alert("Account has archived successfully!");
+              location="../view-staff-profile.php";
+              </script>';
+    } else {
+        echo '<script>alert("Archive Failed.")</script>';
+    }
+
 ?>
