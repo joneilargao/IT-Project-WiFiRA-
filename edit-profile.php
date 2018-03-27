@@ -3,6 +3,13 @@
     require '../classes/UserAccount.php';
     session_start();
     $sessionUserAccount = $_SESSION["userAccount"];
+	/**
+* edit-profile.php
+*
+* Code to edit the profile information.
+* 
+* @author Darren Sison
+*/
 ?>
 <html lang="en">
 <head>

@@ -1,4 +1,11 @@
 <?php
+/**
+* kiosk-query.php
+*
+* The code for the query of the kiosk function.
+* 
+* @author Darren Sison
+*/
     $user= $_SESSION['userAccount'];
     $usr = $_SESSION['username'];
     $user_id = $user->getAccountId();

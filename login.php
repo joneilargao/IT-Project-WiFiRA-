@@ -1,5 +1,12 @@
 <?php
 require 'classes/UserAccount.php';
+/**
+* login.php
+*
+* Seves as the login page to the system
+* 
+* @author Darren Sison
+*/
 ?>
 
 <!DOCTYPE html>

@@ -3,6 +3,13 @@
     require '../classes/UserAccount.php';
     session_start();
     $sessionUserAccount = $_SESSION["userAccount"];
+/**
+* kiosk-add.php
+*
+* Th funtion to add kiosks in the system.
+* 
+* @author Darren Sison
+*/
 
 ?>
 <html lang="en">

@@ -1,5 +1,12 @@
 <?php
 require '../classes/UserAccount.php';
+/**
+* index.php
+*
+* The index page of the system
+* 
+* @author Darren Sison
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">

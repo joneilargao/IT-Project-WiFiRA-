@@ -1,4 +1,11 @@
 <?php
+/**
+* connection.php
+*
+* Database Connection
+* 
+* @author Darren Sison
+*/
 $mysql_hostname = "localhost";
 $mysql_user = "root";
 $mysql_password = "";

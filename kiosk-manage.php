@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <?php
 require '../classes/UserAccount.php';
+/**
+* kiosk-manage.php
+*
+* Used for the managing of the kiosks.
+* 
+* @author Darren Sison
+*/
 ?>
 <html lang="en">
     <head>

@@ -6,6 +6,13 @@
     $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
     $query->execute();
     $print = $query->fetch();
+/**
+* sidebar-nav.php
+*
+* The sidebar navigation of the system.
+* 
+* @author Darren Sison
+*/
 ?>
 <html>
     <head>
