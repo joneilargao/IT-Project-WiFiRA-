@@ -1,165 +1,89 @@
+<?php
+/**
+* view-profile.php
+*
+* Displays user information
+* 
+* @author Darren Sison
+*/
+require '../classes/UserAccount.php';
+session_start();
+$sessionUserAccount = $_SESSION["userAccount"];
+?>
 <!DOCTYPE html>
-<?php
-    require '../classes/UserAccount.php';
-    session_start();
-    $sessionUserAccount = $_SESSION["userAccount"];
-?>
 <html lang="en">
-<head>
-        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
-    </head>
-<?php
-    include 'fragments/head.php';
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+  </head>
+  <?php
+include 'fragments/head.php';
 ?>
-
-    <body>
-           
-
-           <?php
-            //Start your session
-
-            if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-                echo "You are logged in as, " . $_SESSION['username'] . "!";
-            } else {
-                header("location: login.php");
-            }
-            function echoActiveClassIfRequestMatches($requestUri){
-                $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
-                if ($current_file_name == $requestUri)
-                    echo 'class="active-menu"';
-            }
-            ?>
-
-            <div id="wrapper">
-                <?php include 'fragments/page-head.php'; ?>
-                <!-- /. NAV TOP  -->
-                <?php
-                if(isset($_POST['saveprofile'])){
-                    $account = $_SESSION["userAccount"];
-                    $accountNo = $account->getAccountId();
-
-
-                    $username = $_POST['inputUsername'];
-                    $password = $_POST['inputPassword'];
-                    $rePassword = $_POST['inputRePassword'];
-                    $address = $_POST['inputAddress'];
-                    $name = $_POST['inputname'];
-                    //$selfinfo = $_POST['selfinfo'];
-                    //$yearexp = $_POST['inputExp'];
-
-                    include "fragments/connection.php";
-
-                    if($password == $rePassword && $password != ''){
-                        $updateWithPass = "update user_account set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
-                        $sql = $pdo->prepare($updateWithPass);
-                        $sql->bindParam(':username', $username);
-                        $sql->bindParam(':password', $password);
-                        $sql->bindParam(':address', $address);
-                        $sql->bindParam(':name', $name);
-                        $sql->execute();
-
-                        $accountStatus = $account->getStatus();
-                        $roleId = $account->getRoleId();
-                        $image = $account->getUserPicture();
-
-                        $_SESSION["userAccount"] = new UserAccount($accountNo, $username, '', $address, $name,
-                            $accountStatus, $roleId, $image);
-                        header('view-profile.php');
-
-                    }else{
-                        $updateWithoutPass = "update user_account set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
-                        $sql = $pdo->prepare($updateWithoutPass);
-                        $sql->bindParam(':username', $username);
-                        $sql->bindParam(':password', $password);
-                        $sql->bindParam(':address', $address);
-                        $sql->bindParam(':name', $name);
-                        $sql->execute();
-
-                        $accountStatus = $account->getStatus();
-                        $roleId = $account->getRoleId();
-                        $image = $account->getUserPicture();
-
-                        $_SESSION["userAccount"] = new UserAccount($accountNo, $username, '', $address, $name,
-                            $accountStatus, $roleId, $image);
-
-                        header('view-profile.php');
-                    }
-                }
-
-                ?>
-                <?php include 'fragments/sidebar-nav.php'; ?>
-                <!-- /. NAV SIDE  -->
-                <div id="page-wrapper" >
-                    <div id="page-inner">
-                    <?php
-                        
-                        $user = $_SESSION["userAccount"];
-                        $user_id = $user->getAccountId();
-                        
-                        $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
-                        $qry->execute();
-                        $profileqry = $qry->fetch();     
-                        
-                    ?> 
-                    <div class="row">
-                        <div class="col-md-12">
-                        <h2 style = "font-family: Cinzel Decorative; color:#000000">Edit Profile</h2>   
-                        </div>    
-                    </div>
-                    <div class="jumbotron">
-                        <form class="form-horizontal" action="" method="post">
-                          <fieldset>
-                            <legend style = "font-family: special elite;">Profile</legend>
-
-
-
-                             <div class="form-group">
-                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Username </label>
-                              <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputUsername" placeholder="<?php echo $profileqry['address'] ?>" value="<?php echo $_SESSION["userAccount"]->getAddress()?>">
-                              </div>
-                            </div>    
-                              
-                              
-                                  
-                             <div class="form-group">
-                              <label for="inputname" class="col-lg-2 control-label" style = "font-family: milonga; font-size: 110%;">Name</label>
-                              <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputname" placeholder="<?php echo $profileqry['username'] ?>" value="<?php echo $_SESSION["userAccount"]->getUsername()?>">
-                              </div>
-                              </div>     
-
-                                                                      
-
-                            
-                                <div class="form-group">
-                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Password</label>
-                              <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputPassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
-                              </div>
-                            </div>
-
-                              <div class="form-group">
-                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Re-enter Password</label>
-                                  <div class="col-lg-10">
-                                      <input type="text" class="form-control" name="inputRePassword" placeholder="<?php echo $profileqry['password'] ?>" value="">
-                                  </div>
-                            </div>
-                              <?php
-                                include 'draft.php';
-                              ?>
-                                   <div class="form-group">
-                                  <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="reset" class="btn btn-default">Cancel</button>
-                                    <button type="submit" name="saveprofile" class="btn btn-primary" id="saveprofile" value="submit">Confirm</button>
-                                  </div>
-                                </div>
-                            </fieldset>
-                        </form>
-
-                    </div>
-                </div>
+  <body>
+    <?php
+//Start your session
+if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
+echo "You are logged in as, " . $_SESSION['username'] . "!";
+} else {
+header("location: login.php");
+}
+function echoActiveClassIfRequestMatches($requestUri){
+$current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
+if ($current_file_name == $requestUri)
+echo 'class="active-menu"';
+}
+?>
+    <div id="wrapper">
+      <?php include 'fragments/page-head.php'; ?>
+      <!-- /. NAV TOP  -->
+      <?php include 'fragments/sidebar-nav.php'; ?>
+      <!-- /. NAV SIDE  -->
+      <div id="page-wrapper" >
+        <div id="page-inner">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 style = "font-family: special elite; color:#000000">View Profile
+              </h2>   
+            </div>    
+          </div>
+          <div class="jumbotron">
+            <div class="container" >
+              <div class="panel panel-info">
+                <?php 
+$user = $_SESSION["userAccount"];
+$user_id = $user->getAccountId();
+$qry = $pdo->prepare("SELECT accountNo, name as Name, username, address, image from accounts where accounts.accountNo = '$user_id'");
+$qry->execute();
+$profileqry = $qry->fetch();   
+echo '<div class="panel-heading">
+<h3 class="panel-title" style = "font-family: salsa;">' . $profileqry['Name'] . '</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-3 col-lg-3 " align="center"> '; 
+echo '<img class="profile_pic" style="width:100%;" src="data:image/jpeg;base64,'.base64_encode($profileqry['image']).'"/>';
+echo "</div>
+<div class='col-md-9 col-lg-9'> 
+<table class='table table-user-information'>
+<tbody>
+<tr>
+<td>Username:</td>
+<td>" .  $profileqry['username']  ."</td>
+</tr>
+<tr>
+<td>Address:</td>
+<td>" . $profileqry['address'] . "</td>
+</tr>
+</tbody>
+</table>";
+?>
+                <!--<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> --> 
+                <a href="edit-profile.php" class="btn btn-primary">Edit Profile Info
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-    </body>
+      </div>
+    </div>
+  </body>
 </html>    

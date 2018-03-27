@@ -8,34 +8,30 @@ require 'classes/UserAccount.php';
 <head>
       <title>WiFiRA ISP</title><meta charset="UTF-8" />
 
-      <link rel="stylesheet" href="pages/assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
+      <link rel="stylesheet" type="text/css" href="css/style2.css"/>
 
-      <style type="text/css">
-      body {
-        background-image: url("pages/assets/img/bg.jpg");
-        background-repeat: no-repeat;
-        background-size: 600px;
-		background-position: center;
-        background-color: #ffffff;; /* Black fallback color */
-      background-color: #ffffff;; /* Black w/opacity */
-      }
-      </style>
-
+    
 </head>
-<body>
-  <div align="left">
-    <div style="width:310px; border: solid 5px #004d00;border-radius: 5px; border-style: double; " align="left">
+<body background="pages/assets/img/background1.jpg" id="bg" >
+  
+  <div class="backimage fright" align="center">
+  <img src="pages/assets/img/logo.png" alt="Avatar" class="image1">
+  <div class="overlay">Wireless Internet Service Provider</div>
+  </div>
+  <div class="fleft" align="left">
+    <div id="loginborder" align="left">
       <?php
         if(isset($errMsg)){
           echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
         }
       ?>
-      <div style="background: linear-gradient(to bottom, #00cc00 2%, #99ff99 109%);; color:#000000; padding:15px;text-align:center; font-family:life savers; font-size:30px;"><b>WiFiRA Login</b></div>
+      <div class="headergreen"><b>WiFiRA Login</b></div>
       <div style="margin:30px">
           <form action="" method="post">
-          <label style="color:#000000; text-align: center; font-family:life savers; font-size:18px;"><b> Username: </b></label><input type="text" name="username" class="box"/><br /><br />
-          <label style="color:	#000000; text-align: center ;font-family:life savers; font-size:18px;"><b>Password:</b></label><input type="password" name="password" class="box" /><br/><br />
-          <input type="submit" name='submit' class="btn btn-warning" value="Submit" class="col s6" class='submit' style="background-color:#686667; font-family:life savers; font-size:18px; " /><br />
+          <label class="userin"><b> Username: </b></label><input type="text" name="username" class="box"/><br /><br />
+          <label class="userin"><b>Password:</b></label><input type="password" name="password" class="box" /><br/><br />
+          <input type="submit" name='submit' class="btn btn-warning" value="Submit" class="col s6" class='submit' id="submit1" /><br />
           </form>
           
       </div>
@@ -59,8 +55,8 @@ require 'classes/UserAccount.php';
             require "pages/fragments/connection.php";
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' and accountStatus='Enable' ";
-            $queryFail = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' and 
+            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' and accountStatus='Enable' ";
+            $queryFail = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' and 
               accountStatus='Enable' ";
             $records = $pdo->query($queryLogin);
             $records->execute();
@@ -137,7 +133,7 @@ require 'classes/UserAccount.php';
             require "pages/fragments/connection.php";
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Admin' ";
+            $queryLogin = "SELECT * FROM accounts WHERE username='$username' AND password='$password' and roleId='Staff' ";
 
             $records = $pdo->query($queryLogin);
             $records->execute();
