@@ -1,11 +1,12 @@
 <?php
 /**
 * index.php
-* 
-* Main page of the system
 *
+* Main page of the system
+* 
 * @author Darren Sison
 * @author Joneil Argao
+* @author James Anonuevo
 * @author Maureen Calpito
 * @author Cyrene Dispo
 */
@@ -71,7 +72,7 @@ echo  $_SESSION["username"];
                     <i class="fa fa-tags fa-2x pull-left">
                     </i>
                     <strong>
-					  <!-- /. Displays the number of vouches sold -->
+                      <!-- /. Displays the number of vouches sold -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -92,7 +93,7 @@ echo count($result);
                     <i class="fa fa-barcode fa-2x pull-left">
                     </i>
                     <strong>
-					  <!-- /. Displays the number of kiosk enabled -->
+                      <!-- /. Displays the number of kiosk enabled -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -121,46 +122,60 @@ echo count($result);
                           </button>
                           <h4 class="modal-title">Print Voucher
                           </h4>
-                          <form role="form" method="post" action="" autocomplete="off">
-                            <div class="form-group">
-                              <label for="kiosId" class="col-lg-2 control-label">
-                              </label>
-                              <select class="form-control input-lg" name="kioskId" id="KiosID"  placeholder="Types of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">			 
-                                <option class="form-control input-lg" value="10peso">10 Peso
-                                </option>
-                                <option class="form-control input-lg" value="20peso">20 Peso
-                                </option>
+                          <form class="form-horizontal" action="" method="post">
+                          <fieldset>
+                            <legend style = "font-family: special elite;">Create Voucher</legend>
+                              
+                              
+                              <div class="form-group">
+                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-size: 110%;">No. of Voucher</label>
+                              <div class="col-lg-10">
+                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
+                              </div>
+                              </div> 
+                              
+                             <div class="form-group">
+                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-size: 110%;">Quota </label>
+                              <div class="col-lg-10">
+                              <select class="form-control" name="voucher_quota">
+                                    <option value="1">One time</option>
+                                    <option value="0">Multi use</option>
                               </select>
-                            </div>
-                            <div class="form-group">
-                              <input type="number" name="noOfVoucher" id="noOfVoucher" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['noOfVoucher']; } ?>" tabindex="2">
-                            </div>
-                            <div class="form-group">
-                              <input type="number" name="quota" id="qouta" class="form-control input-lg" placeholder="Quota" value="<?php if(isset($error)){ echo $_POST['qouta']; } ?>" tabindex="2">
-                            </div>
-                            <div class="row">
-                              <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <input type="text" name="expirationTime" id="expirationTime" class="form-control input-lg" placeholder="Expiration Time" value="<?php if(isset($error)){ echo $_POST['expirationTime']; } ?>" tabindex="2">
-                                </div>
                               </div>
-                              <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <input type="float" name="notes" id="notes" class="form-control input-lg" placeholder="Notes" value="<?php if(isset($error)){ echo $_POST['notes']; } ?>" tabindex="2">
-                                </div>
+                            </div>    
+                                  
+
+                            <div class="form-group">
+                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-size: 110%;">Expiration Time</label>
+                              <div class="col-lg-10">
+                              <select class="form-control" name="voucher_expiration">
+                                    <option value="120">2 Hours</option>
+                                    <option value="1440">24 Hours</option>
+                              </select>
+                              </div>
+                            </div>  
+                            
+                            <div class="form-group">
+                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-size: 110%;">Notes</label>
+                              <div class="col-lg-10">
+                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
-                          </form>
-                          <div class="modal-footer">
-                            <button class="btn btn-default" onclick="location.href='print.php'" type="button">Submit
-                            </button>
-                          </div>
+                              
+                              <?php
+                                include 'draft.php';
+                              ?>
+                              
+                                <div class="form-group">
+                                  <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+                                  </div>
+                                </div>
+                            </fieldset>
+                        </form>
                         </div>
                       </div>
                     </div>
-                    </h4>
-                  </div>
-                </a>
             </div>
             <br>
             <div class="col-md-3 col-sm-6 col-xs-6"> 
@@ -178,35 +193,35 @@ echo count($result);
                       </button>
                        <h1 style = "font-family: special elite; color:#000000">Add Kiosk</h1>
                         <?php
-$user = $_SESSION["userAccount"];
-$user_id = $user->getAccountId();
-$qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
-$qry->execute();
-$profileqry = $qry->fetch();                                               
-?>  
-        <!-- /. Registers kiosk machine and adds it to the database -->
-              <?php
-if(! empty($_POST)){
-$mysqli = new mysqli('localhost', 'root', '', 'wifira');
-$kioskName= $_POST['kioskName'];
-$location= $_POST['location'];
-$ipAddress= $_POST['ipAddress'];
-$sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
-$insert = $mysqli->query($sql);
-if ( $insert ) {
-echo "New Kiosk Added!";
-} else {
-die ("Error: {$mysqli->errno} : {$mysqli->error}");
-}
-$mysqli->close();
-}
-?>
-              <form role="form" method="post" action="" autocomplete="off">
+                        $user = $_SESSION["userAccount"];
+                        $user_id = $user->getAccountId();
+                        $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
+                        $qry->execute();
+                        $profileqry = $qry->fetch();                                               
+                        ?>  
+                                <!-- /. Registers kiosk machine and adds it to the database -->
+                                      <?php
+                        if(! empty($_POST)){
+                        $mysqli = new mysqli('localhost', 'root', '', 'wifira');
+                        $kioskName= $_POST['kioskName'];
+                        $location= $_POST['location'];
+                        $ipAddress= $_POST['ipAddress'];
+                        $sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                        $insert = $mysqli->query($sql);
+                        if ( $insert ) {
+                        echo "New Kiosk Added!";
+                        } else {
+                        die ("Error: {$mysqli->errno} : {$mysqli->error}");
+                        }
+                        $mysqli->close();
+                        }
+                        ?>
+                                      <form role="form" method="post" action="" autocomplete="off">
                 <?php
-if(isset($errMsg)){
-echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
-}
-?>
+                    if(isset($errMsg)){
+                        echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+                        }
+                ?>
                 <div class="form-group">
                   <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
                 </div>
