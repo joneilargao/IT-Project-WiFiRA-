@@ -1,7 +1,12 @@
 <?php
-/**
-*/
 require '../classes/UserAccount.php';
+/**
+* daily-sales.php
+*
+* This displays the daily sales of the system.
+* 
+* @author Darren Sison
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
