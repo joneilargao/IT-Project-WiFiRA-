@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Katherine Turqueza
+* @author Alfa Leones
 */
 require_once 'connection.php'; 
 $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
@@ -86,28 +87,6 @@ $print = $query->fetch();
         </li>		
         <li>
           <a href="#">
-            <i class="fa fa-barcode">
-            </i>Kiosks
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="kiosk-manage.php">
-                <i class="fa fa-barcode">
-                </i>Manage Kiosks
-              </a>
-            </li>
-            <li>
-              <a  href="kiosk-add.php">
-                <i class="fa fa-barcode">
-                </i>Add Kiosk
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
             <i class="fa fa-user" >
             </i> Accounts
             <span class="fa arrow">
@@ -121,26 +100,13 @@ $print = $query->fetch();
               </a>
             </li>
             <li>
-              <a  href="view-staff-profile.php">
-                <i class="fa fa-user fa-2x">
-                </i>Manage Staff Accounts
-              </a>
-            </li>
-            <li>
               <a href="edit-profile.php">
                 <i class="fa fa-pencil-square fa-2x">
                 </i> Edit Profile
               </a>
             </li>
-            <li>
-              <a href="user-add-account.php">
-                <i class="fa fa-plus-circle fa-2x">
-                </i> Add Account
-              </a>
-            </li>
           </ul>
-            
-        </li>
+       </li>
           <li>
           <a href="#">
             <i class="glyphicon glyphicon-list-alt" >
