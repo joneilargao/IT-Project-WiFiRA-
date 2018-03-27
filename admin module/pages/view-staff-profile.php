@@ -46,7 +46,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: Palatino; color:#000000">Manage Staff Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity">
+                <select name = "entity" style="height:35px;">
                   <option value="">Choose Address
                   </option> 
 				  <!-- /. Selects all accounts from the database -->

@@ -44,13 +44,13 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#000000">Vouchers
               </h1>
-              <form action="search-voucher-unsold.php" method="get">
-                Voucher Search: <input type="text" name="su1" class="tcal" value="" /> 
+              <form action="search-voucher-unsold.php" method="get" >
+                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
-              </form>
+                
+              
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
-                <select name = "entity">
+                <select name = "entity" style="height:35px;">
                   <option value="">Choose Status
                   </option>
 				   <!-- /. Selects all unsold vouchers from the database -->
@@ -65,7 +65,15 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
 ?>
                 </select>
                 <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-              </form>	
+              </form>
+              	<a class="btn btn-primary" href="#">
+            		<i class="fa fa-plus-square fa-lg">
+            		</i> Update Status
+          		</a>
+          		<a class="btn btn-success" href="#">
+            		<i class="fa fa-file-text fa-lg">
+            		</i> Generate
+          		</a>
             </div>    
           </div>
           <div class="jumbotron"> 
@@ -76,41 +84,7 @@ include 'fragments/vouchers-unsold-query.php';
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="#">
-            <i class="fa fa-plus-square fa-lg">
-            </i> Update Status
-          </a>
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg">
-            </i> Generate
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- The Modal -->
-    <div id="reply_modal" class="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-            </button>
-            <h4 class="modal-title">Request Details
-            </h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              <?php
-require_once 'fragments/connection.php';
-echo "</table>";
-?>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Accept
-            </button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Reject
-            </button>
-          </div>
+          
         </div>
       </div>
     </div>

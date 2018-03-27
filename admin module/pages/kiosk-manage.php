@@ -44,9 +44,9 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#000000">Manage Kiosks
               </h1>
-              <form id="search-form" name="search" action="kiosk-entity.php" method="get">
-                <select name = "entity">
-                  <option value="">Choose Location
+              <form id="search-form" name="search" action="kiosk-entity.php" method="get"  >
+                <select name = "entity" style="height:35px;">
+                  <option value="">Choose Kiosk Location
                   </option>
 				  <!-- /. Selects all kiosk machine with specified location -->
                   <?php 
