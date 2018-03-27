@@ -72,7 +72,7 @@ die ("Error: {$mysqli->errno} : {$mysqli->error}");
 $mysqli->close();
 }
 ?>
-              <form role="form" method="post" action="" autocomplete="off">
+              <form name="reg" onsubmit="return validateForm()" role="form" method="post" action="" autocomplete="off">
                 <?php
 if(isset($errMsg)){
 echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
@@ -103,5 +103,35 @@ echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</d
           </div>
         </div>
       </div>
+      </div>
       </body>
     </html>
+
+<script type="text/javascript">
+function validateForm()
+{
+var a=document.forms["reg"]["kioskName"].value;
+var b=document.forms["reg"]["location"].value;
+var c=document.forms["reg"]["ipAddress"].value;
+if ((a==null || a=="") && (b==null || b=="") && (c==null || c==""))
+  {
+  alert("All Field must be filled out");
+  return false;
+  }
+if (a==null || a=="")
+  {
+  alert("Kiosk name must be filled out.");
+  return false;
+  }
+if (b==null || b=="")
+  {
+  alert("Location must be filled out.");
+  return false;
+  }
+if (c==null || c=="")
+  {
+  alert("IP address must be filled out.");
+  return false;
+  }
+}
+</script>
