@@ -95,8 +95,8 @@ $profileqry = $qry->fetch();
 ?> 
           <div class="row">
             <div class="col-md-12">
-              <h2 style = "font-family: Cinzel Decorative; color:#000000">Add Account
-              </h2>   
+              <h1 style = "font-family: Palatino; color:#000000">Add Account
+              </h1>   
             </div>    
           </div>
           <div class="jumbotron">

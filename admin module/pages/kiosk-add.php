@@ -43,7 +43,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Add Kiosk
+              <h1 style = "font-family: Palatino; color:#000000">Add Kiosk
               </h1>
               <?php
 $user = $_SESSION["userAccount"];
@@ -62,17 +62,14 @@ $ipAddress = $_POST['ipAddress'];
 $sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
 $insert = $mysqli->query($sql);
 if ( $insert ) {
-echo '<script type="text/javascript">
-	alert("New Kiosk Added Successfully!");
-    location="kiosk-manage.php";
-    </script>';
+echo "New Kiosk Added!";
 } else {
-    die ("Error: {$mysqli->errno} : {$mysqli->error}");
+die ("Error: {$mysqli->errno} : {$mysqli->error}");
 }
 $mysqli->close();
 }
 ?>
-              <form name="reg" onsubmit="return validateForm()" role="form" method="post" action="" autocomplete="off">
+              <form role="form" method="post" action="" autocomplete="off">
                 <?php
 if(isset($errMsg)){
 echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
@@ -103,35 +100,5 @@ echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</d
           </div>
         </div>
       </div>
-      </div>
       </body>
     </html>
-
-<script type="text/javascript">
-function validateForm()
-{
-var a=document.forms["reg"]["kioskName"].value;
-var b=document.forms["reg"]["location"].value;
-var c=document.forms["reg"]["ipAddress"].value;
-if ((a==null || a=="") && (b==null || b=="") && (c==null || c==""))
-  {
-  alert("All Field must be filled out");
-  return false;
-  }
-if (a==null || a=="")
-  {
-  alert("Kiosk name must be filled out.");
-  return false;
-  }
-if (b==null || b=="")
-  {
-  alert("Location must be filled out.");
-  return false;
-  }
-if (c==null || c=="")
-  {
-  alert("IP address must be filled out.");
-  return false;
-  }
-}
-</script>

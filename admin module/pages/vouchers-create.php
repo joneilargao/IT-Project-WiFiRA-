@@ -60,7 +60,7 @@
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: special elite;">Create Voucher</legend>
+                            <legend style = "font-family: Palatino; color:#000000">Create Voucher</legend>
                               
                               
                               <div class="form-group">
@@ -98,10 +98,11 @@
                               </div>
                             </div>
                               
+                            
                               
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Account</button>
                                   </div>
                                 </div>
                             </fieldset>
