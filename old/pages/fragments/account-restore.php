@@ -12,5 +12,12 @@ $id=$_GET['id'];
 $query = $pdo->prepare("UPDATE accounts SET visibility='Visible' WHERE accountNo=$id");
 $query->execute();
 
-header("location:../view-staff-profile-archive.php");
+if($query){
+        echo '<script type="text/javascript">
+              alert("Account has restored successfully!");
+              location="../view-staff-profile.php";
+              </script>';
+    } else {
+        echo '<script>alert("Restoring Failed.")</script>';
+    }
 ?>
