@@ -33,19 +33,14 @@ echo "<td>";
 
 if ($query['kioskStatus']=='Disable')
 {
-	echo '<a href="fragments/kiosk-enable.php?id='.$query['kioskId'].'"><button class="button">Enable</button></a>';
+	echo '<a href="fragments/kiosk-enable.php?id='.$query['kioskId'].'"><button class="btn btn-success">Enable</button></a>';
 }
 else
 {
-	echo '<a href="fragments/kiosk-disable.php?id='.$query['kioskId'].'"><button class="button">Disable</button></a>';
+	echo '<a href="fragments/kiosk-disable.php?id='.$query['kioskId'].'"><button class="btn btn-danger">Disable</button></a>';
 }
-?>
-</div>
-</label>
-</td>
 
-<?php
+}
 echo "</td>";
 echo "</tr>";
-}
 ?>
