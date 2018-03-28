@@ -43,9 +43,10 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#000000">Monthly Sales
               </h1>
-              <form id="search-form" name="search" action="" method="get">
-                <input id="search-input" name="search" type="text">
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+              <form action="search-voucher-monthly.php" method="get" >
+
+                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
+                <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>               
               <form action="sales-monthly-entity.php" method="get">
                 <select name="entity" style="height:30px">

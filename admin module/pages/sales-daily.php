@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -42,10 +43,11 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#000000">Daily Sales
-              </h1>
-              <form id="search-form" name="search" action="" method="get">
-                <input id="search-input" name="search" type="text">
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+              </h1> 
+              <form action="search-voucher-daily.php" method="get" >
+
+                <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
+                <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>   
               <form action="sales-daily-entity.php" method="get">
                 <select name="entity" style="height:30px">
