@@ -50,20 +50,7 @@ $user_id = $user->getAccountId();
       <?php include 'fragments/sidebar-nav.php'; ?>
       <!-- /. NAV SIDE  -->
       <div id="page-wrapper" >
-        <div id="page-inner">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162;">Dashboard
-              </h1>
-              <h4 style = "font-family: Jazz LET, fantasy; color:#4A8162;">Welcome    
-                <?php  
-echo  $_SESSION["username"];
-?> 
-              </h4>
-            </div>
-          </div>              
-          <!-- /. ROW  -->
-          <hr/> 
+        <div id="page-inner">             
           <div class="row" style = "font-family: special elite; color:#0F4D2A;">    
             <div class="col-md-3 col-sm-6 col-xs-6" >           
               <div class="alert alert-success">
