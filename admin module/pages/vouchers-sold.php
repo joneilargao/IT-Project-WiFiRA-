@@ -1,11 +1,10 @@
 <?php
 /**
-* voucher-unsold.php
+* voucher-sold.php
 *
-* Displays all unsold vouchers
+* Displays all sold vouchers
 * 
-* @author Darren Sison
-* @author Alfa Leones
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -42,7 +41,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Unsold Vouchers
+              <h1 style = "font-family: Palatino; color:#000000">Sold Vouchers
               </h1>
               <form action="search-voucher-unsold.php" method="get" >
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
@@ -75,7 +74,7 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
           <div class="jumbotron"> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
-include 'fragments/vouchers-unsold-query.php';
+include 'fragments/vouchers-sold-query.php';
 ?>
             </table>
           </div>
