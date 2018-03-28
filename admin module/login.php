@@ -12,7 +12,7 @@ require 'classes/UserAccount.php';
 <html lang="en">
 
 <head>
-      <title>WiFiRA ISP</title><meta charset="UTF-8" />
+      <title>WiFiRA WISP</title><meta charset="UTF-8" />
 
       <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
       <link rel="stylesheet" type="text/css" href="css/style2.css"/>

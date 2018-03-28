@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-      <title>WiFiRA ISP</title><meta charset="UTF-8" />
+      <title>WiFiRA WISP</title><meta charset="UTF-8" />
 
       <link rel="stylesheet" href="pages/assets/css/style.css">
 
