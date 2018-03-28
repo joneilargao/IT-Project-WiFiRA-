@@ -113,45 +113,45 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                        <h2 style = "font-family: Cinzel Decorative; color:#000000">Edit Profile</h2>   
+                        <h1 style = "font-family: Palatino; color:#000000">Edit Profile</h1>   
                         </div>    
                     </div>
                         
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: special elite;">Profile</legend>
+                            <legend style = "font-family: Helvetica;">Profile</legend>
 
                              <div class="form-group">
-                              <label for="inputname" class="col-lg-2 control-label" style = "font-family: milonga; font-size: 110%;">Name</label>
+                              <label for="inputname" class="col-lg-2 control-label" style = "font-family: verdana; font-size: 90%;">Name</label>
                               <div class="col-lg-10">
                                 <input type="text" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
                               </div>
                               </div>     
 
                             <div class="form-group">
-                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Username</label>
+                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Username</label>
                               <div class="col-lg-10">
                                 <input type="text" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
                               </div>
                             </div>  
                               
                             <div class="form-group">
-                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Address</label>
+                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Address</label>
                               <div class="col-lg-10">
                                 <input type="text" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
                               </div>
                               </div>
 
                             <div class="form-group">
-                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Password</label>
+                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Password</label>
                               <div class="col-lg-10">
                                 <input type="password" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
                               </div>
                             </div>
 
                               <div class="form-group">
-                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: milonga;font-size: 110%;">Re-enter Password</label>
+                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Re-enter Password</label>
                                   <div class="col-lg-10">
                                       <input type="password" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
                                   </div>

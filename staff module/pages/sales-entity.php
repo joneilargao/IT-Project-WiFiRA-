@@ -41,19 +41,18 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Sales
+              <h1 style = "font-family: Palatino; color:#000000">Sales
               </h1>
-              <form action="sales-search.php" method="get">
+              <form action="sales-search.php" method="get" style="height:35px;">
                 From : 
-                <input type="text" name="d1" class="tcal" value="" /> To: 
-                <input type="text" name="d2" class="tcal" value="" />
+                <input type="text" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
+                <input type="text" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (yyyy-mm-dd format)
-              </form>
-              <form action="search-voucher.php" method="get">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
+                </form>
+              
+              <form action="search-voucher.php" method="get" style="height:35px;">
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/> 
+                <input type="submit" value="Search"  style=" font-family:monospace; font-size:18px;">
               </form>
               <form action="sales-entity.php" method="get">
                 <select name="entity">

@@ -60,7 +60,7 @@
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: special elite;">Create Voucher</legend>
+                            <legend style = "font-family: Palatino;">Create Voucher</legend>
                               
                               
                               <div class="form-group">
@@ -97,10 +97,6 @@
                                 <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
-                              
-                              <?php
-                                include 'draft.php';
-                              ?>
                               
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">

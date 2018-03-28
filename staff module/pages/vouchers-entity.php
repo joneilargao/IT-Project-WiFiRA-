@@ -41,8 +41,12 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Manage Kiosks
+              <h1 style = "font-family: Palatino; color:#000000">Vouchers
               </h1>
+			  <form action="search-voucher-unsold.php" method="get" >
+                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
+                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+			  </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity">
                   <option value="">Choose Status
