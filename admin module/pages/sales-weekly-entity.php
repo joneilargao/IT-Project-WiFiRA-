@@ -48,7 +48,7 @@ echo 'class="active-menu"';
                 <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>   
               <form action="sales-weekly-entity.php" method="get">
-                <select name="entity">
+                <select name="entity" style="height:30px;">
                   <option value="">Choose Entity
                   </option>
                   <?php 

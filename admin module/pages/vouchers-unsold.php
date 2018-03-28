@@ -47,9 +47,16 @@ echo 'class="active-menu"';
               <form action="search-voucher-unsold.php" method="get" >
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                
-              
-              <form id="search-form" name="search" action="vouchers-entity.php" method="get">
+                <a class="btn btn-primary" href="#">
+                <i class="fa fa-plus-square fa-lg">
+                </i> Update Status
+              </a>
+              <a class="btn btn-success" href="#">
+                <i class="fa fa-file-text fa-lg">
+                </i> Generate
+              </a>
+               </form> 
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity" style="height:35px;">
                   <option value="">Choose Status
                   </option>
@@ -66,14 +73,7 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
                 </select>
                 <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>
-              	<a class="btn btn-primary" href="#">
-            		<i class="fa fa-plus-square fa-lg">
-            		</i> Update Status
-          		</a>
-          		<a class="btn btn-success" href="#">
-            		<i class="fa fa-file-text fa-lg">
-            		</i> Generate
-          		</a>
+
             </div>    
           </div>
           <div class="jumbotron"> 

@@ -45,9 +45,9 @@ echo 'class="active-menu"';
               <h1 style = "font-family: Palatino; color:#000000">Vouchers
               </h1>
               <form action="search-voucher-unsold.php" method="get">
-                Voucher Search: <input type="text" name="su1" class="tcal" value="" /> 
+                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
+
               </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity">
@@ -88,8 +88,7 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
                             <?php
                 include('fragments/connection.php');
                 if (isset($_GET["su1"])) { $su1  = $_GET["su1"]; } else { $su1=0; }; 
-                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, voucherstatus, datePrinted FROM vouchers where (voucherCode =:a)
-                   and (voucherStatus='Unsold')");
+                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, voucherstatus, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Unsold')");
                 $result->bindParam(':a', $su1);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
