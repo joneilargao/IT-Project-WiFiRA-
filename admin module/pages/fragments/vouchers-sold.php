@@ -16,7 +16,7 @@ $query->execute();
 
 if($query){
         echo '<script type="text/javascript">
-              alert("Voucher Sold!");
+              alert("Voucher declared as Sold!");
               location="../vouchers-unsold.php";
               </script>';
     } else {

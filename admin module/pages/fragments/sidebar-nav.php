@@ -44,6 +44,7 @@ $print = $query->fetch();
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
+            <a  href="vouchers-sold.php">Sold Vouchers</a>
             <a  href="vouchers-unsold.php">Unsold Vouchers</a>
             <a  href="vouchers-create.php">Create Voucher</a>
         </div>
