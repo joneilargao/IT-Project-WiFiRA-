@@ -1,10 +1,11 @@
 <?php
 /**
 * 
+* monthly-sales-report.php
 *
+* Code for the monthly sales report of the system.
 *
-* 
-* 
+* @author Darren Sison
 */ 
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
