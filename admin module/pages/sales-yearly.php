@@ -48,7 +48,7 @@ echo 'class="active-menu"';
                 <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>            
               <form action="sales-yearly-entity.php" method="get">
-                <select name="entity">
+                <select name="entity" style="height:30px">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -62,6 +62,10 @@ echo "<option>" . $user['name'] . "</option>";
 ?>
                 </select>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <a class="btn btn-primary" href="sales-yearly-total.php">
+            <i class="">
+            </i>Total Sales
+          </a>
               </form>
             </div>    
           </div>
@@ -73,10 +77,7 @@ include 'fragments/sales-query-yearly.php';
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="sales-yearly-total.php">
-            <i class="fa fa-plus-square fa-lg">
-            </i>Total
-          </a>
+          
         </div>
       </div>
     </div>
