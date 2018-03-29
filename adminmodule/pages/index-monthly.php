@@ -5,6 +5,7 @@
 * Shows the monthly sales for the graph
 * 
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -20,12 +21,16 @@ require '../classes/UserAccount.php';
         height: auto;
       }
     </style>
+    <?php   
+include_once 'fragments/connection.php';  
+?>
   </head>
   <?php
 include 'fragments/head.php';
+
 ?>
-  <body id="index">
-    <?php 
+
+      <?php 
 session_start();
 function echoActiveClassIfRequestMatches($requestUri)
 {
@@ -55,7 +60,7 @@ $user_id = $user->getAccountId();
                     <i class="fa fa-tags fa-2x pull-left">
                     </i>
                     <strong>
-					  <!-- /. Displays the number of vouches sold -->
+                      <!-- /. Displays the number of vouches sold -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -76,7 +81,7 @@ echo count($result);
                     <i class="fa fa-barcode fa-2x pull-left">
                     </i>
                     <strong>
-					  <!-- /. Displays the number of kiosk enabled -->
+                      <!-- /. Displays the number of kiosk enabled -->
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
@@ -103,42 +108,55 @@ echo count($result);
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;
                           </button>
-                          <h4 class="modal-title">Print Voucher
-                          </h4>
-                          <form role="form" method="post" action="" autocomplete="off">
-                            <div class="form-group">
-                              <label for="kiosId" class="col-lg-2 control-label">
-                              </label>
-                              <select class="form-control input-lg" name="kioskId" id="KiosID"  placeholder="Types of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">			 
-                                <option class="form-control input-lg" value="10peso">10 Peso
-                                </option>
-                                <option class="form-control input-lg" value="20peso">20 Peso
-                                </option>
+                          <h2 style = "font-family: Palatino;" class=" modal-title">Print Voucher
+                          </h2>
+                          <form class="form-horizontal" action="" method="post">
+                          <fieldset>
+                            <legend style = "font-family: Palatino;">Create Voucher</legend>
+                              
+                              
+                              <div class="form-group">
+                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
+                              <div class="col-lg-10">
+                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
+                              </div>
+                              </div> 
+                              
+                             <div class="form-group">
+                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Quota </label>
+                              <div class="col-lg-10">
+                              <select class="form-control" name="voucher_quota">
+                                    <option value="1">One time</option>
+                                    <option value="0">Multi use</option>
                               </select>
-                            </div>
-                            <div class="form-group">
-                              <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="No. of Voucher" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                            </div>
-                            <div class="form-group">
-                              <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Quota" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                            </div>
-                            <div class="row">
-                              <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Expiration Time" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                                </div>
                               </div>
-                              <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                  <input type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="Notes" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                                </div>
+                            </div>    
+                                  
+
+                            <div class="form-group">
+                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Expiration Time</label>
+                              <div class="col-lg-10">
+                              <select class="form-control" name="voucher_expiration">
+                                    <option value="120">2 Hours</option>
+                                    <option value="1440">24 Hours</option>
+                              </select>
+                              </div>
+                            </div>  
+                            
+                            <div class="form-group">
+                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
+                              <div class="col-lg-10">
+                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
-                          </form>
-                          <div class="modal-footer">
-                            <button class="btn btn-default" onclick="location.href='print.php'" type="button">Submit
-                            </button>
-                          </div>
+                  
+                                <div class="form-group">
+                                  <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+                                  </div>
+                                </div>
+                            </fieldset>
+                        </form>
                         </div>
                       </div>
                     </div>
@@ -146,8 +164,8 @@ echo count($result);
                   </div>
                 </a>
             </div>
-            <br>
-            <div class="col-md-3 col-sm-6 col-xs-6"> 
+            
+            <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
               <div class="text-box" >
                 <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2">
                   <strong>Add Kiosk
@@ -160,38 +178,64 @@ echo count($result);
                     <div class="modal-content">
                       <button type="button" class="close" data-dismiss="modal">&times;
                       </button>
-                      <form role="form" method="post" action="" autocomplete="off">
-                        <div class="form-group">
-                          <input type="text" name="kioskname" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                        </div>
-                        <div class="form-group">
-                          <input type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                            </div>
-                          </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
-                          </button>
-                        </div>
-                        </div>
+                       <h2 style = "font-family: Georgia; color:#000000">Add Kiosk</h2>
+                        <?php
+                        $user = $_SESSION["userAccount"];
+                        $user_id = $user->getAccountId();
+                        $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
+                        $qry->execute();
+                        $profileqry = $qry->fetch();                                               
+                        ?>  
+                                <!-- /. Registers kiosk machine and adds it to the database -->
+                                      <?php
+                        if(! empty($_POST)){
+                        $mysqli = new mysqli('localhost', 'root', '', 'wifira');
+                        $kioskName= $_POST['kioskName'];
+                        $location= $_POST['location'];
+                        $ipAddress= $_POST['ipAddress'];
+                        $sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                        $insert = $mysqli->query($sql);
+                        if ( $insert ) {
+                        echo "New Kiosk Added!";
+                        } else {
+                        die ("Error: {$mysqli->errno} : {$mysqli->error}");
+                        }
+                        $mysqli->close();
+                        }
+                        ?>
+                                      <form role="form" method="post" action="" autocomplete="off">
+                <?php
+                    if(isset($errMsg)){
+                        echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+                        }
+                ?>
+                <div class="form-group">
+                  <input style = "font-family: Garamond; type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
                     </div>
                   </div>
-                  </h4>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input style = "font-family: Garamond; type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                    </div>
+                  </div>
+                </div>
+                          <div class="row">
+                  <div class="col-xs-6 col-md-6">
+                    <input style = "font-family: Garamond; type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                  </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              </a>
           </div>  
         </div>
-       <div class="text-box" > 
+        <div class="text-box" > 
           <div>
             <div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
                 <form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
@@ -225,6 +269,8 @@ echo count($result);
               </div>
           </div>
         </div>
+      </div>
+    </div>
     </div>
   <!-- /. PAGE INNER  -->
   </div>
