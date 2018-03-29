@@ -2,12 +2,11 @@
 /**
 * sidebar-nav.php
 *
-* The side navigation bar of the page
+* Side navigation bar of the page
 * 
 * @author Darren Sison
 * @author Katherine Turqueza
 * @author Maureen Calpito
-* @author Apollo Mina
 */
 require_once 'connection.php'; 
 $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
@@ -66,7 +65,7 @@ $print = $query->fetch();
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
-  width: 19%;
+  width: 20.5%;
   position: fixed;
   z-index: 2;
   top: 1;
@@ -106,6 +105,22 @@ $print = $query->fetch();
 }
 </style>
       
+<script>
+//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
 
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "block";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
       
 </html>
