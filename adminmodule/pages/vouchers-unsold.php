@@ -75,7 +75,7 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
           <div class="jumbotron"> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
-include 'fragments/vouchers-unsold-query.php';
+include 'fragments/vouchers-sold-query.php';
 ?>
             </table>
           </div>
