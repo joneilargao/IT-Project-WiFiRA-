@@ -48,12 +48,13 @@ echo 'class="active-menu"';
                 <input type="text" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
                 <input type="text" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                </form>
+                
               
               <form action="search-voucher.php" method="get" style="height:35px;">
                 Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/> 
                 <input type="submit" value="Search"  style=" font-family:monospace; font-size:18px;">
               </form>
+
               <form action="sales-entity.php" method="get">
                 <select name="entity" style="height:30px;">
                   <option value="">Choose Entity
@@ -69,7 +70,12 @@ echo "<option>" . $user['name'] . "</option>";
 ?>
                 </select>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <a class="btn btn-primary" href="sales-total.php">
+            <i class="fa fa-plus-square fa-lg">
+            </i>Total Sales
+          </a>
               </form>
+              
             </div>    
           </div>
           <div class="jumbotron"> 
@@ -80,10 +86,7 @@ include 'fragments/sales-query.php';
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="sales-total.php">
-            <i class="fa fa-plus-square fa-lg">
-            </i>Total
-          </a>
+          
         </div>
       </div>
     </div>

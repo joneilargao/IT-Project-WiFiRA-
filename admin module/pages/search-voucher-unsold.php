@@ -5,6 +5,7 @@
 * Displays all unsold vouchers
 * 
 * @author Joneil Argao
+* @author Alfa Leones
 */
 require '../classes/UserAccount.php';
 ?>
@@ -41,7 +42,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Vouchers
+              <h1 style = "font-family: Palatino; color:#000000">Vouchers
               </h1>
               <form action="search-voucher-unsold.php" method="get">
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" /> 
@@ -109,21 +110,14 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
                               <td>
                                 <?php echo $row['voucherstatus']; ?>
                               </td>
-                              <td>
-                                <label class='switch'>
-                                  <input type='checkbox' id='togBtn'>
-                                  <div class='slider round'>
-                                  <span class='sold'>Sold</span>
-                                  <span class='unsold'>Unsold</span>
-                                </div>
-                                </label>
-                              </td>
-                            </tr>
-                            <?php
-            }
-            ?>
-                          </tbody>
-                        </table>
+                </tr>
+                <?php
+}
+?>
+              </tbody>
+              <?php
+?>
+            </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
           <a class="btn btn-primary" href="#">

@@ -68,7 +68,7 @@ require '../classes/UserAccount.php';
                                 <tr>
                                     <th> Kiosk Id </th>
                                     <th> Kiosk Name </th>
-                                    <th> Location </th>s
+                                    <th> Location </th>
                                     <th> IP Address </th>
                                     <th> Status </th>
                                  </tr>
