@@ -191,27 +191,40 @@ echo count($result);
               </a>
           </div>  
         </div>
-        <div class="text-box" >
-          <h4 align="left">
-            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px; float:left; margin:10px;" />Daily</a>
-            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Weekly</a>
-            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Monthly</a>
-            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Yearly</a>
-            <br>
-            <br>
-          </h4>
-            <div id="containerChart" style=" width:60%; height:50%; position:center; background:#ffffff;  float:left; margin-left:175px; ">
-              <div id="chart-container">
-                <canvas id="mycanvas">
-                </canvas>
-              </div>
-              <script type="text/javascript" src="jscript/jquery.min.js">
-              </script>
-              <script type="text/javascript" src="jscript/Chart.min.js">
-              </script>
-              <script type="text/javascript" src="jscript/app-daily.js">
-              </script>
+        <div class="text-box" > 
+          <div>
+            <div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
+                <form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
+                  <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  margin:10px;" />Daily</a>
+                </form>
+
+                <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+                  <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Weekly</a>
+              </form>
+
+              <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+                  <a href="index-monthly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Monthly</a>
+              </form>
+
+              <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+                  <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Yearly</a>
+              </form>
             </div>
+              
+              <div id="containerChart" style=" width:85%; height:70%; position:center; background:#ffffff;  float:right; ">
+                <div id="chart-container">
+                  <canvas id="mycanvas">
+                  </canvas>
+                </div>
+                <script type="text/javascript" src="jscript/jquery.min.js">
+                </script>
+                <script type="text/javascript" src="jscript/Chart.min.js">
+                </script>
+                <script type="text/javascript" src="jscript/app.js">
+                </script>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
     </div>
