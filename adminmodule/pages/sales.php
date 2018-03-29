@@ -45,8 +45,8 @@ echo 'class="active-menu"';
               </h1>
               <form action="sales-search.php" method="get" style="height:35px;">
                 From : 
-                <input type="text" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
-                <input type="text" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
+                <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
+                <input type="date" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                 
               
