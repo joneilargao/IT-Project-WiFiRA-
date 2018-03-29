@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Alfa Leones
+*
 */
 require '../classes/UserAccount.php';
 ?>
@@ -46,17 +47,15 @@ echo 'class="active-menu"';
 			  <form action="search-voucher-unsold.php" method="get" >
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-			   <a class="btn btn-primary" href="#">
-            		<i class="fa fa-plus-square fa-lg">
-            		</i> Update Status
-          		</a>
+			   
+            		
           		<a class="btn btn-success" href="#">
             		<i class="fa fa-file-text fa-lg">
             		</i> Generate
           		</a>
               </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
-                <select name = "entity">
+                <select name = "entity" style="height:30px;">
                   <option value="">Choose Status
                   </option> 
                   <?php 
