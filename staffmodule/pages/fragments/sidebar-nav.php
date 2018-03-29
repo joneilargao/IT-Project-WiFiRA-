@@ -2,11 +2,12 @@
 /**
 * sidebar-nav.php
 *
-* Side navigation bar of the page
+* The side navigation bar of the page
 * 
 * @author Darren Sison
 * @author Katherine Turqueza
 * @author Maureen Calpito
+* @author Apollo Mina
 */
 require_once 'connection.php'; 
 $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
