@@ -1,5 +1,10 @@
 <?php
 /**
+* yearly-sales.php
+*
+* This code shows the yearly sales report of the vouchers.
+* 
+* @author Darren Sison
 */
 require '../classes/UserAccount.php';
 ?>

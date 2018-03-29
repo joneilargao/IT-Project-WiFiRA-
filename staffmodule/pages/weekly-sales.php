@@ -1,5 +1,10 @@
 <?php
 /**
+* weekly-sales.php
+*
+* This code shows the weekly sales report of the vouchers.
+* 
+* @author Darren Sison
 */
 require '../classes/UserAccount.php';
 ?>
