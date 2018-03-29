@@ -29,9 +29,9 @@ $print = $query->fetch();
         </a>
     
         <!--Sales-->
-        <button class="dropdown-btn">
+        <a href=sales.php>
             <i class="fa fa-ticket"></i>  Sales 
-        </button>
+        </a>
         <div class="dropdown-container">
             <a  href="sales-daily.php">Daily</a>
             <a  href="sales-weekly.php">Weekly</a>
@@ -85,6 +85,7 @@ $print = $query->fetch();
   left: 0;
   background-color: #111;
   overflow-x: hidden;
+  padding-bottom: 8%;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -117,6 +118,10 @@ $print = $query->fetch();
   color: #818181;
   padding-left: 30px;
 }
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Make the scrollbar invisible */
 
 /** End of Side Navigation **/
 </style>
