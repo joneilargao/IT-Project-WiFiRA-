@@ -4,7 +4,7 @@
 *
 * This code shows the yearly sales report of the vouchers.
 * 
-* @author Darren Sison
+* @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>

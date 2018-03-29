@@ -1,5 +1,10 @@
 <?php
 /**
+* monthly-sales.php
+*
+* This code shows the monthly sales report of the vouchers.
+* 
+* @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
