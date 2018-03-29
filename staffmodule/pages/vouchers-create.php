@@ -5,6 +5,7 @@
 * Create vouchers
 * 
 * @author Darren Sison
+* @author Apollo Mina
 */
     require '../classes/UserAccount.php';
     session_start();
@@ -14,7 +15,7 @@
 <html lang="en">
 
 <head>
-      <title>WiFiRA ISP</title><meta charset="UTF-8" />
+      <title>WiFiRA WISP</title><meta charset="UTF-8" />
 
       <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
       <link rel="stylesheet" type="text/css" href="pages/assets/css/style2.css"/>
@@ -60,7 +61,7 @@
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: Palatino;">Create Voucher</legend>
+                            <legend style = "font-family: Palatino; color:#000000">Create Voucher</legend>
                               
                               
                               <div class="form-group">
