@@ -42,21 +42,12 @@ $user_id = $user->getAccountId();
       <?php include 'fragments/sidebar-nav.php'; ?>
       <!-- /. NAV SIDE  -->
       <div id="page-wrapper" >
-        <div id="page-inner">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162;">Dashboard
-              </h1>
-              <h4 style = "font-family: Jazz LET, fantasy; color:#4A8162;">Welcome    
-                <?php  
-echo  $_SESSION["username"];
-?> 
-              </h4>
-            </div>
-          </div>              
-          <!-- /. ROW  -->
-          <hr/> 
-          <div class="row" style = "font-family: special elite; color:#0F4D2A;">    
+        <div id="page-inner"> 
+        <div class="col-md-12">
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
+               </div>             
+          <div class="row" style = "font-family: special elite; color:#0F4D2A;">   
+
             <div class="col-md-3 col-sm-6 col-xs-6" >           
               <div class="alert alert-success">
                 <div class="text-box">
@@ -202,24 +193,25 @@ echo count($result);
         </div>
         <div class="text-box" >
           <h4 align="left">
-           <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Daily</a>
-            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Weekly</a>
-            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Monthly</a>
-            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Yearly</a>
+            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px; float:left; margin:10px;" />Daily</a>
+            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Weekly</a>
+            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Monthly</a>
+            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Yearly</a>
             <br>
             <br>
           </h4>
-          <div id="chart-container">
-            <canvas id="mycanvas">
-            </canvas>
-          </div>
-          <script type="text/javascript" src="jscript/jquery.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/Chart.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/app-daily.js">
-          </script>
-        </div>
+            <div id="containerChart" style=" width:60%; height:50%; position:center; background:#ffffff;  float:left; margin-left:175px; ">
+              <div id="chart-container">
+                <canvas id="mycanvas">
+                </canvas>
+              </div>
+              <script type="text/javascript" src="jscript/jquery.min.js">
+              </script>
+              <script type="text/javascript" src="jscript/Chart.min.js">
+              </script>
+              <script type="text/javascript" src="jscript/app-daily.js">
+              </script>
+            </div>
       </div>
     </div>
     </div>

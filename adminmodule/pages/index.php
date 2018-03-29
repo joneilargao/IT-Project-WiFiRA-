@@ -32,8 +32,8 @@ include_once 'fragments/connection.php';
 include 'fragments/head.php';
 
 ?>
-  <body id="index">
-    <?php 
+
+      <?php 
 session_start();
 function echoActiveClassIfRequestMatches($requestUri)
 {
@@ -50,8 +50,12 @@ $user_id = $user->getAccountId();
       <?php include 'fragments/sidebar-nav.php'; ?>
       <!-- /. NAV SIDE  -->
       <div id="page-wrapper" >
-        <div id="page-inner">             
-          <div class="row" style = "font-family: special elite; color:#0F4D2A;">    
+        <div id="page-inner"> 
+        <div class="col-md-12">
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
+               </div>             
+          <div class="row" style = "font-family: special elite; color:#0F4D2A;">   
+
             <div class="col-md-3 col-sm-6 col-xs-6" >           
               <div class="alert alert-success">
                 <div class="text-box">
@@ -107,7 +111,7 @@ echo count($result);
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;
                           </button>
-                          <h2 style = "font-family: Palatino; class="modal-title">Print Voucher
+                          <h2 style = "font-family: Palatino;" class=" modal-title">Print Voucher
                           </h2>
                           <form class="form-horizontal" action="" method="post">
                           <fieldset>
@@ -115,14 +119,14 @@ echo count($result);
                               
                               
                               <div class="form-group">
-                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">No. of Voucher</label>
+                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
                               <div class="col-lg-10">
                                 <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
                               </div>
                               </div> 
                               
                              <div class="form-group">
-                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Quota </label>
+                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Quota </label>
                               <div class="col-lg-10">
                               <select class="form-control" name="voucher_quota">
                                     <option value="1">One time</option>
@@ -163,8 +167,8 @@ echo count($result);
                   </div>
                 </a>
             </div>
-            <br>
-            <div class="col-md-3 col-sm-6 col-xs-6"> 
+            
+            <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
               <div class="text-box" >
                 <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2">
                   <strong>Add Kiosk
@@ -236,23 +240,25 @@ echo count($result);
         </div>
         <div class="text-box" >
           <h4 align="left">
-            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Daily</a>
-            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Weekly</a>
-            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Monthly</a>
-            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Yearly</a>
+            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px; float:left; margin:10px;" />Daily</a>
+            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Weekly</a>
+            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Monthly</a>
+            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Yearly</a>
             <br>
             <br>
           </h4>
-          <div id="chart-container">
-            <canvas id="mycanvas">
-            </canvas>
-          </div>
-          <script type="text/javascript" src="jscript/jquery.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/Chart.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/app.js">
-          </script>
+            <div id="containerChart" style=" width:60%; height:50%; position:center; background:#ffffff;  float:left; margin-left:175px; ">
+              <div id="chart-container">
+                <canvas id="mycanvas">
+                </canvas>
+              </div>
+              <script type="text/javascript" src="jscript/jquery.min.js">
+              </script>
+              <script type="text/javascript" src="jscript/Chart.min.js">
+              </script>
+              <script type="text/javascript" src="jscript/app.js">
+              </script>
+            </div>
         </div>
       </div>
     </div>
