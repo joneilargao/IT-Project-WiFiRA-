@@ -40,7 +40,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Sales
+              <h1 style = "font-family: Palatino; color:#000000">Weekly Sales
               </h1>
                 <form action="search-voucher-weekly.php" method="get" >
 

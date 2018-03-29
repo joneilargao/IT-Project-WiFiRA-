@@ -41,7 +41,7 @@ require '../classes/UserAccount.php';
 
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Manage Kiosks
+              <h1 style = "font-family: Palatino; color:#000000">Manage Kiosks
               </h1>
               <form id="search-form" name="search" action="kiosk-entity.php" method="get">
                 <select name = "entity">
