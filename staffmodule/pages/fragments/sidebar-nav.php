@@ -48,15 +48,6 @@ $print = $query->fetch();
             <a  href="vouchers-create.php">Create Voucher</a>
         </div>
             
-        <!--Kiosks Dropdown-->
-        <button class="dropdown-btn">
-            <i class="fa fa-barcode"></i>  Kiosks 
-        </button>
-        <div class="dropdown-container">
-            <a  href="kiosk-manage.php">Manage Kiosks</a>
-            <a  href="kiosk-add.php">Add Kiosk</a>
-        </div>
-            
             
         <!--Accounts Dropdown-->   
         <button class="dropdown-btn">
@@ -64,9 +55,7 @@ $print = $query->fetch();
         </button>
         <div class="dropdown-container">
             <a  href="view-profile.php">View Profile</a>
-            <a  href="view-staff-profile.php">Manage Staff Accounts</a>
             <a href="edit-profile.php">Edit Profile</a>
-            <a href="user-add-account.php">Add Account</a>
         </div>
       </div>
     </nav>
