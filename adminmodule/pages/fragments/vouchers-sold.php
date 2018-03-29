@@ -11,15 +11,15 @@ include 'connection.php';
 
 $id=$_GET['id'];
 
-$query = $pdo->prepare("UPDATE vouchers SET voucherStatus='Sold' WHERE voucherId=$id");
+$query = $pdo->prepare("UPDATE vouchers SET voucherStatus='Unsold' WHERE voucherId=$id");
 $query->execute();
 
 if($query){
         echo '<script type="text/javascript">
-              alert("Voucher declared as Sold!");
-              location="../vouchers-unsold.php";
+              alert("Voucher declared as Unsold!");
+              location="../vouchers-sold.php";
               </script>';
     } else {
-        echo '<script>alert("Voucher Sold Failed.")</script>';
+        echo '<script>alert("Voucher Unsold Failed.")</script>';
     }
 ?>
