@@ -1,15 +1,12 @@
+<!DOCTYPE html>
 <?php
 /**
-* accounts-entity.php
-*
-* Selects accounts with specified address
+* This page selects accounts with specified address.
 * 
-* @author Darren Sison
+* @author Cyrene Dispo
 */ 
 require '../classes/UserAccount.php';
 ?>
-<!DOCTYPE html>
-
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
@@ -41,10 +38,10 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Manage Staff Accounts
+              <h1 style = "font-family: special elite; color:#000000">Manage Staff Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity" style="height:35px;">
+                <select name = "entity">
                   <option value="">Choose Address
                   </option> 
 				  <!-- /. Selects all enabled accounts from the database -->
@@ -66,8 +63,14 @@ echo "<option>" . $user['address'] . "</option>";
                 <a class="btn btn-danger" href="#">
                   <i class="fa fa-trash-o fa-lg">
                   </i> Delete
-                </a>             
-               </div>    
+                </a>
+                <form action="">
+                  <a class="btn btn-info" name="archive" value="archive" onclick="archive()" >
+                    <i class="fa fa-archive fa-lg">
+                    </i> Archive 
+                  </a>
+                </form>
+                </div>    
             </div>
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
@@ -118,12 +121,22 @@ for($i=0; $row = $result->fetch(); $i++){
                       <?php echo $row['password']; ?>
                     </td>
                   </tr>
-                 
+                  <?php
+                  include 'fragments/connection.php';
+
+if(isset($_POST['archiveAccount'])){
+
+    $archivequery = $pdo->prepare(" UPDATE visibility SET visibility = 'Hidden' WHERE username=$username ");
+
+}
+}
+?>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+      
       </body>
     </html>    
