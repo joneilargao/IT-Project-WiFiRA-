@@ -139,45 +139,7 @@ $print = $query->fetch();
               </a>
             </li>
           </ul>
-            
         </li>
-          <li>
-          <a href="#">
-            <i class="glyphicon glyphicon-list-alt" >
-            </i> Sales Report
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="daily-sales.php">
-                <i class="fa fa-calendar-o">
-                </i> Daily
-              </a>
-            </li>
-            <li>
-              <a  href="weekly-sales.php">
-                <i class="fa fa-calendar">
-                </i>Weekly
-              </a>
-            </li>
-            <li>
-              <a href="monthly-sales.php">
-                <i class="fa fa-calendar">
-                </i> Monthly
-              </a>
-            </li>
-            <li>
-              <a href="yearly-sales.php">
-                <i class="fa fa-calendar">
-                </i>Yearly
-              </a>
-            </li>
-          </ul>
-            
-        </li>
-        <li>
-        </li>			
       </ul>
     </div>
   </nav> 
