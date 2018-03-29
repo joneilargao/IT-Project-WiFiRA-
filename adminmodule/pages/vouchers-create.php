@@ -66,7 +66,7 @@
                               <div class="form-group">
                               <label for="voucher_count" class="col-lg-2 control-label" style = "font-size: 110%;">No. of Voucher</label>
                               <div class="col-lg-10">
-                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
+                                <input type="number" min="1" max="99" maxlength="2" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
                               </div>
                               </div> 
                               
@@ -94,7 +94,7 @@
                             <div class="form-group">
                               <label for="voucher_note" class="col-lg-2 control-label" style = "font-size: 110%;">Notes</label>
                               <div class="col-lg-10">
-                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
+                                <input type="text" maxlength="50" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
                               

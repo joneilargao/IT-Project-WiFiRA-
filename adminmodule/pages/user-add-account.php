@@ -120,28 +120,28 @@ $profileqry = $qry->fetch();
                   <label for="inputname" class="col-lg-2 control-label" style = "font-size: 110%;">Name
                   </label>
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" maxlength="45" class="form-control" name="name">
                   </div>
                 </div> 
                 <div class="form-group">
                   <label for="inputUsername" class="col-lg-2 control-label" style = "font-size: 110%;">Username 
                   </label>
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" name="username">
+                    <input type="text" maxlength="15" class="form-control" name="username">
                   </div>
                 </div>    
                 <div class="form-group">
                   <label for="address" class="col-lg-2 control-label" style = "font-size: 110%;">Address
                   </label>
                   <div class="col-lg-10">
-                    <input type="text" class="form-control" name="address">
+                    <input type="text" maxlength="50" class="form-control" name="address">
                   </div>
                 </div>  
                 <div class="form-group">
                   <label for="password" class="col-lg-2 control-label" style = "font-size: 110%;">Password
                   </label>
                   <div class="col-lg-10">
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" maxlength="20" class="form-control" name="password">
                   </div>
                 </div>
                 

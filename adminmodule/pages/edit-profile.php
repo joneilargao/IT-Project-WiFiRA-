@@ -125,35 +125,35 @@
                              <div class="form-group">
                               <label for="inputname" class="col-lg-2 control-label" style = "font-family: verdana; font-size: 110%;">Name</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
+                                <input type="text" maxlength="45" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
                               </div>
                               </div>     
 
                             <div class="form-group">
                               <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Username</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
+                                <input type="text" min="10" maxlength="20" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
                               </div>
                             </div>  
                               
                             <div class="form-group">
                               <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Address</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
+                                <input type="text" maxlength="50" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
                               </div>
                               </div>
 
                             <div class="form-group">
                               <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Password</label>
                               <div class="col-lg-10">
-                                <input type="password" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
+                                <input type="password" min="8" max="20" maxlength="20" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
                               </div>
                             </div>
 
                               <div class="form-group">
                                   <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Re-enter Password</label>
                                   <div class="col-lg-10">
-                                      <input type="password" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
+                                      <input type="password" min="8" max="20" maxlength="20" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
                                   </div>
                             </div>
                             

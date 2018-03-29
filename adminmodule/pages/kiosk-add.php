@@ -79,12 +79,12 @@ echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</d
 }
 ?>
                 <div class="form-group">
-                  <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                  <input type="text" maxlength="30" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
                 </div>
                 <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                      <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                      <input type="text" maxlength="50" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
