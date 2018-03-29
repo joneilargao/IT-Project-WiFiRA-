@@ -195,5 +195,49 @@ input:checked + .slider .disable .unsold
   font-family: Verdana, sans-serif;
 }
 
+/** Side Navigation **/
+      
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 2;
+  top: 1;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+}
 
-  
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: green;
+  background-color: green;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  font-size: 15px;
+}
+    
+.dropdown-container a:hover {
+  color: white;  
+}
+
+/* Dropdown container */
+.dropdown-container a{
+  display: block;
+  background-color: #262626;
+  color: #818181;
+  padding-left: 30px;
+}
+
+/** End of Side Navigation **/
