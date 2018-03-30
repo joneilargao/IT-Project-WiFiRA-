@@ -135,6 +135,20 @@
                                 <input type="text" maxlength="50" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
                               </div>
                               </div>
+                              
+                              <div class="form-group">
+                              <label for="inputContactNumber" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Contact Number</label>
+                              <div class="col-lg-10">
+                                <input type="number" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['contactNumber'] ?>">
+                              </div>
+                              </div>
+                              
+                              <div class="form-group">
+                              <label for="inputEmailAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Email Address</label>
+                              <div class="col-lg-10">
+                                <input type="email" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['emailAddress'] ?>">
+                              </div>
+                              </div>
 
                             <div class="form-group">
                               <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Password</label>
