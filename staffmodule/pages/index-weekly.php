@@ -5,6 +5,7 @@
 * Shows the weekly sales for the graph
 * 
 * @author Joneil Argao
+* @author Apollo Mina
 */
 require '../classes/UserAccount.php';
 ?>

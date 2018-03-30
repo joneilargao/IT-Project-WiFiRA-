@@ -5,6 +5,7 @@
 * Shows the monthly sales for the graph
 * 
 * @author Joneil Argao
+* @author Apollo Mina
 */
 require '../classes/UserAccount.php';
 ?>

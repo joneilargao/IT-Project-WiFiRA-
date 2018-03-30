@@ -5,6 +5,7 @@
 * Shows the yearly sales for the grap
 * 
 * @author Joneil Argao
+* @author Apollo Mina
 */
 require '../classes/UserAccount.php';
 ?>
