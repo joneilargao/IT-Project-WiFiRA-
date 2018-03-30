@@ -32,6 +32,7 @@ include_once 'fragments/connection.php';
 include 'fragments/head.php';
 
 ?>
+<body>
 
       <?php 
 session_start();
@@ -49,123 +50,120 @@ $user_id = $user->getAccountId();
       <!-- /. NAV TOP  -->
       <?php include 'fragments/sidebar-nav.php'; ?>
       <!-- /. NAV SIDE  -->
-      <div id="page-wrapper" >
-        <div id="page-inner"> 
-        <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
-               </div>             
-          <div class="row" style = "font-family: special elite; color:#0F4D2A;">   
-
-            <div class="col-md-3 col-sm-6 col-xs-6" >           
-              <div class="alert alert-success">
-                <div class="text-box">
-                  <h4 align="center">
-                    <i class="fa fa-tags fa-2x pull-left">
-                    </i>
-                    <strong>
-                      <!-- /. Displays the number of vouches sold -->
-                      <?php
-$datenow = date("Y-m");
-require_once 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' ");
-$query->execute();
-$result = $query->fetchAll();
-echo count($result);                                          
-?> Vouchers Sold Today
-                    </strong>
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">      
-              <div class="alert alert-success">
-                <div class="text-box"  >
-                  <h4 align="center">
-                    <i class="fa fa-barcode fa-2x pull-left">
-                    </i>
-                    <strong>
-                      <!-- /. Displays the number of kiosk enabled -->
-                      <?php
-$datenow = date("Y-m");
-require_once 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
-$query->execute();
-$result = $query->fetchAll();
-echo count($result);                                          
-?> Kiosks Enabled
-                    </strong>
-                  </h4>
-                </div>
-              </div>
-            </div>
+      	<div id="page-wrapper" >
+        	<div id="page-inner"> 
+        		<div class="col-md-12">
+              		<h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
+               	</div>             
+          		<div class="row" style = "font-family: special elite; color:#0F4D2A;">   
+					<div class="col-md-3 col-sm-6 col-xs-6" >           
+              			<div class="alert alert-success">
+                			<div class="text-box">
+                  				<h4 align="center">
+                    				<i class="fa fa-tags fa-2x pull-left"></i>
+                    					<strong>
+                      					<!-- /. Displays the number of vouches sold -->
+					                      	<?php
+												$datenow = date("Y-m");
+												require_once 'fragments/connection.php';
+												$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' ");
+												$query->execute();
+												$result = $query->fetchAll();
+												echo count($result);                                          
+											?> Vouchers Sold Today
+                    					</strong>
+                 				 </h4>
+                			</div>
+              			</div>
+            		</div>
+            	<div class="col-md-3 col-sm-6 col-xs-6">      
+              		<div class="alert alert-success">
+                		<div class="text-box"  >
+                  			<h4 align="center">
+                    			<i class="fa fa-barcode fa-2x pull-left"></i>
+                    				<strong>
+                      				<!-- /. Displays the number of kiosk enabled -->
+                      					<?php
+											$datenow = date("Y-m");
+											require_once 'fragments/connection.php';
+											$query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
+											$query->execute();
+											$result = $query->fetchAll();
+											echo count($result);                                          
+										?> Kiosks Enabled
+                    				</strong>
+                  			</h4>
+                		</div>
+              		</div>
+            	</div>
             <div class="col-md-3 col-sm-6 col-xs-6"> 
-              <div class="text-box" >
-                <h4 align="center">
-                  <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;
-                          </button>
-                          <h2 style = "font-family: Palatino;" class=" modal-title">Print Voucher
-                          </h2>
-                          <form class="form-horizontal" action="" method="post">
-                          <fieldset>
-                            <legend style = "font-family: Palatino;">Create Voucher</legend>
-                              
-                              
-                              <div class="form-group">
-                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
-                              <div class="col-lg-10">
-                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
-                              </div>
-                              </div> 
-                              
-                             <div class="form-group">
-                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Quota </label>
-                              <div class="col-lg-10">
-                              <select class="form-control" name="voucher_quota">
-                                    <option value="1">One time</option>
-                                    <option value="0">Multi use</option>
-                              </select>
-                              </div>
-                            </div>    
-                                  
+              	<div class="text-box" >
+                	<h4 align="center">
+	                  	<button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher
+	                  	</button>
+                  		<!-- Modal -->
+                  		<div class="modal fade" id="myModal" role="dialog">
+                    		<div class="modal-dialog">
+                      		<!-- Modal content-->
+                      			<div class="modal-content">
+	                        		<div class="modal-header">
+	                          			<button type="button" class="close" data-dismiss="modal">&times;
+                          				</button>
+                          				<h2 style = "font-family: Palatino;" class=" modal-title">Print Voucher
+                          				</h2>
+                          				<form class="form-horizontal" action="" method="post">
+                          					<fieldset>
+		                            			<legend style = "font-family: Palatino;">Create Voucher</legend>
+		                              
+		                              
+		                              			<div class="form-group">
+		                              				<label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
+		                              					<div class="col-lg-10">
+		                               						 <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
+		                              					</div>
+		                              			</div> 
+		                              
+		                             			<div class="form-group">
+		                              				<label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Quota </label>
+		                              						<div class="col-lg-10">
+		                              							<select class="form-control" name="voucher_quota">
+		                                    						<option value="1">One time</option>
+		                                    						<option value="0">Multi use</option>
+		                              							</select>
+		                              						</div>
+		                            			</div>    
+		                                  
 
-                            <div class="form-group">
-                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Expiration Time</label>
-                              <div class="col-lg-10">
-                              <select class="form-control" name="voucher_expiration">
-                                    <option value="120">2 Hours</option>
-                                    <option value="1440">24 Hours</option>
-                              </select>
-                              </div>
-                            </div>  
-                            
-                            <div class="form-group">
-                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
-                              <div class="col-lg-10">
-                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
-                              </div>
-                            </div>
-                  
-                                <div class="form-group">
-                                  <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
-                                  </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </div>
-                      </div>
-                    </div>
+		                            			<div class="form-group">
+		                              				<label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Expiration Time</label>
+		                              				<div class="col-lg-10">
+		                              					<select class="form-control" name="voucher_expiration">
+						                                    <option value="120">2 Hours</option>
+						                                    <option value="1440">24 Hours</option>
+						                              </select>
+					                              	</div>
+					                            </div>  
+		                            
+		                            			<div class="form-group">
+		                              				<label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
+		                              				<div class="col-lg-10">
+		                                				<input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
+		                              				</div>
+		                            			</div>
+		                  
+		                                		<div class="form-group">
+		                                  			<div class="col-lg-10 col-lg-offset-2">
+		                                    			<button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+		                                  			</div>
+		                                		</div>
+	                            			</fieldset>
+                        				</form>
+                        			</div>
+                      			</div>
+                    		</div>
+                    	</div>
                     </h4>
-                  </div>
-                </a>
+                </div>
             </div>
             
             <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
