@@ -48,8 +48,9 @@ $password = $_POST['inputPassword'];
 $rePassword = $_POST['inputRePassword'];
 $address = $_POST['inputAddress'];
 $name = $_POST['inputname'];
-//$selfinfo = $_POST['selfinfo'];
-//$yearexp = $_POST['inputExp'];
+$emailAddress = $_POST['inputEmailAddress'];
+$contactNumber = $_POST['inputContactNumber'];
+
 include "fragments/connection.php";
 if($password == $rePassword && $password != ''){
 $updateWithPass = "update user_account set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
@@ -136,7 +137,21 @@ $profileqry = $qry->fetch();
                   <div class="col-lg-10">
                     <input type="text" maxlength="50" class="form-control" name="address">
                   </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputContactNumber" class="col-lg-2 control-label" style = "font-size: 110%;">Contact Number
+                  </label>
+                  <div class="col-lg-10">
+                    <input type="number" max="99999999999" maxlength="11" class="form-control" name="contactNumber">
+                  </div>
                 </div>  
+                <div class="form-group">
+                  <label for="inputEmailAddress" class="col-lg-2 control-label" style = "font-size: 110%;">Email Address
+                  </label>
+                  <div class="col-lg-10">
+                    <input type="email" maxlength="50" class="form-control" name="emailAddress">
+                  </div>
+                </div> 
                 <div class="form-group">
                   <label for="password" class="col-lg-2 control-label" style = "font-size: 110%;">Password
                   </label>
@@ -163,7 +178,7 @@ $name = $_POST['name'];
 $address = $_POST['address'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', NULL)";
+$query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image, visibility, contactNumber, emailAddress) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', NULL, 'Visible', '$contactNumber', '$emailAddress')";
 $insert = $db->query($query);
 if($insert){
 echo '<script type="text/javascript">
@@ -190,8 +205,10 @@ var a=document.forms["reg"]["roleId"].value;
 var b=document.forms["reg"]["name"].value;
 var c=document.forms["reg"]["username"].value;
 var d=document.forms["reg"]["address"].value;
-var e=document.forms["reg"]["password"].value;
-if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d=="") && (e==null || e==""))
+var e=document.forms["reg"]["contactNumber"].value;
+var f=document.forms["reg"]["emailAddress"].value;
+var g=document.forms["reg"]["password"].value;
+if ((a==null || a=="") && (b==null || b=="") && (c==null || c=="") && (d==null || d=="") && (e==null || e=="") && (f==null || f=="") && (g==null || g=="") )
   {
   alert("All Field must be filled out");
   return false;
@@ -217,6 +234,16 @@ if (d==null || d=="")
   return false;
   }
 if (e==null || e=="")
+  {
+  alert("Password must be filled out");
+  return false;
+  }
+if (f==null || f=="")
+  {
+  alert("Email Address must be filled out");
+  return false;
+  }
+if (g==null || g=="")
   {
   alert("Password must be filled out");
   return false;
