@@ -43,33 +43,44 @@ echo 'class="active-menu"';
             <div class="container" >
               <div class="panel panel-info">
                 <?php 
-$user = $_SESSION["userAccount"];
-$user_id = $user->getAccountId();
-$qry = $pdo->prepare("SELECT accountNo, name as Name, username, address, image from accounts where accounts.accountNo = '$user_id'");
-$qry->execute();
-$profileqry = $qry->fetch();   
-echo '<div class="panel-heading">
-<h3 class="panel-title" style = "font-family: salsa;">' . $profileqry['Name'] . '</h3>
-</div>
-<div class="panel-body">
-<div class="row">
-<div class="col-md-3 col-lg-3 " align="center"> '; 
-echo '<img class="profile_pic" style="width:100%;" src="data:image/jpeg;base64,'.base64_encode($profileqry['image']).'"/>';
-echo "</div>
-<div class='col-md-9 col-lg-9'> 
-<table class='table table-user-information'>
-<tbody>
-<tr>
-<td>Username:</td>
-<td>" .  $profileqry['username']  ."</td>
-</tr>
-<tr>
-<td>Address:</td>
-<td>" . $profileqry['address'] . "</td>
-</tr>
-</tbody>
-</table>";
-?>
+                $user = $_SESSION["userAccount"];
+                $user_id = $user->getAccountId();
+                $qry = $pdo->prepare("SELECT accountNo, name as Name, username, address, emailAddress, contactNumber, image from accounts where accounts.accountNo = '$user_id'");
+                $qry->execute();
+                $profileqry = $qry->fetch();   
+                echo '<div class="panel-heading">
+                <h3 class="panel-title" style = "font-family: salsa;">' . $profileqry['Name'] . '</h3>
+                </div>
+                <div class="panel-body">
+                <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> '; 
+                echo '<img class="profile_pic" style="width:100%;" src="data:image/jpeg;base64,'.base64_encode($profileqry['image']).'"/>';
+                echo "</div>
+                <div class='col-md-9 col-lg-9'> 
+                <table class='table table-user-information'>
+                    <tbody>
+                        <tr>
+                        <td>Username:</td>
+                        <td>" .  $profileqry['username']  ."</td>
+                        </tr>
+                        
+                        <tr>
+                        <td>Address:</td>
+                        <td>" . $profileqry['address'] . "</td>
+                        </tr>
+                        
+                        <tr>
+                        <td>Email Address:</td>
+                        <td>" . $profileqry['emailAddress'] . "</td>
+                        </tr>
+                        
+                        <tr>
+                        <td>Contact Number:</td>
+                        <td>" . $profileqry['contactNumber'] . "</td>
+                        </tr>
+                    </tbody>
+                </table>";
+                ?>
                 <!--<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> --> 
                 <a href="edit-profile.php" class="btn btn-primary">Edit Profile Info
                 </a>
