@@ -53,7 +53,7 @@ $user_id = $user->getAccountId();
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#4A8162;">Dashboard
+               <h1 style = "font-family: Georgia; color:#4A8162; font-size: 160%;">Dashboard
               </h1>
               <h4 style = "font-family: Jazz LET, fantasy; color:#4A8162;">Welcome    
                 <?php  
@@ -110,7 +110,7 @@ echo count($result);
             <div class="col-md-3 col-sm-6 col-xs-6"> 
               <div class="text-box" >
                 <h4 align="center">
-                  <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher
+                  <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal">Print Voucher
                   </button>
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">
@@ -177,8 +177,8 @@ echo count($result);
             <br>
             <div class="col-md-3 col-sm-6 col-xs-6"> 
               <div class="text-box" >
-                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2">
-                  <strong>Add Kiosk
+                <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal2">
+                   <strong>Add Kiosk
                   </strong>
                 </button>
                 <!-- Modal -->
@@ -188,7 +188,7 @@ echo count($result);
                     <div class="modal-content">
                       <button type="button" class="close" data-dismiss="modal">&times;
                       </button>
-                       <h2 style = "font-family: Georgia; color:#000000">Add Kiosk</h2>
+                       <h2 align= "center" style = "font-family: Georgia;  color:#000000">Add Kiosk</h2>
                         <?php
                         $user = $_SESSION["userAccount"];
                         $user_id = $user->getAccountId();
@@ -219,52 +219,69 @@ echo count($result);
                         echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
                         }
                 ?>
-                <div class="form-group">
-                  <input style = "font-family: Garamond; type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family:Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                        <div class="form-group">
+                          <input style = "font-family: Garamond; type="text" name="kioskname" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                        </div>
+                        <div class="form-group">
+                          <input style = "font-family: Garamond; type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <input style = "font-family: Garamond; type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button style = "font-family: Garamond; type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
+                          </button>
+                        </div>
+                        </div>
                     </div>
                   </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family: Garamond; type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
-                    </div>
-                  </div>
-                </div>
-                          <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <input style = "font-family: Garamond; type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
-                  </div>
-                </div>
-                    </div>
-                  </div>
-                </div>
+                  </h4>
               </div>
+              </a>
           </div>  
         </div>
         <div class="text-box" >
-          <h4 align="left">
-            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Daily</a>
-            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Weekly</a>
-            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Monthly</a>
-            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;"/>Yearly</a>
-            <br>
-            <br>
-          </h4>
-          <div id="chart-container">
-            <canvas id="mycanvas">
-            </canvas>
-          </div>
-          <script type="text/javascript" src="jscript/jquery.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/Chart.min.js">
-          </script>
-          <script type="text/javascript" src="jscript/app.js">
-          </script>
-        </div>
+          <div class="text-box" > 
+        	<div>
+	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
+		          	<form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
+		            	<a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  margin:10px;" />Daily</a>
+		            </form>
+
+		            <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Weekly</a>
+		        	</form>
+
+		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-monthly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Monthly</a>
+		        	</form>
+
+		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Yearly</a>
+		        	</form>
+		        </div>
+	          	
+	            <div id="containerChart" style=" width:85%; height:70%; position:center; background:#ffffff;  float:right; ">
+	              <div id="chart-container">
+	                <canvas id="mycanvas">
+	                </canvas>
+	              </div>
+	              <script type="text/javascript" src="jscript/jquery.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/Chart.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/app.js">
+	              </script>
+	            </div>
       </div>
     </div>
     </div>
