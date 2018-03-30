@@ -40,12 +40,10 @@ $print = $query->fetch();
         </div>
             
         <!--Vouchers-->
-        <button class="dropdown-btn">
-            <i class="fa fa-tachometer"></i>  Vouchers
-        </button>
+		<a href=vouchers.php>
+            <i class="fa fa-tachometer"></i>  Vouchers 
+        </a>
         <div class="dropdown-container">
-            <a  href="vouchers-sold.php">Sold Vouchers</a>
-            <a  href="vouchers-unsold.php">Unsold Vouchers</a>
             <a  href="vouchers-create.php">Create Voucher</a>
         </div>
             
