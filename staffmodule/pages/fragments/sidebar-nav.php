@@ -27,7 +27,7 @@ $print = $query->fetch();
             <i class="fa fa-tachometer"></i>  Dashboard
         </a>
     
-        <!--Sales Dropdown-->
+        <!--Sales-->
         <button class="dropdown-btn">
             <i class="fa fa-usd "></i>  Sales 
         </button>
@@ -38,18 +38,16 @@ $print = $query->fetch();
             <a  href="sales-yearly.php">Yearly</a>
         </div>
             
-        <!--Vouchers Dropdown-->
-        <button class="dropdown-btn">
-            <i class="fa fa-tachometer"></i>  Vouchers
-        </button>
+        <!--Vouchers-->
+        <a href=vouchers.php>
+            <i class="fa fa-tachometer"></i>  Vouchers 
+        </a>
         <div class="dropdown-container">
-            <a  href="vouchers-sold.php">Sold Vouchers</a>
-            <a  href="vouchers-unsold.php">Unsold Vouchers</a>
             <a  href="vouchers-create.php">Create Voucher</a>
         </div>
             
             
-        <!--Accounts Dropdown-->   
+        <!--Accounts-->   
         <button class="dropdown-btn">
             <i class="fa fa-user"></i>  Accounts 
         </button>
