@@ -1,4 +1,5 @@
 
+
 /*=============================================================
     Authour URI: www.binarycart.com
     License: Commons Attribution 3.0
@@ -32,6 +33,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:#fff!important;
     padding:10px;
+    min-height:1200px;
 }
 
 .text-center {
@@ -374,6 +376,5 @@ line-height: 1.428571429;
 }
    
 }
-
 
 
