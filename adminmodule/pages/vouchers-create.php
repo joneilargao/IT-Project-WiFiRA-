@@ -58,7 +58,7 @@
                         
                     ?> 
                     <div class="jumbotron">
-                        <form class="form-horizontal" action="" method="post">
+                        <form class="form-horizontal" action="" method="post" name="reg" onsubmit="return validateForm()">
                           <fieldset>
                             <legend style = "font-family: Palatino; color:#000000">Create Voucher</legend>
                               
@@ -123,3 +123,20 @@
     </body>
 
 </html>
+
+<script type="text/javascript">
+function validateForm()
+{
+var a=document.forms["reg"]["voucher_count"].value;
+if ((a==null || a==""))
+  {
+  alert("Number of vouchers must be filled out");
+  return false;
+  }
+if (a==null || a=="")
+  {
+  alert("Please enter the desired number of vouchers.");
+  return false;
+  }
+}
+</script>
