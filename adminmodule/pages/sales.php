@@ -12,13 +12,14 @@ require '../classes/UserAccount.php';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   </head>
   <?php
-include 'fragments/head.php';
-?>
+    include 'fragments/head.php';
+  ?>
   <body>
-    <?php
+<?php
 //Start your session
 session_start();
 
@@ -37,8 +38,9 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Sales
-              </h1>
+              
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sales</h1>
+             
               <form action="sales-search.php" method="get" style="height:35px;">
                 From : 
                 <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 

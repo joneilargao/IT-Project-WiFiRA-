@@ -14,9 +14,9 @@ $sessionUserAccount = $_SESSION["userAccount"];
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>WiFiRA ISP
-    </title>
+    <title>WiFiRA WISP</title>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="pages/assets/css/style2.css"/>
   </head>
@@ -96,15 +96,12 @@ $profileqry = $qry->fetch();
 ?> 
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Add Account
-              </h1>   
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Add Account</h1>  
             </div>    
           </div>
           <div class="jumbotron">
             <form name="reg" class="form-horizontal" action="" onsubmit="return validateForm()" method="post">
               <fieldset>
-                <legend style = "font-family: special elite;">New Account
-                </legend>
                 <div class="form-group">
                   <label for="roleId" class="col-lg-2 control-label" style = "font-size: 110%;">Account Type
                   </label>

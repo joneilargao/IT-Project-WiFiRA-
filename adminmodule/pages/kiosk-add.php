@@ -14,13 +14,14 @@ $sessionUserAccount = $_SESSION["userAccount"];
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     <?php   
-include_once 'fragments/connection.php';  
-?>
+    include_once 'fragments/connection.php';  
+    ?>
   </head>
   <?php
-include 'fragments/head.php';
-?>
+    include 'fragments/head.php';
+   ?>
   <body>
     <?php
 
@@ -39,76 +40,81 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <?php
-$user = $_SESSION["userAccount"];
-$user_id = $user->getAccountId();
-$qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
-$qry->execute();
-$profileqry = $qry->fetch();                                               
-?>  
+                $user = $_SESSION["userAccount"];
+                $user_id = $user->getAccountId();
+                $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
+                $qry->execute();
+                $profileqry = $qry->fetch();                                               
+              ?>  
 			  <!-- /. Registers kiosk machine and adds it to the database -->
               <?php
-if(! empty($_POST)){
-$mysqli = new mysqli('localhost', 'root', '', 'wifira');
-$kioskName = $_POST['kioskName'];
-$location = $_POST['location'];
-$ipAddress = $_POST['ipAddress'];
-$sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
-$insert = $mysqli->query($sql);
-if ( $insert ) {
-echo '<script type="text/javascript">
-              alert("New Kiosk Added Successfully!");
-              location="../pages/kiosk-manage.php";
-              </script>';
-} else {
-die ("Error: {$mysqli->errno} : {$mysqli->error}");
-}
-$mysqli->close();
-}
-?>
-              <form name="reg" onsubmit="return validateForm()" role="form" method="post" action="" autocomplete="off">
+                    if(! empty($_POST)){
+                    $mysqli = new mysqli('localhost', 'root', '', 'wifira');
+                    $kioskName = $_POST['kioskName'];
+                    $location = $_POST['location'];
+                    $ipAddress = $_POST['ipAddress'];
+                    $sql = "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                    $insert = $mysqli->query($sql);
+                    if ( $insert ) {
+                    echo '<script type="text/javascript">
+                                  alert("New Kiosk Added Successfully!");
+                                  location="../pages/kiosk-manage.php";
+                                  </script>';
+                    } else {
+                    die ("Error: {$mysqli->errno} : {$mysqli->error}");
+                    }
+                    $mysqli->close();
+                    }
+                ?>
+                
+                
                 <?php
-if(isset($errMsg)){
-echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
-}
-?>
+                    if(isset($errMsg)){
+                    echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+                    }
+                ?>
                 <fieldset>
-                          <legend><h2 style = "font-family: Georgia; color:#000000; margin-top:20px; padding-left:20px; padding-right:20px;" align="left">Add Kiosk</h2></legend>
-                          
-                          <form role="form" method="post" action="" autocomplete="off">
-
+                    
+                    <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Add Kiosk</h1>
+                    
+                    <div class="jumbotron">
+                    <form name="reg" onsubmit="return validateForm()" role="form" method="post" action="" autocomplete="off">
                           <?php
                               if(isset($errMsg)){
                                   echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
                                   }
                           ?>
                           <div class="form-group" style="margin-top:10px;padding-left:20px;padding-right:20px;">
-                            <input style = "font-family: Garamond;" type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                            <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
                           </div>
                           <div class="row" >
                             <div class="col-xs-6 col-sm-6 col-md-6" >
                               <div class="form-group" style="padding-left:20px;padding-right:20px;">
-                                <input style = "font-family: Garamond;" type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
                               </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6" >
                               <div class="form-group" style="padding-right:20px;">
-                                <input style = "font-family: Garamond;" type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                                <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
                               </div>
                             </div>
                           </div>
                           <div class="row" style="padding-left:20px; padding-right:20px;">
                             <div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:20px; padding-right:20px;" >
-                              <input style = "font-family: Garamond;" type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                              <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
                             </div>
                           </div>
-              </form>
-            </div>
-          </div>
+                    </form>
+                </div>
+                </fieldset>
+          
+                </div>
+              </div>
+              </div>
         </div>
       </div>
-      </div>
       </body>
-    </html>
+</html>
 
 <script type="text/javascript">
 function validateForm()

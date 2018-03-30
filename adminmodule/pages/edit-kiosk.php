@@ -13,7 +13,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     </head>
     <?php
         include 'fragments/head.php';
@@ -24,12 +25,6 @@
 
         <?php
             //Start your session
-
-            if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-                echo "You are logged in as, " . $_SESSION['userAccount']->getUsername() . "!";
-            } else {
-                header("location: login.php");
-            }
             function echoActiveClassIfRequestMatches($requestUri){
                 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
                 if ($current_file_name == $requestUri)
