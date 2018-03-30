@@ -40,7 +40,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000"> Yearly Sales
+              <h1 style = "font-family: Palatino; color:#0C310D"> Yearly Sales
               </h1>
               <form id="search-form" name="search" action="" method="get">
                 <input id="search-input" name="search" type="text">

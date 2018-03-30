@@ -41,7 +41,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">WEEKLY SALES REPORT
+              <h1 style = "font-family: Palatino; color:#0C310D">WEEKLY SALES REPORT
               </h1>
             </div>    
           </div>

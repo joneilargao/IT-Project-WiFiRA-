@@ -61,7 +61,7 @@
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: Palatino; color:#000000">Create Voucher</legend>
+                            <legend style = "font-family: Palatino; color:#0C310D">Create Voucher</legend>
                               
                               
                               <div class="form-group">

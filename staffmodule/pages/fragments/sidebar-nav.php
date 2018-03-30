@@ -24,36 +24,43 @@ $print = $query->fetch();
     <div class="sidenav">
         
         <a href=index.php>
-            <i class="fa fa-tachometer"></i>  Dashboard
+            <i class="glyphicon glyphicon-stats"></i>  Dashboard
         </a>
     
         <!--Sales-->
         <button class="dropdown-btn">
-            <i class="fa fa-usd "></i>  Sales 
+            <i class="glyphicon glyphicon-shopping-cart"></i>  Sales 
         </button>
           <div class="dropdown-container">
-            <a  href="sales-daily.php">Daily</a>
-            <a  href="sales-weekly.php">Weekly</a>
-            <a  href="sales-monthly.php">Monthly</a>
-            <a  href="sales-yearly.php">Yearly</a>
+            <a  href="sales-daily.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Daily</a>
+            <a  href="sales-weekly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Weekly</a>
+            <a  href="sales-monthly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Monthly</a>
+            <a  href="sales-yearly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Yearly</a>
         </div>
             
         <!--Vouchers-->
         <a href=vouchers.php>
-            <i class="fa fa-tachometer"></i>  Vouchers 
+            <i class="glyphicon glyphicon-print"></i>  Vouchers 
         </a>
         <div class="dropdown-container">
-            <a  href="vouchers-create.php">Create Voucher</a>
+            <a  href="vouchers-create.php"><i class="glyphicon glyphicon-pencil text-success"></i>
+              Create Voucher</a>
         </div>
             
-            
+    
         <!--Accounts-->   
         <button class="dropdown-btn">
             <i class="fa fa-user"></i>  Accounts 
         </button>
         <div class="dropdown-container">
-            <a  href="view-profile.php">View Profile</a>
-            <a href="edit-profile.php">Edit Profile</a>
+            <a  href="view-profile.php"><i class="glyphicon glyphicon-eye-open text-success"></i>
+            View Profile</a>
+            <a href="edit-profile.php"><i class="glyphicon glyphicon-edit text-success"></i>
+            Edit Profile</a>
         </div>
       </div>
     </nav>
@@ -101,24 +108,6 @@ $print = $query->fetch();
   padding-left: 30px;
   padding-right: 30px;
 }
-</style>
-      
-<script>
-//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
 
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "block";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-}
-</script>
-      
+</style>  
 </html>

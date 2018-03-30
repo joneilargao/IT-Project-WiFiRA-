@@ -106,7 +106,7 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                        <h1 style = "font-family: Palatino; color:#000000">Edit Profile</h1>   
+                        <h1 style = "font-family: Palatino; color:#0C310D">Edit Profile</h1>   
                         </div>    
                     </div>
                         

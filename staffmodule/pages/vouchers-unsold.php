@@ -43,7 +43,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000"> Unsold Vouchers
+              <h1 style = "font-family: Palatino; color:#0C310D"> Unsold Vouchers
               </h1>
               <form action="search-voucher-unsold.php" method="get">
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" /> 
