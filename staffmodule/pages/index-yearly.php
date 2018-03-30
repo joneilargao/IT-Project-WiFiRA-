@@ -45,7 +45,7 @@ $user_id = $user->getAccountId();
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162;">Dashboard
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
               </h1>
               <h4 style = "font-family: Jazz LET, fantasy; color:#4A8162;">Welcome    
                 <?php  
