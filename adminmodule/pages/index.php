@@ -170,68 +170,73 @@ echo count($result);
             
             <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
               <div class="text-box" >
-                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2">
-                  <strong>Add Kiosk
-                  </strong>
+                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2" >
+                  <strong>Add Kiosk</strong>
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="myModal2" role="dialog">
-                  <div class="modal-dialog">
+                <div class="modal fade" id="myModal2" role="dialog" style="padding:20px;">
+                  <div class="modal-dialog" style="margin-top:20px;padding-left:20px;">
                     <!-- Modal content-->
                     <div class="modal-content">
-                      <button type="button" class="close" data-dismiss="modal">&times;
-                      </button>
-                       <h2 style = "font-family: Georgia; color:#000000">Add Kiosk</h2>
+                      <div class="modal-header">                    
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <fieldset>
+                          <legend><h2 style = "font-family: Georgia; color:#000000; margin-top:20px; padding-left:20px; padding-right:20px;" align="center">Add Kiosk</h2></legend>
+                          
+                          <form role="form" method="post" action="" autocomplete="off">
+
+                          <?php
+                              if(isset($errMsg)){
+                                  echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+                                  }
+                          ?>
+                          <div class="form-group" style="margin-top:10px;padding-left:20px;padding-right:20px;">
+                            <input style = "font-family: Garamond;" type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                          </div>
+                          <div class="row" >
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-left:20px;padding-right:20px;">
+                                <input style = "font-family: Garamond;" type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-right:20px;">
+                                <input style = "font-family: Garamond;" type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row" style="padding-left:20px; padding-right:20px;">
+                            <div class="form-group" style="padding-left:20px; padding-right:20px;" >
+                              <input style = "font-family: Garamond;" type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                            </div>
+                          </div>
                         <?php
-                        $user = $_SESSION["userAccount"];
-                        $user_id = $user->getAccountId();
-                        $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
-                        $qry->execute();
-                        $profileqry = $qry->fetch();                                               
-                        ?>  
-                                <!-- /. Registers kiosk machine and adds it to the database -->
-                                      <?php
-                        if(! empty($_POST)){
-                        $mysqli = new mysqli('localhost', 'root', '', 'wifira');
-                        $kioskName= $_POST['kioskName'];
-                        $location= $_POST['location'];
-                        $ipAddress= $_POST['ipAddress'];
-                        $sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
-                        $insert = $mysqli->query($sql);
-                        if ( $insert ) {
-                        echo "New Kiosk Added!";
-                        } else {
-                        die ("Error: {$mysqli->errno} : {$mysqli->error}");
-                        }
-                        $mysqli->close();
-                        }
-                        ?>
-                                      <form role="form" method="post" action="" autocomplete="off">
-                <?php
-                    if(isset($errMsg)){
-                        echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
-                        }
-                ?>
-                <div class="form-group">
-                  <input style = "font-family: Garamond; type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family: Garamond; type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
-                    </div>
-                  </div>
-                </div>
-                          <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <input style = "font-family: Garamond; type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
-                  </div>
-                </div>
+                          $user = $_SESSION["userAccount"];
+                          $user_id = $user->getAccountId();
+                          $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
+                          $qry->execute();
+                          $profileqry = $qry->fetch();                                               
+                          ?>  
+                                  <!-- /. Registers kiosk machine and adds it to the database -->
+                                        <?php
+                          if(! empty($_POST)){
+                          $mysqli = new mysqli('localhost', 'root', '', 'wifira');
+                          $kioskName= $_POST['kioskName'];
+                          $location= $_POST['location'];
+                          $ipAddress= $_POST['ipAddress'];
+                          $sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
+                          $insert = $mysqli->query($sql);
+                          if ( $insert ) {
+                          echo "New Kiosk Added!";
+                          } else {
+                          die ("Error: {$mysqli->errno} : {$mysqli->error}");
+                          }
+                          $mysqli->close();
+                          }
+                          ?>
+                        </fieldset>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
