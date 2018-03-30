@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">        
     </head>
 <?php
     include 'fragments/head.php';
@@ -25,13 +25,6 @@
            
 
            <?php
-            //Start your session
-
-            if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-                echo "You are logged in as, " . $_SESSION['userAccount']->getUsername() . "!";
-            } else {
-                header("location: login.php");
-            }
             function echoActiveClassIfRequestMatches($requestUri){
                 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
                 if ($current_file_name == $requestUri)
@@ -105,7 +98,7 @@
                         $user_id = $user->getAccountId();
                         
                         //QUERY THE ACCOUNT DATA
-                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, password FROM accounts WHERE accountNo = '$user_id'");
+                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, contactNumber, emailAddress, password FROM accounts WHERE accountNo = '$user_id'");
                         $qry->execute();
                         $profileqry = $qry->fetch(); 
                         
@@ -123,37 +116,51 @@
                             <legend style = "font-family: Helvetica;">Profile</legend>
 
                              <div class="form-group">
-                              <label for="inputname" class="col-lg-2 control-label" style = "font-family: verdana; font-size: 90%;">Name</label>
+                              <label for="inputname" class="col-lg-2 control-label" style = "font-family: verdana; font-size: 110%;">Name</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
+                                <input type="text" maxlength="45" class="form-control" name="inputname" value="<?php echo $profileqry['name'] ?>">
                               </div>
                               </div>     
 
                             <div class="form-group">
-                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Username</label>
+                              <label for="inputUsername" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Username</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
+                                <input type="text" min="10" maxlength="20" class="form-control" name="inputUsername" value="<?php echo $profileqry['username'] ?>">
                               </div>
                             </div>  
                               
                             <div class="form-group">
-                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Address</label>
+                              <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Address</label>
                               <div class="col-lg-10">
-                                <input type="text" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
+                                <input type="text" maxlength="50" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
+                              </div>
+                              </div>
+                              
+                              <div class="form-group">
+                              <label for="inputContactNumber" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Contact Number</label>
+                              <div class="col-lg-10">
+                                <input type="number" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['contactNumber'] ?>">
+                              </div>
+                              </div>
+                              
+                              <div class="form-group">
+                              <label for="inputEmailAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Email Address</label>
+                              <div class="col-lg-10">
+                                <input type="email" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['emailAddress'] ?>">
                               </div>
                               </div>
 
                             <div class="form-group">
-                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Password</label>
+                              <label for="inputPassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Password</label>
                               <div class="col-lg-10">
-                                <input type="password" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
+                                <input type="password" min="8" max="20" maxlength="20" class="form-control" name="inputPassword" value="<?php echo $profileqry['password'] ?>">
                               </div>
                             </div>
 
                               <div class="form-group">
-                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 90%;">Re-enter Password</label>
+                                  <label for="inputRePassword" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Re-enter Password</label>
                                   <div class="col-lg-10">
-                                      <input type="password" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
+                                      <input type="password" min="8" max="20" maxlength="20" class="form-control" name="inputRePassword" value="<?php echo $profileqry['password'] ?>">
                                   </div>
                             </div>
                             
