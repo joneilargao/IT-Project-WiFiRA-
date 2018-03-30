@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -48,12 +49,10 @@ echo 'class="active-menu"';
                 <input type="date" name="d1" class="tcal" value="" /> To: 
                 <input type="date" name="d2" class="tcal" value="" />
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (yyyy-mm-dd format)
               </form>
               <form action="search-voucher.php" method="get">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
               </form>
               <form action="sales-entity.php" method="get">
                 <select name="entity">

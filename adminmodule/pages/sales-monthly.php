@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -43,6 +44,10 @@ echo 'class="active-menu"';
 
                 <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
                 <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                 <a class="btn btn-primary" href="sales-monthly-total.php">
+            <i class="">
+            </i>Total Sales
+          </a>
               </form>               
               <form action="sales-monthly-entity.php" method="get">
                 <select name="entity" style="height:30px">
@@ -59,10 +64,7 @@ echo "<option>" . $user['name'] . "</option>";
 ?>
                 </select>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                <a class="btn btn-primary" href="sales-monthly-total.php">
-            <i class="">
-            </i>Total Sales
-          </a>
+               
               </form>
             </div>    
           </div>

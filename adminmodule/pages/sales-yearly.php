@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -43,6 +44,10 @@ echo 'class="active-menu"';
                 
                 <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/>
                 <input type="submit" value="Search"  class="btn btn-warning" value="Search" class="col s6" class='submit' style=" background-color:#686667; font-family:monospace; font-size:18px;">
+                <a class="btn btn-primary" href="sales-yearly-total.php">
+            <i class="">
+            </i>Total Sales
+          </a>
                 </form>            
               <form action="sales-yearly-entity.php" method="get">
                 <select name="entity" style="height:30px;">
@@ -70,10 +75,7 @@ include 'fragments/sales-query-yearly.php';
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="sales-yearly-total.php">
-            <i class="fa fa-plus-square fa-lg">
-            </i>Total
-          </a>
+          
         </div>
       </div>
     </div>

@@ -44,6 +44,10 @@ echo 'class="active-menu"';
 
                 <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
                 <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <a class="btn btn-primary" href="sales-daily-total.php">
+            <i class="">
+            </i>Total Sales
+          </a>
               </form>   
               <form action="sales-daily-entity.php" method="get">
                 <select name="entity" style="height:30px">
@@ -60,10 +64,7 @@ echo "<option>" . $user['name'] . "</option>";
 ?>
                 </select>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                <a class="btn btn-primary" href="sales-daily-total.php">
-            <i class="">
-            </i>Total Sales
-          </a>
+                
               </form>
             </div>    
           </div>

@@ -37,13 +37,18 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#000000">Yearly Sales
               </h1>
-              <form action="search-voucher-yearly.php" method="get" style="height:35px;">
+              <form action="search-voucher-yearly.php" method="get" ">
                 
-                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:35px;"/>
+                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/>
                 <input type="submit" value="Search"  class="btn btn-warning" value="Search" class="col s6" class='submit' style=" background-color:#686667; font-family:monospace; font-size:18px;">
+               
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg">
+            </i> Generate
+          </a>
                 </form>     
               <form action="sales-yearly-entity.php" method="get">
-                <select name="entity">
+                <select name="entity" style="height:30px;" >
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -118,14 +123,7 @@ for($i=0; $row = $result->fetch(); $i++){
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="#">
-            <i class="fa fa-plus-square fa-lg">
-            </i> Update Status
-          </a>
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg">
-            </i> Generate
-          </a>
+          
         </div>
       </div>
     </div>
