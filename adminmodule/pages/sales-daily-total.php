@@ -43,24 +43,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#000000">Total Daily Sales
               </h1>
               <form id="search-form" name="search" action="" method="get">
-                <input id="search-input" name="search" type="text">
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                <form action="sales-daily.php" method="get">
-                  <select name="user">
-                    <option value="">Choose Entity
-                    </option>
-                    <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kiosk machine`;");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
-                  </select>
-                </form>
-                </div>    
+            </div>    
             </div>
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">

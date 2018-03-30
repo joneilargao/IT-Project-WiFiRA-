@@ -38,8 +38,6 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Add Kiosk
-              </h1>
               <?php
 $user = $_SESSION["userAccount"];
 $user_id = $user->getAccountId();
@@ -73,26 +71,36 @@ if(isset($errMsg)){
 echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
 }
 ?>
-                <div class="form-group">
-                  <input type="text" maxlength="30" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input type="text" maxlength="50" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
-                  </div>
-                </div>
+                <fieldset>
+                          <legend><h2 style = "font-family: Georgia; color:#000000; margin-top:20px; padding-left:20px; padding-right:20px;" align="left">Add Kiosk</h2></legend>
+                          
+                          <form role="form" method="post" action="" autocomplete="off">
+
+                          <?php
+                              if(isset($errMsg)){
+                                  echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+                                  }
+                          ?>
+                          <div class="form-group" style="margin-top:10px;padding-left:20px;padding-right:20px;">
+                            <input style = "font-family: Garamond;" type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                          </div>
+                          <div class="row" >
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-left:20px;padding-right:20px;">
+                                <input style = "font-family: Garamond;" type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-right:20px;">
+                                <input style = "font-family: Garamond;" type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row" style="padding-left:20px; padding-right:20px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:20px; padding-right:20px;" >
+                              <input style = "font-family: Garamond;" type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                            </div>
+                          </div>
               </form>
             </div>
           </div>
