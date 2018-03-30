@@ -98,7 +98,7 @@
                         $user_id = $user->getAccountId();
                         
                         //QUERY THE ACCOUNT DATA
-                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, password FROM accounts WHERE accountNo = '$user_id'");
+                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, contactNumber, emailAddress, password FROM accounts WHERE accountNo = '$user_id'");
                         $qry->execute();
                         $profileqry = $qry->fetch(); 
                         
