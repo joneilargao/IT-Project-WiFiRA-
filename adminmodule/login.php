@@ -8,6 +8,7 @@ require 'classes/UserAccount.php';
 <head>
       <title>WiFiRA ISP</title><meta charset="UTF-8" />
       <link rel="stylesheet" type="text/css" href="pages/assets/css/login.css"/>
+      <link rel="shortcut icon" type="image/png" href='pages/assets/img/wifira_logo.png'/>
 </head>
 <body id="bg" >
   
