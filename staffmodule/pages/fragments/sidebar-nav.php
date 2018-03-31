@@ -70,7 +70,7 @@ $print = $query->fetch();
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
-  width: 20.5%;
+  width: 260px;
   position: fixed;
   z-index: 2;
   top: 1;
@@ -91,8 +91,8 @@ $print = $query->fetch();
   width:100%;
   text-align: left;
   cursor: pointer;
-  outline: none;
-  background-color:#117A65  ;
+  outline: #117A65;
+  background-color:#117A65;
 }
 
 /* On mouse-over */
@@ -109,5 +109,10 @@ $print = $query->fetch();
   padding-right: 30px;
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Make the scrollbar invisible */
+
+/** End of Side Navigation **/
 </style>  
 </html>

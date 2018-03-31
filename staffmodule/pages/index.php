@@ -16,6 +16,7 @@ require '../classes/UserAccount.php';
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     <style type="text/css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,8 +33,8 @@ include_once 'fragments/connection.php';
 include 'fragments/head.php';
 
 ?>
-  <body id="index">
-    <?php 
+
+      <?php 
 session_start();
 function echoActiveClassIfRequestMatches($requestUri)
 {
@@ -50,21 +51,14 @@ $user_id = $user->getAccountId();
       <?php include 'fragments/sidebar-nav.php'; ?>
       <!-- /. NAV SIDE  -->
       <div id="page-wrapper" >
-        <div id="page-inner">
-          <div class="row">
-            <div class="col-md-12">
-               <h1 style = "font-family: Georgia; color:#4A8162; font-size: 160%;">Dashboard
-              </h1>
-              <h4 style = "font-family: Jazz LET, fantasy; color:#4A8162;">Welcome    
-                <?php  
-echo  $_SESSION["username"];
-?> 
-              </h4>
-            </div>
-          </div>              
-          <!-- /. ROW  -->
-          <hr/> 
-          <div class="row" style = "font-family: special elite; color:#0F4D2A;">    
+        <div id="page-inner"> 
+        <div class="col-md-12">
+
+            <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Dashboard</h1>
+        </div>             
+
+          <div class="row" >   
+
             <div class="col-md-3 col-sm-6 col-xs-6" >           
               <div class="alert alert-success">
                 <div class="text-box">
@@ -120,11 +114,11 @@ echo count($result);
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;
                           </button>
-                          <h2 style = "font-family: Palatino;" class="modal-title">Print Voucher
+                          <h2 style = "font-family: Palatino;" class=" modal-title"><font color ="#000000">Print Voucher</font>
                           </h2>
                           <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                              
+      
                               <div class="form-group">
                               <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
                               <div class="col-lg-10">
@@ -154,15 +148,15 @@ echo count($result);
                             </div>  
                             
                             <div class="form-group">
-                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Notes</label>
+                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
                               <div class="col-lg-10">
                                 <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
-                          
+                  
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+                                    <button type="submit" name="createaccount" class="btn btn-primary" style = "font-family: Audrey;" id="createaccount" value="submit">Create Voucher</button>
                                   </div>
                                 </div>
                             </fieldset>
@@ -174,8 +168,8 @@ echo count($result);
                   </div>
                 </a>
             </div>
-            <br>
-            <div class="col-md-3 col-sm-6 col-xs-6"> 
+            
+            <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
               <div class="text-box" >
                 <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal2">
                    <strong>Add Kiosk
@@ -188,7 +182,7 @@ echo count($result);
                     <div class="modal-content">
                       <button type="button" class="close" data-dismiss="modal">&times;
                       </button>
-                       <h2 align= "center" style = "font-family: Georgia;  color:#000000">Add Kiosk</h2>
+                       <h2 align= "center" style="font-family: special elite; margin-bottom: 20px; margin-top:20px;padding-left:20px;padding-right:20px; color:#4A8162">Add Kiosk</h2>
                         <?php
                         $user = $_SESSION["userAccount"];
                         $user_id = $user->getAccountId();
@@ -219,28 +213,27 @@ echo count($result);
                         echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
                         }
                 ?>
-                        <div class="form-group">
-                          <input style = "font-family: Garamond; type="text" name="kioskname" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                        </div>
-                        <div class="form-group">
-                          <input style = "font-family: Garamond; type="number" name="kioskId" id="KioskID" class="form-control input-lg" placeholder="Kiosk ID" value="<?php if(isset($error)){ echo $_POST['kioskId']; } ?>" tabindex="2">
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                        <div class="form-group" style=" margin-top:10px;padding-left:20px;padding-right:20px;">
+                            <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name"  value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                          </div>
+                        
+                        <div class="row" >
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-left:20px;padding-right:20px;">
+                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-right:20px;">
+                                <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                              </div>
                             </div>
                           </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input style = "font-family: Garamond; type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                        <div class="row" style="padding-left:20px; padding-right:20px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:20px; padding-right:20px; margin-bottom: 10px" >
+                              <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
                             </div>
                           </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button style = "font-family: Garamond; type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
-                          </button>
-                        </div>
                         </div>
                     </div>
                   </div>
@@ -249,8 +242,7 @@ echo count($result);
               </a>
           </div>  
         </div>
-        <div class="text-box" >
-          <div class="text-box" > 
+        <div class="text-box" > 
         	<div>
 	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
 		          	<form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
@@ -282,6 +274,8 @@ echo count($result);
 	              <script type="text/javascript" src="jscript/app.js">
 	              </script>
 	            </div>
+        	</div>
+        </div>
       </div>
     </div>
     </div>

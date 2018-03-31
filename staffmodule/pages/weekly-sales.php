@@ -1,10 +1,5 @@
 <?php
 /**
-* weekly-sales.php
-*
-* This code shows the weekly sales report of the vouchers.
-* 
-* @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
@@ -41,11 +36,22 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#0C310D">WEEKLY SALES REPORT
+              <h1 style = "font-family: Palatino; color:#000000">WEEKLY SALES REPORT
               </h1>
             </div>    
           </div>
           <div class="jumbotron"> 
+            <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">              
               <?php
 include 'fragments/weekly-sales-report.php';

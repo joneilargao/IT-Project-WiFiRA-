@@ -4,9 +4,7 @@
 *
 * Displays the sold vouchers for the year
 * 
-* @author Darren Sison
-* @author Joneil Argao
-* @author Cyrene Dispo
+* @author Cyrene Jane Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -39,16 +37,15 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Yearly Sales</h1>
-              <form action="search-voucher-yearly.php" method="get">
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Daily Sales</h1>
+              <form action="search-voucher-daily.php" method="get" >
+                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;margin-bottom: 5px; "></i></button>
                 
-                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/>
-               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-               &nbsp;&nbsp;
-                
-                </form>            
-              <form action="sales-yearly-entity.php" method="get">
-                <select name="entity" style="height:30px;">
+                </form> 
+
+              <form action="sales-daily-entity.php" method="get">
+                <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -61,7 +58,8 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+              </form>
             </div>    
           </div>
           <div class="jumbotron"> 
@@ -77,9 +75,46 @@ echo "<option>" . $user['name'] . "</option>";
             </a>
           </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
-              <?php
-include 'fragments/sales-query-yearly.php';
+              <thead>
+                <tr>
+                  <th> Voucher Code 
+                  </th>
+                  <th> Voucher Type 
+                  </th>
+                  <th> Amount 
+                  </th>
+                  <th> Date 
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+include('fragments/connection.php');
+if (isset($_GET["sd1"])) { $sd1  = $_GET["sd1"]; } else { $sd1=0; }; 
+$result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a)
+   and (voucherStatus='sold') and (vouchers.datePrinted=CURDATE())");
+$result->bindParam(':a', $sd1);
+$result->execute();
+for($i=0; $row = $result->fetch(); $i++){
 ?>
+                <tr class="record">
+                  <td>
+                    <?php echo $row['voucherCode']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['voucherType']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['voucherAmount']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['datePrinted']; ?>
+                  </td>
+                </tr>
+                <?php
+}
+?>
+              </tbody>
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->

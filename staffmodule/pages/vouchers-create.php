@@ -5,7 +5,6 @@
 * Create vouchers
 * 
 * @author Darren Sison
-* @author Apollo Mina
 */
     require '../classes/UserAccount.php';
     session_start();
@@ -15,8 +14,8 @@
 <html lang="en">
 
 <head>
-      <title>WiFiRA WISP</title><meta charset="UTF-8" />
-
+      <meta charset="UTF-8" />
+      <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
       <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
       <link rel="stylesheet" type="text/css" href="pages/assets/css/style2.css"/>
 </head>
@@ -57,17 +56,18 @@
                         $qry->execute();
                         $profileqry = $qry->fetch();     
                         
-                    ?> 
+                    ?>
+                   
+                        <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Create Vouchers</h1>
+                   
                     <div class="jumbotron">
-                        <form class="form-horizontal" action="" method="post">
-                          <fieldset>
-                            <legend style = "font-family: Palatino; color:#0C310D">Create Voucher</legend>
-                              
+                        <form class="form-horizontal" action="" method="post" name="reg" onsubmit="return validateForm()">
+                          <fieldset>   
                               
                               <div class="form-group">
                               <label for="voucher_count" class="col-lg-2 control-label" style = "font-size: 110%;">No. of Voucher</label>
                               <div class="col-lg-10">
-                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
+                                <input type="number" min="1" max="99" maxlength="2" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
                               </div>
                               </div> 
                               
@@ -95,13 +95,15 @@
                             <div class="form-group">
                               <label for="voucher_note" class="col-lg-2 control-label" style = "font-size: 110%;">Notes</label>
                               <div class="col-lg-10">
-                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
+                                <input type="text" maxlength="50" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
                             </div>
                               
+                            
+                              
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Account</button>
+                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create</button>
                                   </div>
                                 </div>
                             </fieldset>
@@ -122,3 +124,20 @@
     </body>
 
 </html>
+
+<script type="text/javascript">
+function validateForm()
+{
+var a=document.forms["reg"]["voucher_count"].value;
+if ((a==null || a==""))
+  {
+  alert("Number of vouchers must be filled out");
+  return false;
+  }
+if (a==null || a=="")
+  {
+  alert("Please enter the desired number of vouchers.");
+  return false;
+  }
+}
+</script>
