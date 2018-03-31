@@ -10,7 +10,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where voucherStatus='sold' order by dateprinted DESC");
+$query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, dateSold FROM vouchers where voucherStatus='sold' order by dateSold DESC");
 $query->execute();
 $result = $query->fetchAll();
 
@@ -26,7 +26,7 @@ echo "<tr>";
 echo "<td>" . $query['voucherCode'] . "</td>";
 echo "<td>" . $query['voucherType'] . "</td>";
 echo "<td>" . $query['voucherAmount'] . "</td>";
-echo "<td>" . $query['datePrinted'] . "</td>";
+echo "<td>" . $query['dateSold'] . "</td>";
 echo "</td>";
 echo "</tr>";
 }

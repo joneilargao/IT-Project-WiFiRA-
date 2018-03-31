@@ -99,11 +99,11 @@ echo 'class="active-menu"';
                 include('fragments/connection.php');
                 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
                 $result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
-                vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
+                vouchers.dateSold, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
                 FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
                 ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
-                ((WEEK(vouchers.datePrinted)=WEEK(CURRENT_DATE())) AND (MONTH(vouchers.datePrinted)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.datePrinted)=YEAR(CURRENT_DATE())))
-                and (vouchers.voucherStatus='sold') ORDER BY vouchers.datePrinted DESC");
+                ((WEEK(vouchers.dateSold)=WEEK(CURRENT_DATE())) AND (MONTH(vouchers.dateSold)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.dateSold)=YEAR(CURRENT_DATE())))
+                and (vouchers.voucherStatus='sold') ORDER BY vouchers.dateSold DESC");
                 $result->bindParam(':a', $entity);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -119,7 +119,7 @@ echo 'class="active-menu"';
                     <?php echo $row['voucherAmount']; ?>
                   </td>
                   <td>
-                    <?php echo $row['datePrinted']; ?>
+                    <?php echo $row['dateSold']; ?>
                   </td>
                   <td>
                     <?php echo $row['name']; ?>

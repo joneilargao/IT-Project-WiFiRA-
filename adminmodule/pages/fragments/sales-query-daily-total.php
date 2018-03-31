@@ -5,11 +5,12 @@
 * Selects the total daily sales from the database
 * 
 * @author Darren Sison
+* @author Joneil Argao
 */
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE datePrinted=CURDATE() GROUP BY 2 ORDER BY datePrinted");
+$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE dateSold=CURDATE() GROUP BY 2 ORDER BY dateSold");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));
