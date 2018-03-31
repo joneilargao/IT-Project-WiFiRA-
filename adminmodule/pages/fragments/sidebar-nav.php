@@ -25,12 +25,12 @@ $print = $query->fetch();
         
         <!--Dashboard-->
         <a href=index.php>
-            <i class="fa fa-tachometer"></i>  Dashboard
+            <i class="fa fa-tachometer"></i>&nbsp;  Dashboard
         </a>
     
         <!--Sales-->
         <a href=sales.php>
-            <i class="fa fa-ticket"></i>  Sales 
+            <i class="fa fa-money"></i>&nbsp; Sales 
         </a>
         <div class="dropdown-container">
             <a  href="sales-daily.php">Daily</a>
@@ -41,7 +41,7 @@ $print = $query->fetch();
             
         <!--Vouchers-->
 		<a href=vouchers.php>
-            <i class="fa fa-tachometer"></i>  Vouchers 
+            <i class="fa fa-ticket"></i>&nbsp;  Vouchers 
         </a>
         <div class="dropdown-container">
             <a  href="vouchers-create.php">Create Voucher</a>
@@ -49,7 +49,7 @@ $print = $query->fetch();
             
         <!--Kiosks-->
         <button class="dropdown-btn">
-            <i class="fa fa-barcode"></i>  Kiosks 
+            <i class="fa fa-barcode"></i>&nbsp; Kiosks 
         </button>
         <div class="dropdown-container">
             <a  href="kiosk-manage.php">Manage Kiosks</a>
@@ -59,7 +59,7 @@ $print = $query->fetch();
             
         <!--Accounts-->   
         <button class="dropdown-btn">
-            <i class="fa fa-user"></i>  Accounts 
+            <i class="fa fa-user"></i>&nbsp;  Accounts 
         </button>
         <div class="dropdown-container">
             <a  href="view-profile.php">View Profile</a>
@@ -114,7 +114,7 @@ $print = $query->fetch();
   display: block;
   background-color: #262626;
   color: #818181;
-  padding-left: 30px;
+  padding-left: 39px;
 }
 
 ::-webkit-scrollbar {
