@@ -1,0 +1,114 @@
+* {
+box-sizing: border-box;
+}
+
+*:focus {
+	outline: none;
+}
+body {
+font-family: Arial;
+padding: 50px;
+background-repeat: no-repeat;
+background-size: 100%;
+background-color: #686667; /* Black fallback color */
+}
+
+.login {
+margin: 20px auto;
+width: 300px;
+}
+
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+.app-title {
+text-align: center;
+color:lightgray;
+}
+
+.login-form {
+text-align: center;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: center;
+background-color: #EEE;
+border: 1px solid #686667;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 250px;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid gray;
+box-shadow: 1px;
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+  margin-top: 12px;
+}
+
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Make the image to responsive */
+.image1 {
+  position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 20%;
+}
+
+
+/* When you mouse over the container, fade in the overlay title */
+.backimage:hover .overlay {
+  opacity: 1;
+}
+.fleft {
+	float:left;
+}
+.fright {
+	margin-right : 15%;
+	float:right;
+}
+
+.headergreen {
+ background-color: #3a9e42;
+ color:#000000;
+ padding:15px;
+ text-align:center;
+ font-size:30px;
+ padding-left: 30px;
+}
+
+.btn {
+    background-color: #3a9e42;
+}
+
+#loginborder {
+	width:310px;
+    background-color: white;
+	border: solid 1px #595959;
+	border-radius: 2px;
+}
