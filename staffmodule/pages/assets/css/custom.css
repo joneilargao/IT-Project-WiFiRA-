@@ -32,7 +32,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:#fff!important;
     padding:10px;
-    min-height:1200px;
+    min-height:600px;
 }
 
 .text-center {
@@ -359,13 +359,13 @@ line-height: 1.428571429;
      #page-wrapper{
                margin: 0 0 0 260px;
         padding: 15px 30px;
-        min-height: 1200px;
+        
 		
     }
 	
 	
     .navbar-side {
-        z-index: 1;
+        z-index: 2;
         position: absolute;
         width: 260px;
     }
@@ -374,6 +374,9 @@ line-height: 1.428571429;
  border-radius: 0px; 
 }
    
+}
+.jumbotron{
+    padding-top: 20px;
 }
 
 

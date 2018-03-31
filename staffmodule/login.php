@@ -9,41 +9,45 @@
 */ 
 require 'classes/UserAccount.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
       <title>WiFiRA ISP</title><meta charset="UTF-8" />
-
-      <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
-      <link rel="stylesheet" type="text/css" href="css/style2.css"/>
-
-    
+      <link rel="stylesheet" type="text/css" href="pages/assets/css/login.css"/>
 </head>
-<body background="pages/assets/img/background1.jpg" id="bg" >
+<body id="bg" >
   
-  <div class="backimage fright" align="center">
+  <div align="center">
   <img src="pages/assets/img/logo.png" alt="Avatar" class="image1">
-  <div class="overlay">Wireless Internet Service Provider</div>
   </div>
-  <div class="fleft" align="left">
-    <div id="loginborder" align="left">
+  <div align="center">
+    <div id="loginborder" align="center">
       <?php
         if(isset($errMsg)){
-          echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
+          echo '<div>'.$errMsg.'</div>';
         }
       ?>
-      <div class="headergreen"><b>WiFiRA Login</b></div>
+        <div class="headergreen"><i class="fa fa-lock"></i>LOGIN</div>
       <div style="margin:30px">
           <form action="" method="post">
-          <label class="userin"><b> Username: </b></label><input type="text" name="username" class="box"/><br /><br />
-          <label class="userin"><b>Password:</b></label><input type="password" name="password" class="box" /><br/><br />
-          <input type="submit" name='submit' class="btn btn-warning" value="Submit" class="col s6" class='submit' id="submit1" /><br />
+        <div class="form-group">
+            <div class="col-lg-10">
+            <input type="text" name="username" placeholder="Username">
+            <br/><br />
+            </div>
+        </div>  
+        <div class="form-group">
+            <div class="col-lg-10">
+            <input type="password" name="password" placeholder="Password"><br/><br />
+            </div>
+        </div>  
+          <input type="submit" name='submit' value="Submit" class="btn"/><br />
           </form>
-          
       </div>
+        </div>
     </div>
-  </div>
     <?php
     $errMsg = "";
   if(isset($_POST['submit'])){
