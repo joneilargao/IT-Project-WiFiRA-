@@ -217,17 +217,17 @@ echo count($result);
                         <div class="row">
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                              <input style = "font-family: Garamond;" type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
                             </div>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
-                              <input style = "font-family: Garamond; type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
+                              <input style = "font-family: Garamond;" type="float" name="ipadd" id="ipaddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="2">
                             </div>
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button style = "font-family: Garamond; type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
+                          <button style = "font-family: Garamond;" type="button" class="btn btn-default" data-dismiss="modal" align = "center">Submit
                           </button>
                         </div>
                         </div>
@@ -267,7 +267,7 @@ echo count($result);
                 </script>
                 <script type="text/javascript" src="jscript/Chart.min.js">
                 </script>
-                <script type="text/javascript" src="jscript/app.js">
+                <script type="text/javascript" src="jscript/app-daily.js">
                 </script>
               </div>
           </div>

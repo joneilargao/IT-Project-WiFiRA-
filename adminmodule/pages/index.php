@@ -148,7 +148,7 @@ echo count($result);
                             </div>  
                             
                             <div class="form-group">
-                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
+                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Notes</label>
                               <div class="col-lg-10">
                                 <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
                               </div>
