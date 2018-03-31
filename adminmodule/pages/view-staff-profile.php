@@ -42,8 +42,8 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Staff Accounts</h1>
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity" style="height:35px;">
-                  <option value="">Choose Address</option> 
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff Location</option> 
 				  <!-- /. Selects all accounts from the database -->
                     <?php 
                       require_once 'fragments/connection.php';
@@ -55,7 +55,8 @@ echo 'class="active-menu"';
                       }
                     ?>
                   </select>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                  
                 <a class="btn btn-danger" href="view-staff-profile-archive.php">
                   <i class="fa fa-archive fa-lg">
                   </i> Archive

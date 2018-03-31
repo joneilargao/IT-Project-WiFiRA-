@@ -41,20 +41,20 @@ echo 'class="active-menu"';
               
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sales</h1>
              
-              <form action="sales-search.php" method="get" style="height:35px;">
+              <form action="sales-search.php" method="get" style="height:40px;">
                 From : 
-                <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
-                <input type="date" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/> To: 
+                <input type="date" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
                 
               
-              <form action="search-voucher.php" method="get" style="height:35px;">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/> 
-                <input type="submit" value="Search"  style=" font-family:monospace; font-size:18px;">
+              <form action="search-voucher.php" method="get" style="height:35px; ">
+                &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px; "/> 
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>	
               </form>
 
               <form action="sales-entity.php" method="get">
-                <select name="entity" style="height:30px;">
+                <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -67,9 +67,9 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
                 <a class="btn btn-primary" href="sales-total.php">
-            <i class="fa fa-plus-square fa-lg">
+            <i class="">
             </i>Total Sales
           </a>
               </form>

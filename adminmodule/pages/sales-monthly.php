@@ -43,7 +43,8 @@ echo 'class="active-menu"';
               <form action="search-voucher-monthly.php" method="get" >
 
                 <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
-                <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
                  <a class="btn btn-primary" href="sales-monthly-total.php">
             <i class="">
             </i>Total Sales
@@ -63,8 +64,8 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-               
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+          
               </form>
             </div>    
           </div>

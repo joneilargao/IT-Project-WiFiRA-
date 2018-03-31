@@ -43,11 +43,12 @@ echo 'class="active-menu"';
               <form action="search-voucher-yearly.php" method="get">
                 
                 <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/>
-                <input type="submit" value="Search"  class="btn btn-warning" value="Search" class="col s6" class='submit' style=" background-color:#686667; font-family:monospace; font-size:18px;">
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+               &nbsp;&nbsp;
                 <a class="btn btn-primary" href="sales-yearly-total.php">
-            <i class="">
-            </i>Total Sales
-          </a>
+                  <i class="">
+                  </i>Total Sales
+                </a>
                 </form>            
               <form action="sales-yearly-entity.php" method="get">
                 <select name="entity" style="height:30px;">
@@ -63,8 +64,7 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-              </form>
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
             </div>    
           </div>
           <div class="jumbotron"> 

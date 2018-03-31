@@ -40,15 +40,16 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Monthly Sales</h1>
               <form action="search-voucher-monthly.php" method="get" >
 
-                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
-                <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;" >
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
                 <a class="btn btn-success" href="#">
             <i class="fa fa-file-text fa-lg">
             </i> Generate
           </a>
               </form> 
               <form action="sales-monthly-entity.php" method="get">
-                <select name="entity" style="height:30px">
+                <select name="entity" style="height:29px">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -61,7 +62,8 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+           
               </form>
             </div>    
           </div>

@@ -36,30 +36,30 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Manage Staff Accounts
+              <h1 style = "font-family: special elite; color:#000000">Manage Archive Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity">
-                  <option value="">Choose Address
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff Location
                   </option> 
-          <!-- /. Selects all accounts from the database -->
+                    <!-- /. Selects all accounts from the database -->
                   <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['address'] . "</option>";
-}
-?>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                <a class="btn btn-danger" href="view-staff-profile-archive.php">
-                  <i class="fa fa-archive fa-lg">
-                  </i> Archive
-                </a>
+                    require_once 'fragments/connection.php';
+                    $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
+                    $usersQuerry->execute();
+                    $users = $usersQuerry->fetchAll();
+                    foreach ($users as $user){
+                    echo "<option>" . $user['address'] . "</option>";
+                    }
+                  ?>
+                </select>
+                
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+
                 </form>
-                </div>    
-            </div>
+                </div> 
+                </div>   
+            
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php

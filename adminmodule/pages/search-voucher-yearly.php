@@ -39,11 +39,16 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Yearly Sales</h1>
               <form action="search-voucher-yearly.php" method="get" style="height:35px;">
                 
-                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:35px;"/>
-                <input type="submit" value="Search"  class="btn btn-warning" value="Search" class="col s6" class='submit' style=" background-color:#686667; font-family:monospace; font-size:18px;">
+                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
+                <a class="btn btn-primary" href="sales-yearly-total.php">
+                  <i class="">
+                  </i>Total Sales
+                </a>
                 </form>                
               <form action="sales-yearly-entity.php" method="get">
-                <select name="entity">
+                <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -56,7 +61,7 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form>
             </div>    
           </div>
@@ -105,10 +110,7 @@ for($i=0; $row = $result->fetch(); $i++){
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="sales-yearly-total.php">
-            <i class="fa fa-plus-square fa-lg">
-            </i>Total
-          </a>
+          
         </div>
       </div>
     </div>

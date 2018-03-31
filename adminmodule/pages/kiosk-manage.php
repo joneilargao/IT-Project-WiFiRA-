@@ -41,7 +41,7 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Kiosks</h1>
               <form id="search-form" name="search" action="kiosk-entity.php" method="get"  >
-                <select name = "entity" style="height:35px;">
+                <select name = "entity" style="height:29px;">
                   <option value="">Choose Kiosk Location
                   </option>
 				  <!-- /. Selects all kiosk machine with specified location -->
@@ -55,7 +55,8 @@ echo "<option>" . $user['location'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+              
               </form>	
             </div>    
           </div>
