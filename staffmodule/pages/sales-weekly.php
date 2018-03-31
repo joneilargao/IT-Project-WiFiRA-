@@ -46,23 +46,6 @@ echo 'class="active-menu"';
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 &nbsp;&nbsp;
                 
-              </form>   
-              <form action="sales-weekly-entity.php" method="get">
-                <select name="entity" style="height:29px">
-                  <option value="">Choose Entity
-                  </option>
-                  <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
-                </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form>
             </div>    
           </div>
           <div class="jumbotron"> 

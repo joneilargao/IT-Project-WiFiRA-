@@ -69,8 +69,8 @@ $user_id = $user->getAccountId();
                       <!-- /. Displays the number of vouches sold -->
                       <?php
 $datenow = date("Y-m");
-require_once 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' ");
+include 'fragments/connection.php';
+$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' AND accountNo='$user_id'");
 $query->execute();
 $result = $query->fetchAll();
 echo count($result);                                          
@@ -104,7 +104,7 @@ echo count($result);
             <div class="col-md-3 col-sm-6 col-xs-6"> 
               <div class="text-box" >
                 <h4 align="center">
-                  <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal">Print Voucher
+                  <button type="button" class="bbtn btn-success btn-lg btn-block" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal">Create Voucher
                   </button>
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">
@@ -114,8 +114,8 @@ echo count($result);
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;
                           </button>
-                          <h2 style = "font-family: Palatino;" class=" modal-title"><font color ="#000000">Print Voucher</font>
-                          </h2>
+                          <h1 style = "font-family: Palatino;" class=" modal-title"><font color ="#213D17">Create Voucher</font>
+                          </h1>
                           <form class="form-horizontal" action="" method="post">
                           <fieldset>
       
@@ -155,8 +155,7 @@ echo count($result);
                             </div>
                   
                                 <div class="form-group">
-                                  <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" style = "font-family: Audrey;" id="createaccount" value="submit">Create Voucher</button>
+                                    <button type="submit" name="createaccount" class="btn btn-lg btn-primary" style = "font-family: Audrey;" id="createaccount" value="submit">Submit</button>
                                   </div>
                                 </div>
                             </fieldset>
@@ -168,79 +167,7 @@ echo count($result);
                   </div>
                 </a>
             </div>
-            
-            <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
-              <div class="text-box" >
-                <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal2">
-                   <strong>Add Kiosk
-                  </strong>
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="myModal2" role="dialog">
-                  <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <button type="button" class="close" data-dismiss="modal">&times;
-                      </button>
-                       <h2 align= "center" style="font-family: special elite; margin-bottom: 20px; margin-top:20px;padding-left:20px;padding-right:20px; color:#4A8162">Add Kiosk</h2>
-                        <?php
-                        $user = $_SESSION["userAccount"];
-                        $user_id = $user->getAccountId();
-                        $qry = $pdo->prepare("select * accounts where accounts.accountNo = '$user_id'");
-                        $qry->execute();
-                        $profileqry = $qry->fetch();                                               
-                        ?>  
-                                <!-- /. Registers kiosk machine and adds it to the database -->
-                                      <?php
-                        if(! empty($_POST)){
-                        $mysqli = new mysqli('localhost', 'root', '', 'wifira');
-                        $kioskName= $_POST['kioskName'];
-                        $location= $_POST['location'];
-                        $ipAddress= $_POST['ipAddress'];
-                        $sql= "INSERT INTO kioskmachine (kioskId, kioskName, location, ipAddress, kioskStatus)VALUES(default, '$kioskName', '$location', '$ipAddress', 'Enable') ";
-                        $insert = $mysqli->query($sql);
-                        if ( $insert ) {
-                        echo "New Kiosk Added!";
-                        } else {
-                        die ("Error: {$mysqli->errno} : {$mysqli->error}");
-                        }
-                        $mysqli->close();
-                        }
-                        ?>
-                                      <form role="form" method="post" action="" autocomplete="off">
-                <?php
-                    if(isset($errMsg)){
-                        echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
-                        }
-                ?>
-                        <div class="form-group" style=" margin-top:10px;padding-left:20px;padding-right:20px;">
-                            <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name"  value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                          </div>
-                        
-                        <div class="row" >
-                            <div class="col-xs-6 col-sm-6 col-md-6" >
-                              <div class="form-group" style="padding-left:20px;padding-right:20px;">
-                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
-                              </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6" >
-                              <div class="form-group" style="padding-right:20px;">
-                                <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
-                              </div>
-                            </div>
-                          </div>
-                        <div class="row" style="padding-left:20px; padding-right:20px;">
-                            <div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:20px; padding-right:20px; margin-bottom: 10px" >
-                              <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                  </div>
-                  </h4>
-              </div>
-              </a>
-          </div>  
+
         </div>
         <div class="text-box" > 
         	<div>

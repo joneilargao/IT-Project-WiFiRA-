@@ -29,7 +29,9 @@ $print = $query->fetch();
     
         <!--Sales-->
         <button class="dropdown-btn">
-            <i class="glyphicon glyphicon-shopping-cart"></i>  Sales 
+          <a href=sales.php>
+            <i class="glyphicon glyphicon-shopping-cart"></i>  Sales
+            </a>
         </button>
           <div class="dropdown-container">
             <a  href="sales-daily.php"><i class="glyphicon glyphicon-time text-success"></i>

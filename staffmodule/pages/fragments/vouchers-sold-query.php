@@ -10,11 +10,10 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT * FROM vouchers where voucherStatus = 'Sold'");
+$query = $pdo->prepare("SELECT * FROM vouchers where voucherStatus = 'Sold' AND accountNo='$user_id'");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));
-echo $now->format('D M-j-G:i:sa');    // MySQL datetime format
 echo "<tr>";
 echo "<th>Voucher Id</th>";
 echo "<th>Voucher Code</th>";

@@ -40,26 +40,8 @@ echo 'class="active-menu"';
               <form action="search-voucher-yearly.php" method="get" style="height:35px;">
                 
                 <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-                &nbsp;&nbsp;
-                
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>           
                 </form>                
-              <form action="sales-yearly-entity.php" method="get">
-                <select name="entity" style="height:29px;">
-                  <option value="">Choose Entity
-                  </option>
-                  <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
-                </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form>
             </div>    
           </div>
           <div class="jumbotron"> 
@@ -68,7 +50,6 @@ echo "<option>" . $user['name'] . "</option>";
             <i class="fa fa-file-text fa-lg" >
             </i> Generate
           </a> 
-          &nbsp;
             <a class="btn btn-primary" href="sales-total.php"  ">
               <i class="">
               </i>Total Sales
