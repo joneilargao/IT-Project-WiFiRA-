@@ -12,8 +12,7 @@ $user_id = $user->getAccountId();
 $query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers  GROUP BY 2 ORDER BY datePrinted");
 $query->execute();
 $result = $query->fetchAll();
-$now = new DateTime(null, new DateTimeZone('Asia/Manila'));
-echo $now->format('D M-j-G:i:sa');    // MySQL datetime format
+
 echo "<tr>";
 echo "<th>Number of Vouchers</th>";
 echo "<th>Voucher Type</th>";
