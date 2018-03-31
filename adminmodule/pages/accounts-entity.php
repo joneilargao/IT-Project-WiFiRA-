@@ -38,10 +38,9 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162">Manage Staff Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity" style="height:29px;">
-                  <option value="">Choose Address
-                  </option> 
-				  <!-- /. Selects all enabled accounts from the database -->
+                <select name = "entity" style="height:29px;margin-bottom: 5px">
+                  <option value="">Choose Address</option> 
+          <!-- /. Selects all enabled accounts from the database -->
                   <?php 
                     require_once 'fragments/connection.php';
                     $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
@@ -51,9 +50,27 @@ echo 'class="active-menu"';
                     echo "<option>" . $user['address'] . "</option>";
                     }
                   ?>
-                  </form>
                 </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                  
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+                </form>
+
+                <form id="search-form" name="search" action="accounts-entity-name.php" method="get" >
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff Name</option> 
+          <!-- /. Selects all accounts from the database -->
+                    <?php 
+                      require_once 'fragments/connection.php';
+                      $usersQuerry = $pdo->prepare("SELECT DISTINCT name FROM accounts where roleId='Staff'; ");
+                      $usersQuerry->execute();
+                      $users = $usersQuerry->fetchAll();
+                      foreach ($users as $user){
+                        echo "<option>" . $user['name'] . "</option>";
+                      }
+                    ?>
+                  </select>
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>   
+                  </form>
                 
                 </div>    
             </div>
@@ -81,7 +98,7 @@ echo 'class="active-menu"';
                 </thead>
                 <tbody>
                 
-				  <!-- /. Select attributes from accounts entity  -->
+          <!-- /. Select attributes from accounts entity  -->
                   <?php
 include('fragments/connection.php');
 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
@@ -129,3 +146,4 @@ if(isset($_POST['archiveAccount'])){
       
       </body>
     </html>    
+ 

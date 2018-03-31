@@ -89,7 +89,7 @@ for($i=0; $row = $result->fetch(); $i++){
                     <?php echo $row['kioskName']; ?>
                   </td>
                   <td>
-                    <?php echo $row['Location']; ?>
+                    <?php echo $row['location']; ?>
                   </td>
                   <td>
                     <?php echo $row['ipAddress']; ?>

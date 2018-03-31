@@ -42,7 +42,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Staff Accounts</h1>
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity" style="height:29px;">
+                <select name = "entity" style="height:29px; margin-bottom:5px;">
                   <option value="">Choose Staff Location</option> 
 				  <!-- /. Selects all accounts from the database -->
                     <?php 
@@ -52,6 +52,24 @@ echo 'class="active-menu"';
                       $users = $usersQuerry->fetchAll();
                       foreach ($users as $user){
                         echo "<option>" . $user['address'] . "</option>";
+                      }
+                    ?>
+                  </select>
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>   
+                  </form>
+               
+
+            <form id="search-form" name="search" action="accounts-entity-name.php" method="get">
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff Name</option> 
+          <!-- /. Selects all accounts from the database -->
+                    <?php 
+                      require_once 'fragments/connection.php';
+                      $usersQuerry = $pdo->prepare("SELECT DISTINCT name FROM accounts where roleId='Staff'; ");
+                      $usersQuerry->execute();
+                      $users = $usersQuerry->fetchAll();
+                      foreach ($users as $user){
+                        echo "<option>" . $user['name'] . "</option>";
                       }
                     ?>
                   </select>

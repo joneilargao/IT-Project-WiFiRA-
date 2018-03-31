@@ -36,6 +36,25 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Kiosks</h1>
+              <!-- /. Selects all kiosk machine with specified location -->
+              <form id="search-form" name="search" action="kiosk-entity.php" method="get"  >
+                <select name = "entity" style="height:29px;margin-bottom:10px;">
+                  <option value="">Choose Kiosk Location
+                  </option>
+				  
+                  <?php 
+require_once 'fragments/connection.php';
+$usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");
+$usersQuerry->execute();
+$users = $usersQuerry->fetchAll();
+foreach ($users as $user){
+echo "<option>" . $user['location'] . "</option>";
+}
+?>
+                </select>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+              </form>
+
               <form id="search-form" name="search" action="kiosk-entity-name.php" method="get">
                 <select name = "entity" style="height:30px">
                   <option value="">Choose Kiosk Name
