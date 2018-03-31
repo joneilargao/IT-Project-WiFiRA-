@@ -40,11 +40,12 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Kiosks</h1>
+              <!-- /. Selects all kiosk machine with specified location -->
               <form id="search-form" name="search" action="kiosk-entity.php" method="get"  >
                 <select name = "entity" style="height:29px;">
                   <option value="">Choose Kiosk Location
                   </option>
-				  <!-- /. Selects all kiosk machine with specified location -->
+				  
                   <?php 
 require_once 'fragments/connection.php';
 $usersQuerry = $pdo->prepare("SELECT DISTINCT location FROM kioskmachine; ");
@@ -56,11 +57,29 @@ echo "<option>" . $user['location'] . "</option>";
 ?>
                 </select>
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              
               </form>	
+
+              <!-- /. Selects all kiosk machine with specified name -->
+              <form id="search-form" name="search" action="kiosk-entity-name.php" method="get" style="margin-top:5px;" >
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Kiosk Name
+                  </option>
+          
+                  <?php 
+require_once 'fragments/connection.php';
+$usersQuerry = $pdo->prepare("SELECT DISTINCT kioskName FROM kioskmachine; ");
+$usersQuerry->execute();
+$users = $usersQuerry->fetchAll();
+foreach ($users as $user){
+echo "<option>" . $user['kioskName'] . "</option>";
+}
+?>
+                </select>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+              </form> 
             </div>    
           </div>
-          <div class="jumbotron"> 
+          <div class="jumbotron" style="padding:50px;"> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">              
               <?php
 include 'fragments/kiosk-query.php';

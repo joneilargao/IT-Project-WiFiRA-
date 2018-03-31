@@ -51,7 +51,7 @@ echo "<option>" . $user['location'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>  
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
               </form>
             </div>    
           </div>
@@ -89,7 +89,7 @@ for($i=0; $row = $result->fetch(); $i++){
                     <?php echo $row['kioskName']; ?>
                   </td>
                   <td>
-                    <?php echo $row['location']; ?>
+                    <?php echo $row['Location']; ?>
                   </td>
                   <td>
                     <?php echo $row['ipAddress']; ?>
