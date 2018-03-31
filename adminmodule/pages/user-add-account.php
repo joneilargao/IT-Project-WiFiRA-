@@ -175,6 +175,8 @@ $name = $_POST['name'];
 $address = $_POST['address'];
 $username = $_POST['username'];
 $password = $_POST['password'];
+$contactNumber = $_POST['contactNumber'];
+$emailAddress = $_POST['emailAddress'];
 $query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image, visibility, contactNumber, emailAddress) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', NULL, 'Visible', '$contactNumber', '$emailAddress')";
 $insert = $db->query($query);
 if($insert){
@@ -182,7 +184,7 @@ echo '<script type="text/javascript">
         alert("Account Added!");
       </script>';
 } else {
-echo '<script type="text/javascript">
+     '<script type="text/javascript">
         alert("Failed to add account!");
       </script>';
 }
