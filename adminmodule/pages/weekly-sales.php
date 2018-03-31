@@ -41,6 +41,17 @@ echo 'class="active-menu"';
             </div>    
           </div>
           <div class="jumbotron"> 
+            <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">              
               <?php
 include 'fragments/weekly-sales-report.php';

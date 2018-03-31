@@ -241,3 +241,6 @@ input:checked + .slider .disable .unsold
 }
 
 /** End of Side Navigation **/
+.jumbotron{
+    padding-top: 20px;
+}

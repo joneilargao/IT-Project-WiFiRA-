@@ -13,26 +13,30 @@ require 'classes/UserAccount.php';
 
 <head>
       <title>WiFiRA WISP</title><meta charset="UTF-8" />
-      <link rel="stylesheet" type="text/css" href="pages/assets/css/login.css"/>
+
+      <link rel="stylesheet" type="text/css" href="pages/assets/css/style.css"/>
+      <link rel="stylesheet" type="text/css" href="css/style2.css"/>
+
+    
 </head>
-<body id="bg">
+<body background="pages/assets/img/background1.jpg" id="bg" >
   
-  <div >
+  <div class="backimage fright" align="center">
   <img src="pages/assets/img/logo.png" alt="Avatar" class="image1">
-  
+  <div class="overlay">Wireless Internet Service Provider</div>
   </div>
-  <div align="center">
-    <div id="loginborder" align="center">
+  <div class="fleft" align="left">
+    <div id="loginborder" align="left">
       <?php
         if(isset($errMsg)){
           echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
         }
       ?>
-        <div class="headergreen">LOGIN</div>
+      <div class="headergreen"><b>WiFiRA Login</b></div>
       <div style="margin:30px">
           <form action="" method="post">
-          <input type="text" placeholder="Username" name="username" class="box"/><br /><br />
-          <input type="password" placeholder="Password" name="password" class="box" /><br/><br />
+          <label class="userin"><b> Username: </b></label><input type="text" name="username" class="box"/><br /><br />
+          <label class="userin"><b>Password:</b></label><input type="password" name="password" class="box" /><br/><br />
           <input type="submit" name='submit' class="btn btn-warning" value="Submit" class="col s6" class='submit' id="submit1" /><br />
           </form>
           

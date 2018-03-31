@@ -14,6 +14,7 @@ require '../classes/UserAccount.php';
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+    <link rel="stylesheet" type="text/css" href="../fragments/assets/css/style2.css">
   </head>
   <?php
     include 'fragments/head.php';
@@ -68,15 +69,23 @@ echo "<option>" . $user['name'] . "</option>";
 ?>
                 </select>
                 <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
-                <a class="btn btn-primary" href="sales-total.php">
-            <i class="">
-            </i>Total Sales
-          </a>
+                
               </form>
               
             </div>    
           </div>
           <div class="jumbotron"> 
+            <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
 include 'fragments/sales-query.php';

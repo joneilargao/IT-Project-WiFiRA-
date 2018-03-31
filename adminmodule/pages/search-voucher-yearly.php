@@ -42,10 +42,7 @@ echo 'class="active-menu"';
                 <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 &nbsp;&nbsp;
-                <a class="btn btn-primary" href="sales-yearly-total.php">
-                  <i class="">
-                  </i>Total Sales
-                </a>
+                
                 </form>                
               <form action="sales-yearly-entity.php" method="get">
                 <select name="entity" style="height:29px;">
@@ -66,6 +63,17 @@ echo "<option>" . $user['name'] . "</option>";
             </div>    
           </div>
           <div class="jumbotron"> 
+            <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>

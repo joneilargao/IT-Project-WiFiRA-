@@ -55,16 +55,15 @@ echo 'class="active-menu"';
                       }
                     ?>
                   </select>
-               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-                  
-                <a class="btn btn-danger" href="view-staff-profile-archive.php">
-                  <i class="fa fa-archive fa-lg">
-                  </i> Archive
-                </a>
+               <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>   
                   </form>
                 </div>    
             </div>
             <div class="jumbotron"> 
+              <a class="btn btn-danger" href="view-staff-profile-archive.php" style="float:right; margin-bottom: 15px;">
+                  <i class="fa fa-archive fa-lg">
+                  </i> Archive
+                </a>
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php
 include 'fragments/user-query.php';

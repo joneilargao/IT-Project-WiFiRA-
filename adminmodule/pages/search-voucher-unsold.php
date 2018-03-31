@@ -44,10 +44,7 @@ echo 'class="active-menu"';
                 <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 &nbsp;&nbsp;
-                <a class="btn btn-success" href="#">
-                  <i class="fa fa-file-text fa-lg">
-                  </i> Generate
-                </a>
+                
               </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity" style="height:29px;">
@@ -69,6 +66,10 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
             </div>    
           </div>
           <div class="jumbotron"> 
+             <a class="btn btn-success" href="#" style="float:right; margin-bottom: 15px;">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                           <thead>
                             <tr>

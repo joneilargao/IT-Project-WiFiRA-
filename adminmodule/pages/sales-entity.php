@@ -43,16 +43,17 @@ echo 'class="active-menu"';
               </h1>
               <form action="sales-search.php" method="get">
                 From : 
-                <input type="date" name="d1" class="tcal" value="" /> To: 
-                <input type="date" name="d2" class="tcal" value="" />
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-              </form>
+                <input type="date" name="d1" class="tcal" value="" style="height: 28px;" /> To: 
+                <input type="date" name="d2" class="tcal" value="" style="height: 29px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
+              
               <form action="search-voucher.php" method="get">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height: 29px;" /> 
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form>
               <form action="sales-entity.php" method="get">
-                <select name="entity">
+                <select name="entity" style="height: 29px;">
                   <option value="">Choose Entity
                   </option>
                   <?php 
@@ -65,11 +66,22 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form>
             </div>    
           </div>
-          <div class="jumbotron"> 
+          <div class="jumbotron">
+     <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
+            <i class="fa fa-file-text fa-lg" >
+            </i> Generate
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
@@ -127,14 +139,7 @@ for($i=0; $row = $result->fetch(); $i++){
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="#">
-            <i class="fa fa-plus-square fa-lg">
-            </i> Update Status
-          </a>
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg">
-            </i> Generate
-          </a>
+          
         </div>
       </div>
     </div>

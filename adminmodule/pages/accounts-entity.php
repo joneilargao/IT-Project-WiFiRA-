@@ -38,7 +38,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162">Manage Staff Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity">
+                <select name = "entity" style="height:29px;">
                   <option value="">Choose Address
                   </option> 
 				  <!-- /. Selects all enabled accounts from the database -->
@@ -52,24 +52,16 @@ echo 'class="active-menu"';
                     }
                   ?>
                   </form>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                <a class="btn btn-primary" href="#">
-                  <i class="fa fa-pencil fa-lg">
-                  </i> Edit Account
-                </a>
-                <a class="btn btn-danger" href="#">
-                  <i class="fa fa-trash-o fa-lg">
-                  </i> Delete
-                </a>
-                <form action="">
-                  <a class="btn btn-info" name="archive" value="archive" onclick="archive()" >
-                    <i class="fa fa-archive fa-lg">
-                    </i> Archive 
-                  </a>
-                </form>
+                </select>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                
                 </div>    
             </div>
             <div class="jumbotron"> 
+              <a class="btn btn-danger" href="view-staff-profile-archive.php" style="float:right; margin-bottom: 15px;">
+                  <i class="fa fa-archive fa-lg">
+                  </i> Archive
+                </a>
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <thead>
                   <tr>
