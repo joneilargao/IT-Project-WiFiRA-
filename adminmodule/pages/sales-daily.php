@@ -40,7 +40,7 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Daily Sales</h1>
-              <form action="search-voucher-daily.php" method="get" >
+              <form action="search-voucher-daily.php" method="get" style="height:29px; margin-bottom: 5px;">
 
                 <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"> 
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>

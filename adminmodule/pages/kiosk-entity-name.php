@@ -88,6 +88,10 @@ echo "<option>" . $user['kioskName'] . "</option>";
                   </th>
                   <th> Status 
                   </th>
+                  <th> Actions
+                  </th>
+                  <th>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -115,6 +119,18 @@ for($i=0; $row = $result->fetch(); $i++){
                   </td>
                   <td>
                     <?php echo $row['kioskStatus']; ?>
+                  </td>
+                  <td>
+                     <?php if ($row['kioskStatus']=='Disable'){
+                          echo '<a href="fragments/kiosk-enable.php?id='.$row['kioskId'].'"><button class="btn btn-success">Enable</button></a>';
+                        }else{
+                          echo '<a href="fragments/kiosk-disable.php?id='.$row['kioskId'].'"><button class="btn btn-danger">Disable</button></a>';
+                        } 
+                      ?>
+                  </td>
+                    
+                  <td>
+                    <?php echo '<a href="edit-kiosk.php?id='.$row['kioskId'].'"><button class="btn">Edit Kiosk</button></a>';?>
                   </td>
                 </tr>
                 <?php

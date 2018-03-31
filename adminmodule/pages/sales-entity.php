@@ -41,7 +41,7 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#000000">Sales
               </h1>
-              <form action="sales-search.php" method="get">
+              <form action="sales-search.php" method="get" style="height:29px;margin-bottom: 5px;">
                 From : 
                 <input type="date" name="d1" class="tcal" value="" style="height: 28px;" /> To: 
                 <input type="date" name="d2" class="tcal" value="" style="height: 29px;"/>

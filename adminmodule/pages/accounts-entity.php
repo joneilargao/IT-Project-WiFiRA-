@@ -92,7 +92,9 @@ echo 'class="active-menu"';
                     </th>
                     <th> Username 
                     </th>
-                    <th>Password
+                    <th>Actions
+                    </th>
+                    <th>
                     </th>
                   </tr>
                 </thead>
@@ -124,7 +126,11 @@ for($i=0; $row = $result->fetch(); $i++){
                       <?php echo $row['username']; ?>
                     </td>
                     <td>
-                      <?php echo $row['password']; ?>
+                      <?php echo '<a href="fragments/user-reset-password.php?id='.$row['accountNo'].'"><button class="btn btn-primary">Reset Password</button></a>'; ?>
+                    </td>
+                    <td> 
+                      <?php echo '<a href="fragments/account-hide.php?id='.$row['accountNo'].'"><button class="btn btn-success">Archive</button></a>';
+                      ?>
                     </td>
                   </tr>
                   <?php

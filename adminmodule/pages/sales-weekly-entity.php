@@ -38,7 +38,7 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Weekly Sales</h1>
-                <form action="search-voucher-weekly.php" method="get" >
+                <form action="search-voucher-weekly.php" method="get" style="height:29px; margin-bottom: 5px;" >
 
                 <input type="text" name="sw1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>

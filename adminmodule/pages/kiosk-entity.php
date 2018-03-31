@@ -37,7 +37,7 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Manage Kiosks</h1>
               <form id="search-form" name="search" action="kiosk-entity.php" method="get">
-                <select name = "entity" style="height:30px">
+                <select name = "entity" style="height:30px; margin-bottom: 5px;">
                   <option value="">Choose Location
                   </option> 
          <!-- /. Selects all kiosk machine location from the database  -->
@@ -48,6 +48,24 @@ $usersQuerry->execute();
 $users = $usersQuerry->fetchAll();
 foreach ($users as $user){
 echo "<option>" . $user['location'] . "</option>";
+}
+?>
+                </select>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
+              </form>
+
+              <form id="search-form" name="search" action="kiosk-entity-name.php" method="get">
+                <select name = "entity" style="height:30px">
+                  <option value="">Choose Kiosk Name
+                  </option> 
+         <!-- /. Selects all kiosk machine location from the database  -->
+                  <?php 
+require_once 'fragments/connection.php';
+$usersQuerry = $pdo->prepare("SELECT DISTINCT kioskName FROM kioskmachine; ");
+$usersQuerry->execute();
+$users = $usersQuerry->fetchAll();
+foreach ($users as $user){
+echo "<option>" . $user['kioskName'] . "</option>";
 }
 ?>
                 </select>
@@ -68,6 +86,10 @@ echo "<option>" . $user['location'] . "</option>";
                   <th> IP Address 
                   </th>
                   <th> Status 
+                  </th>
+                  <th> Actions
+                  </th>
+                  <th>
                   </th>
                 </tr>
               </thead>
@@ -96,6 +118,18 @@ for($i=0; $row = $result->fetch(); $i++){
                   </td>
                   <td>
                     <?php echo $row['kioskStatus']; ?>
+                  </td>
+                  <td>
+                     <?php if ($row['kioskStatus']=='Disable'){
+                          echo '<a href="fragments/kiosk-enable.php?id='.$row['kioskId'].'"><button class="btn btn-success">Enable</button></a>';
+                        }else{
+                          echo '<a href="fragments/kiosk-disable.php?id='.$row['kioskId'].'"><button class="btn btn-danger">Disable</button></a>';
+                        } 
+                      ?>
+                  </td>
+                    
+                  <td>
+                    <?php echo '<a href="edit-kiosk.php?id='.$row['kioskId'].'"><button class="btn">Edit Kiosk</button></a>';?>
                   </td>
                 </tr>
                 <?php
