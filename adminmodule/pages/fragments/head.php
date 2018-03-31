@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WiFiRA WISP
   </title>
+  <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   <meta charset="UTF-8" />
   <!-- BOOTSTRAP STYLES-->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
