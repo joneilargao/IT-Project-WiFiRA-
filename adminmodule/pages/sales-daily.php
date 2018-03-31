@@ -7,6 +7,7 @@
 * @author Darren Sison
 * @author Joneil Argao
 * @author Cyrene Dispo
+* @author Katherine Turqueza
 */
 require '../classes/UserAccount.php';
 ?>

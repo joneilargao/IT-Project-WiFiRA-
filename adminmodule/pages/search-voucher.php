@@ -52,29 +52,27 @@ echo 'class="active-menu"';
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
                 (xxxxx-xxxxx format)
               </form>
-              <!--
-<form id="search-form" name="search" action="" method="get">
-<input id="search-input" name="search" type="text">
-<input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/> -->
+              
               <form action="sales-entity.php" method="get">
                 <select name="entity">
                   <option value="">Choose Entity
                   </option>
                   <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
+                    require_once 'fragments/connection.php';
+                    $usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
+                    $usersQuerry->execute();
+                    $users = $usersQuerry->fetchAll();
+                    foreach ($users as $user){
+                    echo "<option>" . $user['name'] . "</option>";
+                    }
+                  ?>
                 </select>
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
               </form>
             </div>    
           </div>
-          <div class="jumbotron"> 
+          <div class="jumbotron">
+            <div id="print">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
@@ -90,14 +88,13 @@ echo "<option>" . $user['name'] . "</option>";
               </thead>
               <tbody>
                 <?php
-include('fragments/connection.php');
-if (isset($_GET["s1"])) { $s1  = $_GET["s1"]; } else { $s1=0; }; 
-$result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a)
-   and (voucherStatus='sold')");
-$result->bindParam(':a', $s1);
-$result->execute();
-for($i=0; $row = $result->fetch(); $i++){
-?>
+                include('fragments/connection.php');
+                if (isset($_GET["s1"])) { $s1  = $_GET["s1"]; } else { $s1=0; }; 
+                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='sold')");
+                $result->bindParam(':a', $s1);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+                ?>
                 <tr class="record">
                   <td>
                     <?php echo $row['voucherCode']; ?>
@@ -113,22 +110,51 @@ for($i=0; $row = $result->fetch(); $i++){
                   </td>
                 </tr>
                 <?php
-}
-?>
+                }
+                ?>
               </tbody>
             </table>
           </div>
-          <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
+          </div>
           <a class="btn btn-primary" href="#">
             <i class="fa fa-plus-square fa-lg">
             </i> Update Status
           </a>
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg">
-            </i> Generate
+          <a class="btn btn-success" href="#null" onclick="printContent('print')">
+            <i class="fa fa-print fa-lg">
+            </i> Print
           </a>
         </div>
       </div>
     </div>
   </body>
 </html>    
+
+<script type="text/javascript">
+function printContent(id){
+str=document.getElementById(id).innerHTML
+newwin=window.open('','printwin','left=100,top=100,width=400,height=400')
+newwin.document.write('<HTML>\n<HEAD>\n')
+newwin.document.write('<TITLE>Print Page</TITLE>\n')
+newwin.document.write('<script>\n')
+newwin.document.write('function chkstate(){\n')
+newwin.document.write('if(document.readyState=="complete"){\n')
+newwin.document.write('window.close()\n')
+newwin.document.write('}\n')
+newwin.document.write('else{\n')
+newwin.document.write('setTimeout("chkstate()",2000)\n')
+newwin.document.write('}\n')
+newwin.document.write('}\n')
+newwin.document.write('function print_win(){\n')
+newwin.document.write('window.print();\n')
+newwin.document.write('chkstate();\n')
+newwin.document.write('}\n')
+newwin.document.write('<\/script>\n')
+newwin.document.write('</HEAD>\n')
+newwin.document.write('<BODY onload="print_win()">\n')
+newwin.document.write(str)
+newwin.document.write('</BODY>\n')
+newwin.document.write('</HTML>\n')
+newwin.document.close()
+}
+</script>

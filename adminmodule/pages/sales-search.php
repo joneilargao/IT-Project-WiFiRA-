@@ -73,8 +73,8 @@ echo 'class="active-menu"';
           <div class="jumbotron"> 
             <div style="float:right; margin-bottom: 15px;">
               <a class="btn btn-success" href="#null" onclick="printContent('print')">
-                <i class="fa fa-file-text fa-lg" >
-                </i> Generate
+                <i class="fa fa-print fa-lg" >
+                </i> Print
               </a>&nbsp;
               <a class="btn btn-primary" href="sales-total.php">
                 <i class="">
