@@ -52,11 +52,7 @@ echo 'class="active-menu"';
             </div>    
           </div>
           <div class="jumbotron"> 
-             <a class="btn btn-success" href="#" style="float:right; margin-bottom: 15px;">
-            <i class="fa fa-print fa-lg" >
-            </i> Print
-          </a> 
-              <div id="print">
+              <div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                           <thead>
                             <tr>

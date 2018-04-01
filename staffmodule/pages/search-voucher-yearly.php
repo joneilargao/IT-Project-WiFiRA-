@@ -5,6 +5,7 @@
 * Displays the sold vouchers for the year
 * 
 * @author Joneil Argao
+* @author Katherine Turqueza
 */
 require '../classes/UserAccount.php';
 ?>
@@ -36,25 +37,29 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Yearly Sales</h1>
-              <form action="search-voucher-yearly.php" method="get" style="height:35px;">
-                
-                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>           
-                </form>                
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Yearly Sales</h1>
+              <div>
+                <form action="search-voucher-yearly.php" method="get"  style="height:29px; float:left;">
+                  <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"> 
+                  <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                </form>
+                  
+              </div>
             </div>    
           </div>
           <div class="jumbotron"> 
             <div style="float:right; margin-bottom: 15px;">
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg" >
-            </i> Generate
+          <a class="btn btn-success" href="#null" onclick="printContent('print')">
+            <i class="fa fa-print fa-lg" >
+            </i> Print
           </a> 
-            <a class="btn btn-primary" href="sales-total.php"  ">
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php">
               <i class="">
               </i>Total Sales
             </a>
           </div>
+              <div id="print">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
@@ -70,14 +75,13 @@ echo 'class="active-menu"';
               </thead>
               <tbody>
                 <?php
-include('fragments/connection.php');
-if (isset($_GET["sy1"])) { $sy1  = $_GET["sy1"]; } else { $sy1=0; }; 
-$result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a)
-   and (voucherStatus='sold') and (YEAR(datePrinted)=YEAR(CURRENT_DATE()))");
-$result->bindParam(':a', $sy1);
-$result->execute();
-for($i=0; $row = $result->fetch(); $i++){
-?>
+                include('fragments/connection.php');
+                if (isset($_GET["sy1"])) { $sy1  = $_GET["sy1"]; } else { $sy1=0; }; 
+                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Sold') and (YEAR(datePrinted)=YEAR(CURRENT_DATE()));");
+                $result->bindParam(':a', $sy1);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+                ?>
                 <tr class="record">
                   <td>
                     <?php echo $row['voucherCode']; ?>
@@ -93,15 +97,43 @@ for($i=0; $row = $result->fetch(); $i++){
                   </td>
                 </tr>
                 <?php
-}
-?>
+                }
+                ?>
               </tbody>
             </table>
           </div>
-          <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          
+            </div>
         </div>
       </div>
     </div>
   </body>
 </html>    
+
+<script type="text/javascript">
+function printContent(id){
+str=document.getElementById(id).innerHTML
+newwin=window.open('','printwin','left=100,top=100,width=400,height=400')
+newwin.document.write('<HTML>\n<HEAD>\n')
+newwin.document.write('<TITLE>Print Page</TITLE>\n')
+newwin.document.write('<script>\n')
+newwin.document.write('function chkstate(){\n')
+newwin.document.write('if(document.readyState=="complete"){\n')
+newwin.document.write('window.close()\n')
+newwin.document.write('}\n')
+newwin.document.write('else{\n')
+newwin.document.write('setTimeout("chkstate()",2000)\n')
+newwin.document.write('}\n')
+newwin.document.write('}\n')
+newwin.document.write('function print_win(){\n')
+newwin.document.write('window.print();\n')
+newwin.document.write('chkstate();\n')
+newwin.document.write('}\n')
+newwin.document.write('<\/script>\n')
+newwin.document.write('</HEAD>\n')
+newwin.document.write('<BODY onload="print_win()">\n')
+newwin.document.write(str)
+newwin.document.write('</BODY>\n')
+newwin.document.write('</HTML>\n')
+newwin.document.close()
+}
+</script>
