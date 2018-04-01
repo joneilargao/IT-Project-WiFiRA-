@@ -19,7 +19,7 @@ if(!$mysqli){
 	die("Connection failed: " . $mysqli->error);
 }
 
-$squery = sprintf("SELECT COUNT(salesID) as totalsales, dateUsed FROM `sales` group by dateUsed ORDER BY dateUsed");
+$squery = sprintf("SELECT COUNT(voucherId) as totalsales, dateSold as dateUsed FROM vouchers where dateSold is not null group by dateSold ORDER BY dateSold");
 
 $sresult = $mysqli->query($squery);
 
