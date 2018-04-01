@@ -50,12 +50,12 @@ echo 'class="active-menu"';
                     <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
                   </form>
                   
-                  <form action="search-voucher.php" method="get" style="height:35px;float:right;margin-right:150px; ">
+                  <form action="search-voucher.php" method="get" style="height:35px;float:right;margin-right:38%; ">
                     &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px; "/> 
                     <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>  
                   </form>
               </div>
-              <form action="sales-entity.php" method="get">
+              <form action="sales-entity.php" method="get" style="margin-left: 5px;">
                 <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
                   </option>

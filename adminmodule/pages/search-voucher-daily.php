@@ -44,7 +44,7 @@ echo 'class="active-menu"';
                   <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 </form>
                   
-                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:59%; ">
+                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:64%; ">
                   <select name="entity" style="height:29px">
                     <option value="">Choose Entity
                     </option>

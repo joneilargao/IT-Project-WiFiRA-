@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Katherine Turqueza
+* @author Cyrene Dispo
 */
 require_once 'connection.php'; 
 $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
