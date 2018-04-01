@@ -40,11 +40,11 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Daily Sales</h1>
               <div>
                 <form action="search-voucher-daily.php" method="get"  style="height:29px; float:left;">
-                  <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"> 
+                  <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"> 
                   <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 </form>
                   
-                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:450px; ">
+                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:59%; ">
                   <select name="entity" style="height:29px">
                     <option value="">Choose Entity
                     </option>

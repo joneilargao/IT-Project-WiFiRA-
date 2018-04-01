@@ -44,7 +44,7 @@ echo 'class="active-menu"';
 
               <div>
                 <form action="search-voucher-daily.php" method="get"  style="height:29px; float:left;">
-                  <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"> 
+                  <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"> 
                   <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 </form>
                   
