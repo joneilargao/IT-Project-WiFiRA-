@@ -50,7 +50,7 @@ echo 'class="active-menu"';
               <form action="search-voucher.php" method="get">
                 Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
+                (xxxxxxxxxx format)
               </form>
             </div>    
           </div>

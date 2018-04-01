@@ -41,7 +41,7 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
               <form action="search-voucher-unsold.php" method="get">
-                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" /> 
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form>
             </div>    

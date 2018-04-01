@@ -40,7 +40,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Monthly Sales</h1>
               <form action="search-voucher-monthly.php" method="get">
 
-                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;" >
+                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;" >
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 
               </form>   
