@@ -38,29 +38,29 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Monthly Sales</h1>
-              <form action="search-voucher-monthly.php" method="get" style="height:29px; margin-bottom: 5px;">
-
-                <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;" >
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-                &nbsp;&nbsp;
-                
-              </form>   
-              <form action="sales-monthly-entity.php" method="get">
-                <select name="entity" style="height:29px;">
-                  <option value="">Choose Entity
-                  </option>
-                  <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
-                </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form>
+              <div>
+                <form action="search-voucher-daily.php" method="get"  style="height:29px; float:left;">
+                  <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"> 
+                  <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                </form>
+                  
+                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:450px; ">
+                  <select name="entity" style="height:29px">
+                    <option value="">Choose Entity
+                    </option>
+                    <?php 
+                      require_once 'fragments/connection.php';
+                      $usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
+                      $usersQuerry->execute();
+                      $users = $usersQuerry->fetchAll();
+                      foreach ($users as $user){
+                      echo "<option>" . $user['name'] . "</option>";
+                      }
+                    ?>
+                  </select>
+                  <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                </form>
+              </div>
             </div>    
           </div>
           <div class="jumbotron"> 

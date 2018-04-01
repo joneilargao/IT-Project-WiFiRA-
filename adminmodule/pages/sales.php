@@ -42,18 +42,19 @@ echo 'class="active-menu"';
               
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sales</h1>
              
-              <form action="sales-search.php" method="get" style="height:29px; margin-bottom: 5px;">
-                From : 
-                <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/> To: 
-                <input type="date" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
-              </form>
-              
-              <form action="search-voucher.php" method="get" style="height:35px; ">
-                &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px; "/> 
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>	
-              </form>
-
+              <div>
+                  <form action="sales-search.php" method="get" style="height:29px; margin-bottom: 5px;float:left;">
+                    From : 
+                    <input type="date" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/> To: 
+                    <input type="date" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:29px;"/>
+                    <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
+                  </form>
+                  
+                  <form action="search-voucher.php" method="get" style="height:35px;float:right;margin-right:150px; ">
+                    &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px; "/> 
+                    <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>  
+                  </form>
+              </div>
               <form action="sales-entity.php" method="get">
                 <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
