@@ -66,7 +66,7 @@ $vouchers = $unifi_connection->stat_voucher($voucher_result[0]->create_time);
  * provide feedback (the newly created vouchers) in json format
  */
 //echo json_encode($vouchers);
-echo json_encode($vouchers, JSON_PRETTY_PRINT);
+//echo json_encode($vouchers, JSON_PRETTY_PRINT);
 //echo print_r($vouchers);
 //var_dump($vouchers);
 //var_export($vouchers);
@@ -102,7 +102,7 @@ if ($voucher_expiration == "120") {
 	$accountNo = $user->getAccountId();
 
 
-	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), '$accountNo', NULL)";
+	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId, dateSold) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), '$accountNo', NULL, NULL)";
                             $insert = $db->query($query);
 
                             if($insert){
