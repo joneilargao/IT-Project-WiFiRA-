@@ -101,74 +101,8 @@ echo count($result);
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6"> 
-              <div class="text-box" >
-                <h4 align="center">
-                  <button type="button" class="bbtn btn-success btn-lg btn-block" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal">Create Voucher
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;
-                          </button>
-                          <h1 style = "font-family: Palatino;" class=" modal-title"><font color ="#213D17">Create Voucher</font>
-                          </h1>
-                          <form class="form-horizontal" action="" method="post">
-                          <fieldset>
-      
-                              <div class="form-group">
-                              <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
-                              <div class="col-lg-10">
-                                <input type="number" id="voucher_count" class="form-control" name="voucher_count" value="<?php if(isset($error)){ echo $_POST['voucher_count']; } ?>">
-                              </div>
-                              </div> 
-                              
-                             <div class="form-group">
-                              <label for="voucher_quota" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Quota </label>
-                              <div class="col-lg-10">
-                              <select class="form-control" name="voucher_quota">
-                                    <option value="1">One time</option>
-                                    <option value="0">Multi use</option>
-                              </select>
-                              </div>
-                            </div>    
-                                  
-
-                            <div class="form-group">
-                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Expiration Time</label>
-                              <div class="col-lg-10">
-                              <select class="form-control" name="voucher_expiration">
-                                    <option value="120">2 Hours</option>
-                                    <option value="1440">24 Hours</option>
-                              </select>
-                              </div>
-                            </div>  
-                            
-                            <div class="form-group">
-                              <label for="voucher_note" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Notes</label>
-                              <div class="col-lg-10">
-                                <input type="text" id="voucher_note" class="form-control" name="voucher_note" value="<?php if(isset($error)){ echo $_POST['voucher_note']; } ?>">
-                              </div>
-                            </div>
-                  
-                                <div class="form-group">
-                                    <button type="submit" name="createaccount" class="btn btn-lg btn-primary" style = "font-family: Audrey;" id="createaccount" value="submit">Submit</button>
-                                  </div>
-                                </div>
-                            </fieldset>
-                        </form>
-                        </div>
-                      </div>
-                    </div>
-                    </h4>
-                  </div>
-                </a>
-            </div>
-
-        </div>
+			</div>
+         
         <div class="text-box" > 
         	<div>
 	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
