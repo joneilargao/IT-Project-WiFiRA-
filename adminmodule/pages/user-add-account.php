@@ -62,9 +62,8 @@ $sql->bindParam(':name', $name);
 $sql->execute();
 $accountStatus = $account->getStatus();
 $roleId = $account->getRoleId();
-$image = $account->getUserPicture();
 $_SESSION["userAccount"] = new UserAccount($accountNo, $username, '', $address, $name,
-$accountStatus, $roleId, $image);
+$accountStatus, $roleId);
 header('view-profile.php');
 }else{
 $updateWithoutPass = "update user_account set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
@@ -76,9 +75,8 @@ $sql->bindParam(':name', $name);
 $sql->execute();
 $accountStatus = $account->getStatus();
 $roleId = $account->getRoleId();
-$image = $account->getUserPicture();
 $_SESSION["userAccount"] = new UserAccount($accountNo, $username, '', $address, $name,
-$accountStatus, $roleId, $image);
+$accountStatus, $roleId);
 header('view-profile.php');
 }
 }
@@ -153,7 +151,7 @@ $profileqry = $qry->fetch();
                   <label for="password" class="col-lg-2 control-label" style = "font-size: 110%;">Password
                   </label>
                   <div class="col-lg-10">
-                    <input type="password" maxlength="20" class="form-control" name="password">
+                    <input type="password" class="form-control" name="password">
                   </div>
                 </div>
                 
@@ -177,7 +175,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $contactNumber = $_POST['contactNumber'];
 $emailAddress = $_POST['emailAddress'];
-$query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, image, visibility, contactNumber, emailAddress) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', NULL, 'Visible', '$contactNumber', '$emailAddress')";
+$query = "INSERT INTO accounts(accountNo, roleId, name, address, username, password, accountStatus, visibility, contactNumber, emailAddress) VALUES (DEFAULT, '$roleId', '$name', '$address', '$username', '$password', 'Enable', 'Visible', '$contactNumber', '$emailAddress')";
 $insert = $db->query($query);
 if($insert){
 echo '<script type="text/javascript">
