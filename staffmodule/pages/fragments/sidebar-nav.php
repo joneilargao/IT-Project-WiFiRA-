@@ -46,7 +46,7 @@ $print = $query->fetch();
             
         <!--Vouchers-->
         <a href=vouchers.php>
-            <i class="glyphicon glyphicon-print"></i>  Vouchers 
+            <i class="glyphicon glyphicon-list-alt"></i>  Vouchers 
         </a>
         <div class="dropdown-container">
            <a  href="vouchers-sold.php"><i class="glyphicon glyphicon-ok-sign text-success"></i>
@@ -57,8 +57,6 @@ $print = $query->fetch();
             <a  href="vouchers-create.php"><i class="glyphicon glyphicon-pencil text-success"></i>
               Create Voucher</a>
         </div>
-           
-    
         <!--Accounts-->   
         <button class="dropdown-btn">
             <i class="fa fa-user"></i>  Accounts 

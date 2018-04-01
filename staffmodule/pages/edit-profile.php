@@ -48,16 +48,20 @@
                     $rePassword = $_POST['inputRePassword'];
                     $address = $_POST['inputAddress'];
                     $name = $_POST['inputname'];
+                    $emailAddress = $_POST['inputEmailAddress'];
+                    $contactNumber = $_POST['inputContactNumber'];
 
                     include "fragments/connection.php";
 
                     if($password == $rePassword && $password != ''){
-                        $updateWithPass = "update accounts set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
+                        $updateWithPass = "update accounts set username=:username, password=:password, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber where accountNo = '$accountNo';";
                         $sql = $pdo->prepare($updateWithPass);
                         $sql->bindParam(':username', $username);
                         $sql->bindParam(':password', $password);
                         $sql->bindParam(':address', $address);
                         $sql->bindParam(':name', $name);
+                        $sql->bindParam(':emailAddress', $emailAddress);
+                        $sql->bindParam(':contactNumber',$contactNumber);
                         $sql->execute();
 
                         $accountStatus = $account->getStatus();
@@ -69,12 +73,14 @@
                         header('view-profile.php');
 
                     }else{
-                        $updateWithoutPass = "update accounts set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
+                        $updateWithoutPass = "UPDATE accounts SET username=:username, password=:password, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber WHERE accountNo = '$accountNo';";
                         $sql = $pdo->prepare($updateWithoutPass);
                         $sql->bindParam(':username', $username);
                         $sql->bindParam(':password', $password);
                         $sql->bindParam(':address', $address);
                         $sql->bindParam(':name', $name);
+                        $sql->bindParam(':emailAddress', $emailAddress);
+                        $sql->bindParam(':contactNumber',$contactNumber);
                         $sql->execute();
 
                         $accountStatus = $account->getStatus();
@@ -107,7 +113,7 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                          <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Edit Profile</h1>   
+                          <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Edit Profile</h1>   
                         </div>    
                     </div>
                         
@@ -146,7 +152,7 @@
                               <div class="form-group">
                               <label for="inputEmailAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Email Address</label>
                               <div class="col-lg-10">
-                                <input type="email" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['emailAddress'] ?>">
+                                <input type="email" maxlength="50" class="form-control" name="inputEmailAddress" value="<?php echo $profileqry['emailAddress'] ?>">
                               </div>
                               </div>
 
