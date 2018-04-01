@@ -13,7 +13,7 @@ require '../classes/UserAccount.php';
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>	
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/> 
  </head>
   <?php
     include 'fragments/head.php';
@@ -22,7 +22,9 @@ require '../classes/UserAccount.php';
   <?php
   //Start your session
   session_start();
-
+  $user= $_SESSION['userAccount'];
+  $usr = $_SESSION['username'];
+  $user_id = $user->getAccountId();
   function echoActiveClassIfRequestMatches($requestUri){
     $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
   if ($current_file_name == $requestUri)
@@ -43,9 +45,10 @@ require '../classes/UserAccount.php';
               </div>
              <div>
                 <form action="voucher-search-entity.php" method="get" style="float:left;">
-                  <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
-                  <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
-                </form> 
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+              
+               </form> 
             </div>
 
             </div>    
@@ -58,9 +61,58 @@ require '../classes/UserAccount.php';
           </a> 
             <div id="print">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+                          <thead>
+                            <tr>
+                              <th> Voucher Code 
+                              </th>
+                              <th> Voucher Type 
+                              </th>
+                              <th> Amount 
+                              </th>
+                              <th> Date 
+                              </th>
+                              <th> Status 
+                              </th>
+                              <th>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php
+                include('fragments/connection.php');
+                if (isset($_GET["su1"])) { $su1  = $_GET["su1"]; } else { $su1=0; }; 
+                $result = $pdo->prepare("SELECT * FROM vouchers where (voucherCode =:a) AND (accountNo='$user_id')");
+                $result->bindParam(':a', $su1);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+                ?>
+                            <tr class="record">
+                              <td>
+                                <?php echo $row['voucherCode']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['voucherType']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['voucherAmount']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['datePrinted']; ?>
+                              </td>
+                              <td>
+                                <?php echo $row['voucherStatus']; ?>
+                              </td>
+                              <td>
+                                <?php echo '<a href="fragments/vouchers-unsold.php?id='.$row['voucherId'].'"><button class="btn">Sold</button></a>';
+                                ?>
+                              </td>
+                </tr>
+                <?php
+}
+?>
+              </tbody>
               <?php
-                include 'vouchers-query.php';
-              ?>
+?>
             </table>
                 </div>
           </div>

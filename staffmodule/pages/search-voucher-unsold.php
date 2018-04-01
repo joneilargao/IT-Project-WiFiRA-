@@ -23,7 +23,9 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-
+$user= $_SESSION['userAccount'];
+$usr = $_SESSION['username'];
+$user_id = $user->getAccountId();
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -39,18 +41,22 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
-              <form action="search-voucher-unsold.php" method="get">
-                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" /> 
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form>
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
+              <div>
+              <form action="search-voucher-unsold.php" method="get" style="float:left;">
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+              
+               </form> 
+            </div>
             </div>    
           </div>
           <div class="jumbotron"> 
              <a class="btn btn-success" href="#" style="float:right; margin-bottom: 15px;">
-            <i class="fa fa-file-text fa-lg" >
-            </i> Generate
+            <i class="fa fa-print fa-lg" >
+            </i> Print
           </a> 
+              <div id="print">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                           <thead>
                             <tr>
@@ -64,13 +70,15 @@ echo 'class="active-menu"';
                               </th>
                               <th> Status 
                               </th>
+                              <th>
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
                             <?php
                 include('fragments/connection.php');
                 if (isset($_GET["su1"])) { $su1  = $_GET["su1"]; } else { $su1=0; }; 
-                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, voucherstatus, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Unsold')");
+                $result = $pdo->prepare("SELECT * FROM vouchers where (voucherCode =:a) and (voucherStatus='Unsold') AND (accountNo='$user_id')");
                 $result->bindParam(':a', $su1);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -89,7 +97,11 @@ echo 'class="active-menu"';
                                 <?php echo $row['datePrinted']; ?>
                               </td>
                               <td>
-                                <?php echo $row['voucherstatus']; ?>
+                                <?php echo $row['voucherStatus']; ?>
+                              </td>
+                              <td>
+                                <?php echo '<a href="fragments/vouchers-unsold.php?id='.$row['voucherId'].'"><button class="btn">Sold</button></a>';
+                                ?>
                               </td>
                 </tr>
                 <?php
@@ -99,12 +111,40 @@ echo 'class="active-menu"';
               <?php
 ?>
             </table>
+              </div>
           </div>
-          <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          
           
         </div>
       </div>
     </div>
   </body>
 </html>    
+
+<script type="text/javascript">
+function printContent(id){
+str=document.getElementById(id).innerHTML
+newwin=window.open('','printwin','left=100,top=100,width=400,height=400')
+newwin.document.write('<HTML>\n<HEAD>\n')
+newwin.document.write('<TITLE>Print Page</TITLE>\n')
+newwin.document.write('<script>\n')
+newwin.document.write('function chkstate(){\n')
+newwin.document.write('if(document.readyState=="complete"){\n')
+newwin.document.write('window.close()\n')
+newwin.document.write('}\n')
+newwin.document.write('else{\n')
+newwin.document.write('setTimeout("chkstate()",2000)\n')
+newwin.document.write('}\n')
+newwin.document.write('}\n')
+newwin.document.write('function print_win(){\n')
+newwin.document.write('window.print();\n')
+newwin.document.write('chkstate();\n')
+newwin.document.write('}\n')
+newwin.document.write('<\/script>\n')
+newwin.document.write('</HEAD>\n')
+newwin.document.write('<BODY onload="print_win()">\n')
+newwin.document.write(str)
+newwin.document.write('</BODY>\n')
+newwin.document.write('</HTML>\n')
+newwin.document.close()
+}
+</script>

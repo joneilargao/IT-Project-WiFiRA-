@@ -49,10 +49,15 @@ $print = $query->fetch();
             <i class="glyphicon glyphicon-print"></i>  Vouchers 
         </a>
         <div class="dropdown-container">
+           <a  href="vouchers-sold.php"><i class="glyphicon glyphicon-ok-sign text-success"></i>
+           Sold Vouchers</a>
+            <a  href="vouchers-unsold.php">
+              <i class="glyphicon glyphicon-remove-sign text-success"></i>
+            Unsold Voucher</a>
             <a  href="vouchers-create.php"><i class="glyphicon glyphicon-pencil text-success"></i>
               Create Voucher</a>
         </div>
-            
+           
     
         <!--Accounts-->   
         <button class="dropdown-btn">

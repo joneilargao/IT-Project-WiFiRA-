@@ -37,31 +37,16 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Sold Vouchers
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sold Vouchers
               </h1>
-             <form action="search-voucher-unsold.php" method="get" >
-                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"> 
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
 
+              <div>
+              <form action="search-voucher-sold.php" method="get" style="float:left;">
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+              
                </form> 
-                <form id="search-form" name="search" action="vouchers.php" method="get">
-                <select name = "entity" style="height:29px;">
-                  <option value="">Choose Voucher Status
-                  </option>
-				   <!-- /. Selects all unsold vouchers from the database -->
-                  <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT voucherstatus FROM vouchers; ");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['voucherstatus'] . "</option>";
-}
-?>
-                  </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form>
-
+            </div>
             </div>    
           </div>
           <div class="jumbotron"> 
