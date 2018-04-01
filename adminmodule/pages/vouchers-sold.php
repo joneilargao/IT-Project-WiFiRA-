@@ -37,31 +37,33 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Sold Vouchers
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sold Vouchers
               </h1>
-              <form action="search-voucher-unsold.php" method="get" >
-                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+
+              <div>
+              <form action="search-voucher-sold.php" method="get" style="float:left;">
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
               
                </form> 
-                <form id="search-form" name="search" action="vouchers-entity.php" method="get">
-                <select name = "entity" style="height:35px;">
-                  <option value="">Choose Status
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="float:right;margin-right:65%; ">
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff
                   </option>
-				   <!-- /. Selects all unsold vouchers from the database -->
+           <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
 require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT voucherstatus FROM vouchers; ");
+$usersQuerry = $pdo->prepare("SELECT DISTINCT name FROM accounts where roleId='Staff'; ");
 $usersQuerry->execute();
 $users = $usersQuerry->fetchAll();
 foreach ($users as $user){
-echo "<option>" . $user['voucherstatus'] . "</option>";
+echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
               </form>
-
+            </div>
             </div>    
           </div>
           <div class="jumbotron"> 

@@ -40,29 +40,30 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
-              <form action="search-voucher-unsold.php" method="get">
-                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-                &nbsp;&nbsp;
-                
-              </form>
-              <form id="search-form" name="search" action="vouchers-entity.php" method="get">
+              <div>
+              <form action="search-voucher-unsold.php" method="get" style="float:left;">
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+              
+               </form> 
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="float:right;margin-right:65%; ">
                 <select name = "entity" style="height:29px;">
-                  <option value="">Choose Voucher Status
+                  <option value="">Choose Staff
                   </option>
            <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
-                    require_once 'fragments/connection.php';
-                    $usersQuerry = $pdo->prepare("SELECT DISTINCT voucherstatus FROM vouchers; ");
-                    $usersQuerry->execute();
-                    $users = $usersQuerry->fetchAll();
-                    foreach ($users as $user){
-                    echo "<option>" . $user['voucherstatus'] . "</option>";
-                    }
-                  ?>
+require_once 'fragments/connection.php';
+$usersQuerry = $pdo->prepare("SELECT DISTINCT name FROM accounts where roleId='Staff'; ");
+$usersQuerry->execute();
+$users = $usersQuerry->fetchAll();
+foreach ($users as $user){
+echo "<option>" . $user['name'] . "</option>";
+}
+?>
                 </select>
-                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-              </form> 
+                <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
+              </form>
+            </div>
             </div>    
           </div>
           <div class="jumbotron"> 
@@ -84,13 +85,15 @@ echo 'class="active-menu"';
                               </th>
                               <th> Status 
                               </th>
+                              <th>
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
                             <?php
                 include('fragments/connection.php');
                 if (isset($_GET["su1"])) { $su1  = $_GET["su1"]; } else { $su1=0; }; 
-                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, voucherstatus, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Unsold')");
+                $result = $pdo->prepare("SELECT * FROM vouchers where (voucherCode =:a) and (voucherStatus='Unsold')");
                 $result->bindParam(':a', $su1);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -109,7 +112,11 @@ echo 'class="active-menu"';
                                 <?php echo $row['datePrinted']; ?>
                               </td>
                               <td>
-                                <?php echo $row['voucherstatus']; ?>
+                                <?php echo $row['voucherStatus']; ?>
+                              </td>
+                              <td>
+                                <?php echo '<a href="fragments/vouchers-unsold.php?id='.$row['voucherId'].'"><button class="btn">Sold</button></a>';
+                                ?>
                               </td>
                 </tr>
                 <?php

@@ -15,7 +15,6 @@ $query->execute();
 $result = $query->fetchAll();
 
 echo "<tr>";
-echo "<th>Voucher Id</th>";
 echo "<th>Voucher Code</th>";
 echo "<th>Voucher Type</th>";
 echo "<th>Amount </th>";
@@ -26,7 +25,6 @@ echo "</tr>";
 foreach($result as $query){
 $rid = $query['voucherId'];
 echo "<tr>";
-echo "<td>" . $query['voucherId'] . "</td>";
 echo "<td>" . $query['voucherCode'] . "</td>";
 echo "<td>" . $query['voucherType'] . "</td>";
 echo "<td>" . $query['voucherAmount'] . "</td>";
