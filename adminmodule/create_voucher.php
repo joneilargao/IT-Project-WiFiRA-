@@ -102,7 +102,7 @@ if ($voucher_expiration == "120") {
 	$accountNo = $user->getAccountId();
 
 
-	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId, dateSold) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), '$accountNo', NULL, NULL)";
+	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId, dateSold) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', NULL, '$accountNo', NULL, NULL)";
                             $insert = $db->query($query);
 
                             if($insert){
