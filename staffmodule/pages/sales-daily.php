@@ -40,7 +40,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Daily Sales</h1>
+              <h1 style = "font-family: palatino; color:#4A8162; font-size: 250%;">Daily Sales</h1>
 
               <div>
                 <form action="search-voucher-daily.php" method="get"  style="height:29px; float:left;">

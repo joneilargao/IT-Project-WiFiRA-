@@ -40,7 +40,7 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sales</h1>
+              <h1 style = "font-family: palatino; color:#4A8162; font-size: 250%;">Sales</h1>
              
               <div>
                   <form action="sales-search.php" method="get" style="height:29px; margin-bottom: 5px;float:left;">
