@@ -41,7 +41,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sold Vouchers</h1>
+              <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Sold Vouchers</h1>
               <div>
               <form action="search-voucher-sold.php" method="get" style="float:left;">
                 <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 

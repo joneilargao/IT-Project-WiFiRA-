@@ -41,7 +41,7 @@ require '../classes/UserAccount.php';
           <div class="row">
             <div class="col-md-12">
               <div class="col-md-12">
-                  <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Vouchers</h1>
+                  <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Vouchers</h1>
               </div>
              <div>
                 <form action="voucher-search-entity.php" method="get" style="float:left;">
