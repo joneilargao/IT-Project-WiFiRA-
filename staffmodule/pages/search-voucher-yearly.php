@@ -39,7 +39,7 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Yearly Sales</h1>
               <form action="search-voucher-yearly.php" method="get" style="height:35px;">
                 
-                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
+                <input type="text" name="sy1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/>
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>           
                 </form>                
             </div>    
