@@ -13,7 +13,8 @@ require '../classes/UserAccount.php';
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">    
-  <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/> 
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/> 
  </head>
   <?php
 include 'fragments/head.php';
@@ -22,11 +23,7 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-echo "You are logged in as, " . $_SESSION['username'] . "!";
-} else {
-header("location: login.php");
-}
+
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -42,16 +39,19 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Unsold Vouchers
-              </h1>
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
               <form action="search-voucher-unsold.php" method="get">
-                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
+                <a class="btn btn-success" href="#">
+                  <i class="fa fa-file-text fa-lg">
+                  </i> Generate
+                </a>
               </form>
               <form id="search-form" name="search" action="vouchers-entity.php" method="get">
-                <select name = "entity">
-                  <option value="">Choose Status
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Voucher Status
                   </option>
            <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
@@ -64,7 +64,7 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form> 
             </div>    
           </div>
@@ -119,14 +119,8 @@ echo "<option>" . $user['voucherstatus'] . "</option>";
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="#">
-            <i class="fa fa-plus-square fa-lg">
-            </i> Update Status
-          </a>
-          <a class="btn btn-success" href="#">
-            <i class="fa fa-file-text fa-lg">
-            </i> Generate
-          </a>
+          
+          
         </div>
       </div>
     </div>

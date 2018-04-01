@@ -1,11 +1,10 @@
 <?php
 /**
-* sales.php
+* voucher-sold.php
+*
+* Displays all sold vouchers
 * 
-* Displays the sold vouchers
-* 
-* @author Darren Sison
-* @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
@@ -13,7 +12,8 @@ require '../classes/UserAccount.php';
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
-  </head>
+  <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>	
+ </head>
   <?php
 include 'fragments/head.php';
 ?>
@@ -41,49 +41,45 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#0C310D">Sales
+              <h1 style = "font-family: Palatino; color:#0C310D">Sold Vouchers
               </h1>
-              <form action="sales-search.php" method="get" style="height:35px;">
-                From : 
-                <input type="text" name="d1" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/> To: 
-                <input type="text" name="d2" class="tcal" value="" placeholder="yyyy-mm-dd" style="height:35px;"/>
+              <form action="search-voucher-unsold.php" method="get" >
+                Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                </form>
-              
-              <form action="search-voucher.php" method="get" style="height:35px;">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;"/> 
-                <input type="submit" value="Search"  style=" font-family:monospace; font-size:18px;">
-              </form>
-              <form action="sales-entity.php" method="get">
-                <select name="entity">
-                  <option value="">Choose Entity
+              <a class="btn btn-success" href="#">
+                <i class="fa fa-file-text fa-lg">
+                </i> Generate
+              </a>
+               </form> 
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get">
+                <select name = "entity" style="height:35px;">
+                  <option value="">Choose Status
                   </option>
+				   <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
 require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
+$usersQuerry = $pdo->prepare("SELECT DISTINCT voucherstatus FROM vouchers; ");
 $usersQuerry->execute();
 $users = $usersQuerry->fetchAll();
 foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
+echo "<option>" . $user['voucherstatus'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
               </form>
+
             </div>    
           </div>
           <div class="jumbotron"> 
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
-include 'fragments/sales-query.php';
+include 'fragments/vouchers-sold-query.php';
 ?>
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <a class="btn btn-primary" href="sales-total.php">
-            <i class="fa fa-plus-square fa-lg">
-            </i>Total
-          </a>
+          
         </div>
       </div>
     </div>

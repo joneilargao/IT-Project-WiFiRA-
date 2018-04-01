@@ -10,7 +10,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT * FROM vouchers where voucherStatus = 'Unsold' AND accountNo='$user_id'");
+$query = $pdo->prepare("SELECT * FROM vouchers where voucherStatus = 'Unsold'");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));

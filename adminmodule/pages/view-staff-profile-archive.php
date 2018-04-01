@@ -11,7 +11,8 @@ require '../classes/UserAccount.php';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   </head>
   <?php
 include 'fragments/head.php';
@@ -20,11 +21,6 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-echo "You are logged in as, " . $_SESSION['username'] . "!";
-} else {
-header("location: login.php");
-}
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -40,30 +36,30 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Manage Staff Accounts
+              <h1 style = "font-family: special elite; color:#000000">Manage Archive Accounts
               </h1>
               <form id="search-form" name="search" action="accounts-entity.php" method="get">
-                <select name = "entity">
-                  <option value="">Choose Address
+                <select name = "entity" style="height:29px;">
+                  <option value="">Choose Staff Location
                   </option> 
-          <!-- /. Selects all accounts from the database -->
+                    <!-- /. Selects all accounts from the database -->
                   <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['address'] . "</option>";
-}
-?>
-                <input type="submit" name='submit' class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
-                <a class="btn btn-danger" href="view-staff-profile-archive.php">
-                  <i class="fa fa-archive fa-lg">
-                  </i> Archive
-                </a>
+                    require_once 'fragments/connection.php';
+                    $usersQuerry = $pdo->prepare("SELECT DISTINCT address FROM accounts; ");
+                    $usersQuerry->execute();
+                    $users = $usersQuerry->fetchAll();
+                    foreach ($users as $user){
+                    echo "<option>" . $user['address'] . "</option>";
+                    }
+                  ?>
+                </select>
+                
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+
                 </form>
-                </div>    
-            </div>
+                </div> 
+                </div>   
+            
             <div class="jumbotron"> 
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php

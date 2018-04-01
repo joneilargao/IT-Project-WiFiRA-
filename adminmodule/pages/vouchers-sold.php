@@ -21,11 +21,7 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-echo "You are logged in as, " . $_SESSION['username'] . "!";
-} else {
-header("location: login.php");
-}
+
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -46,10 +42,7 @@ echo 'class="active-menu"';
               <form action="search-voucher-unsold.php" method="get" >
                 Voucher Search: <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:32px;"/> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-              <a class="btn btn-success" href="#">
-                <i class="fa fa-file-text fa-lg">
-                </i> Generate
-              </a>
+              
                </form> 
                 <form id="search-form" name="search" action="vouchers-entity.php" method="get">
                 <select name = "entity" style="height:35px;">

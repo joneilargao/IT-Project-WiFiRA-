@@ -15,7 +15,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+        <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     </head>
 <?php
     include 'fragments/head.php';
@@ -25,13 +26,6 @@
            
 
            <?php
-            //Start your session
-
-            if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-                echo "You are logged in as, " . $_SESSION['userAccount']->getUsername() . "!";
-            } else {
-                header("location: login.php");
-            }
             function echoActiveClassIfRequestMatches($requestUri){
                 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
                 if ($current_file_name == $requestUri)
@@ -105,7 +99,7 @@
                         $user_id = $user->getAccountId();
                         
                         //QUERY THE ACCOUNT DATA
-                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, password FROM accounts WHERE accountNo = '$user_id'");
+                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, contactNumber, emailAddress, password FROM accounts WHERE accountNo = '$user_id'");
                         $qry->execute();
                         $profileqry = $qry->fetch(); 
                         
@@ -113,15 +107,14 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                        <h1 style = "font-family: Palatino; color:#000000">Edit Profile</h1>   
+                          <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Edit Profile</h1>   
                         </div>    
                     </div>
                         
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: Helvetica;">Profile</legend>
-
+                            
                              <div class="form-group">
                               <label for="inputname" class="col-lg-2 control-label" style = "font-family: verdana; font-size: 110%;">Name</label>
                               <div class="col-lg-10">
@@ -140,6 +133,20 @@
                               <label for="inputAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Address</label>
                               <div class="col-lg-10">
                                 <input type="text" maxlength="50" class="form-control" name="inputAddress" value="<?php echo $profileqry['address'] ?>">
+                              </div>
+                              </div>
+                              
+                              <div class="form-group">
+                              <label for="inputContactNumber" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Contact Number</label>
+                              <div class="col-lg-10">
+                                <input type="number" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['contactNumber'] ?>">
+                              </div>
+                              </div>
+                              
+                              <div class="form-group">
+                              <label for="inputEmailAddress" class="col-lg-2 control-label" style = "font-family: verdana;font-size: 110%;">Email Address</label>
+                              <div class="col-lg-10">
+                                <input type="email" maxlength="50" class="form-control" name="inputContactNumber" value="<?php echo $profileqry['emailAddress'] ?>">
                               </div>
                               </div>
 

@@ -6,13 +6,15 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   </head>
   <?php
 include 'fragments/head.php';
@@ -21,11 +23,7 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-echo "You are logged in as, " . $_SESSION['username'] . "!";
-} else {
-header("location: login.php");
-}
+
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -45,15 +43,13 @@ echo 'class="active-menu"';
               </h1>
               <form action="sales-search.php" method="get">
                 From : 
-                <input type="text" name="d1" class="tcal" value="" /> To: 
-                <input type="text" name="d2" class="tcal" value="" />
+                <input type="date" name="d1" class="tcal" value="" /> To: 
+                <input type="date" name="d2" class="tcal" value="" />
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (yyyy-mm-dd format)
               </form>
               <form action="search-voucher.php" method="get">
-                Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
+                Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" /> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxx-xxxxx format)
               </form>
               <form action="sales-entity.php" method="get">
                 <select name="entity">

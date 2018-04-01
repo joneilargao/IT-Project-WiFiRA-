@@ -6,7 +6,7 @@
 * 
 * @author Darren Sison
 * @author Katherine Turqueza
-* @author Alfa Leones
+* @author Maureen Calpito
 */
 require_once 'connection.php'; 
 $query = $pdo->prepare("SELECT * FROM user WHERE username='".$_SESSION['username']."';");
@@ -18,133 +18,96 @@ $print = $query->fetch();
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">	
     <link rel="stylesheet" type="text/css" href="../assets/css/nav.css">
   </head>
-  <nav class="navbar-default navbar-side" role="navigation" >
-    <div class="sidebar-collapse" style="background-color: #E95819;">
-      <ul class="nav" id="main-menu" >
-        <li>
-          <a href=index.php>
-            <i class="fa fa-tachometer">
-            </i> Dashboard
-            <span class="fa arrow">
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="sales.php">
-            <i class="fa fa-usd ">
-            </i> Sales
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="sales-daily.php">
-                <i class="fa fa-calendar-o ">
-                </i>Daily
-              </a>
-            </li>
-            <li>
-              <a  href="sales-weekly.php">
-                <i class="fa fa-calendar ">
-                </i>Weekly
-              </a>
-            </li>
-            <li>
-              <a  href="sales-monthly.php">
-                <i class="fa fa-calendar ">
-                </i>Monthly
-              </a>
-            </li>
-            <li>
-              <a  href="sales-yearly.php">
-                <i class="fa fa-calendar ">
-                </i>Yearly
-              </a>
-            </li>
-          </ul>				
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-tachometer">
-            </i> Vouchers
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="vouchers-unsold.php">
-                <i class="fa fa-barcode">
-                </i>Unsold Vouchers
-              </a>
-            </li>
-            <li>
-              <a  href="vouchers-create.php">
-                <i class="fa fa-barcode">
-                </i>Create Voucher
-              </a>
-            </li>
-          </ul>
-        </li>		
-        <li>
-          <a href="#">
-            <i class="fa fa-user" >
-            </i> Accounts
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="view-profile.php">
-                <i class="fa fa-user fa-2x">
-                </i> View Profile
-              </a>
-            </li>
-            <li>
-              <a href="edit-profile.php">
-                <i class="fa fa-pencil-square fa-2x">
-                </i> Edit Profile
-              </a>
-            </li>
-          </ul>
-       </li>
-          <li>
-          <a href="#">
-            <i class="glyphicon glyphicon-list-alt" >
-            </i> Sales Report
-            <span class="fa arrow">
-            </span>
-          </a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a  href="daily-sales.php">
-                <i class="fa fa-calendar-o">
-                </i> Daily
-              </a>
-            </li>
-            <li>
-              <a  href="weekly-sales.php">
-                <i class="fa fa-calendar">
-                </i>Weekly
-              </a>
-            </li>
-            <li>
-              <a href="monthly-sales.php">
-                <i class="fa fa-calendar">
-                </i> Monthly
-              </a>
-            </li>
-            <li>
-              <a href="yearly-sales.php">
-                <i class="fa fa-calendar">
-                </i>Yearly
-              </a>
-            </li>
-          </ul>
+    
+  <nav class="dropdown menu" role="navigation" >
+      
+    <div class="sidenav">
+        
+        <a href=index.php>
+            <i class="glyphicon glyphicon-stats"></i>  Dashboard
+        </a>
+    
+        <!--Sales-->
+        <button class="dropdown-btn">
+            <i class="glyphicon glyphicon-shopping-cart"></i>  Sales 
+        </button>
+          <div class="dropdown-container">
+            <a  href="sales-daily.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Daily</a>
+            <a  href="sales-weekly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Weekly</a>
+            <a  href="sales-monthly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Monthly</a>
+            <a  href="sales-yearly.php"><i class="glyphicon glyphicon-time text-success"></i>
+            Yearly</a>
+        </div>
             
-        </li>
-        <li>
-        </li>			
-      </ul>
-    </div>
-  </nav> 
+        <!--Vouchers-->
+        <a href=vouchers.php>
+            <i class="glyphicon glyphicon-print"></i>  Vouchers 
+        </a>
+        <div class="dropdown-container">
+            <a  href="vouchers-create.php"><i class="glyphicon glyphicon-pencil text-success"></i>
+              Create Voucher</a>
+        </div>
+            
+    
+        <!--Accounts-->   
+        <button class="dropdown-btn">
+            <i class="fa fa-user"></i>  Accounts 
+        </button>
+        <div class="dropdown-container">
+            <a  href="view-profile.php"><i class="glyphicon glyphicon-eye-open text-success"></i>
+            View Profile</a>
+            <a href="edit-profile.php"><i class="glyphicon glyphicon-edit text-success"></i>
+            Edit Profile</a>
+        </div>
+      </div>
+    </nav>
+        
+      
+<style>
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 20.5%;
+  position: fixed;
+  z-index: 2;
+  top: 1;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  background-color:#117A65  ;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover  { transform: scale(1.1); color: #E67E22 ;}
+
+.dropdown-container a:hover  { transform: scale(1.1); color: #CA6F1E  ;}
+
+/* Dropdown container */
+.dropdown-container a{
+  display: block;
+  background-color: #262626;
+  color: #818181;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+</style>  
 </html>

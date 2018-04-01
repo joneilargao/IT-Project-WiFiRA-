@@ -6,13 +6,15 @@
 * 
 * @author Darren Sison
 * @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   </head>
   <?php
 include 'fragments/head.php';
@@ -21,11 +23,7 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
-if (isset($_SESSION['username']) && $_SESSION['username'] == true) {
-echo "You are logged in as, " . $_SESSION['username'] . "!";
-} else {
-header("location: login.php");
-}
+
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -41,12 +39,16 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#000000">Monthly Sales
-              </h1>
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Monthly Sales</h1>
               <form action="search-voucher-monthly.php" method="get" >
 
                 <input type="text" name="sm1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:30px;" >
-                <input type="submit" name="Search" class="btn btn-warning" value="Search" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+                &nbsp;&nbsp;
+                 <a class="btn btn-primary" href="sales-monthly-total.php">
+            <i class="">
+            </i>Total Sales
+          </a>
               </form>               
               <form action="sales-monthly-entity.php" method="get">
                 <select name="entity" style="height:30px">
@@ -62,11 +64,8 @@ echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                <a class="btn btn-primary" href="sales-monthly-total.php">
-            <i class="">
-            </i>Total Sales
-          </a>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+          
               </form>
             </div>    
           </div>

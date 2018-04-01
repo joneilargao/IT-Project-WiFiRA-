@@ -16,6 +16,7 @@ require '../classes/UserAccount.php';
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
     <style type="text/css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -52,9 +53,11 @@ $user_id = $user->getAccountId();
       <div id="page-wrapper" >
         <div id="page-inner"> 
         <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 160%;">Dashboard
-               </div>             
-          <div class="row" style = "font-family: special elite; color:#0F4D2A;">   
+
+            <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Dashboard</h1>
+        </div>             
+
+          <div class="row" >   
 
             <div class="col-md-3 col-sm-6 col-xs-6" >           
               <div class="alert alert-success">
@@ -101,7 +104,7 @@ echo count($result);
             <div class="col-md-3 col-sm-6 col-xs-6"> 
               <div class="text-box" >
                 <h4 align="center">
-                  <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">Print Voucher
+                  <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal">Print Voucher
                   </button>
                   <!-- Modal -->
                   <div class="modal fade" id="myModal" role="dialog">
@@ -111,13 +114,11 @@ echo count($result);
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;
                           </button>
-                          <h2 style = "font-family: Palatino;" class=" modal-title">Print Voucher
+                          <h2 style = "font-family: Palatino;" class=" modal-title"><font color ="#000000">Print Voucher</font>
                           </h2>
                           <form class="form-horizontal" action="" method="post">
                           <fieldset>
-                            <legend style = "font-family: Palatino;">Create Voucher</legend>
-                              
-                              
+      
                               <div class="form-group">
                               <label for="voucher_count" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">No. of Voucher</label>
                               <div class="col-lg-10">
@@ -137,7 +138,7 @@ echo count($result);
                                   
 
                             <div class="form-group">
-                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey; style = "font-size: 110%;">Expiration Time</label>
+                              <label for="voucher_expiration" class="col-lg-2 control-label" style = "font-family: Audrey;" style = "font-size: 110%;">Expiration Time</label>
                               <div class="col-lg-10">
                               <select class="form-control" name="voucher_expiration">
                                     <option value="120">2 Hours</option>
@@ -155,7 +156,7 @@ echo count($result);
                   
                                 <div class="form-group">
                                   <div class="col-lg-10 col-lg-offset-2">
-                                    <button type="submit" name="createaccount" class="btn btn-primary" id="createaccount" value="submit">Create Voucher</button>
+                                    <button type="submit" name="createaccount" class="btn btn-primary" style = "font-family: Audrey;" id="createaccount" value="submit">Create Voucher</button>
                                   </div>
                                 </div>
                             </fieldset>
@@ -170,8 +171,8 @@ echo count($result);
             
             <div class="col-md-3 col-sm-6 col-xs-6" style="margin-top:20px;"> 
               <div class="text-box" >
-                <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal2">
-                  <strong>Add Kiosk
+                <button type="button" class="btn btn-lg btn-success" style = "font-family: Audrey;" data-toggle="modal" data-target="#myModal2">
+                   <strong>Add Kiosk
                   </strong>
                 </button>
                 <!-- Modal -->
@@ -181,7 +182,7 @@ echo count($result);
                     <div class="modal-content">
                       <button type="button" class="close" data-dismiss="modal">&times;
                       </button>
-                       <h2 style = "font-family: Georgia; color:#000000">Add Kiosk</h2>
+                       <h2 align= "center" style="font-family: special elite; margin-bottom: 20px; margin-top:20px;padding-left:20px;padding-right:20px; color:#4A8162">Add Kiosk</h2>
                         <?php
                         $user = $_SESSION["userAccount"];
                         $user_id = $user->getAccountId();
@@ -212,53 +213,68 @@ echo count($result);
                         echo '<div style="color:black;text-align:center;font-size:120px;">'.$errMsg.'</div>';
                         }
                 ?>
-                <div class="form-group">
-                  <input style = "font-family: Garamond; type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name" value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family: Garamond; type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                        <div class="form-group" style=" margin-top:10px;padding-left:20px;padding-right:20px;">
+                            <input type="text" name="kioskName" id="kioskName" class="form-control input-lg" placeholder="Kiosk Name"  value="<?php if(isset($error)){ echo $_POST['kioskName']; } ?>" tabindex="1">
+                          </div>
+                        
+                        <div class="row" >
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-left:20px;padding-right:20px;">
+                                <input type="text" name="location" id="location" class="form-control input-lg" placeholder="Location" value="<?php if(isset($error)){ echo $_POST['location']; } ?>" tabindex="3">
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6" >
+                              <div class="form-group" style="padding-right:20px;">
+                                <input type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
+                              </div>
+                            </div>
+                          </div>
+                        <div class="row" style="padding-left:20px; padding-right:20px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:20px; padding-right:20px; margin-bottom: 10px" >
+                              <input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <input style = "font-family: Garamond; type="float" name="ipAddress" id="ipAddress" class="form-control input-lg" placeholder="IP Address" value="<?php if(isset($error)){ echo $_POST['ipAddress']; } ?>" tabindex="4">
-                    </div>
-                  </div>
-                </div>
-                          <div class="row">
-                  <div class="col-xs-6 col-md-6">
-                    <input style = "font-family: Garamond; type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5">
-                  </div>
-                </div>
-                    </div>
-                  </div>
-                </div>
+                  </h4>
               </div>
+              </a>
           </div>  
         </div>
-        <div class="text-box" >
-          <h4 align="left">
-            <a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px; float:left; margin:10px;" />Daily</a>
-            <a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Weekly</a>
-            <a href="index-monthly.php" class="btn btn-warning"class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Monthly</a>
-            <a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  float:left; margin:10px;"/>Yearly</a>
-            <br>
-            <br>
-          </h4>
-            <div id="containerChart" style=" width:60%; height:50%; position:center; background:#ffffff;  float:left; margin-left:175px; ">
-              <div id="chart-container">
-                <canvas id="mycanvas">
-                </canvas>
-              </div>
-              <script type="text/javascript" src="jscript/jquery.min.js">
-              </script>
-              <script type="text/javascript" src="jscript/Chart.min.js">
-              </script>
-              <script type="text/javascript" src="jscript/app.js">
-              </script>
-            </div>
+        <div class="text-box" > 
+        	<div>
+	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
+		          	<form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
+		            	<a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  margin:10px;" />Daily</a>
+		            </form>
+
+		            <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Weekly</a>
+		        	</form>
+
+		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-monthly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Monthly</a>
+		        	</form>
+
+		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
+		            	<a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Yearly</a>
+		        	</form>
+		        </div>
+	          	
+	            <div id="containerChart" style=" width:85%; height:70%; position:center; background:#ffffff;  float:right; ">
+	              <div id="chart-container">
+	                <canvas id="mycanvas">
+	                </canvas>
+	              </div>
+	              <script type="text/javascript" src="jscript/jquery.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/Chart.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/app.js">
+	              </script>
+	            </div>
+        	</div>
         </div>
       </div>
     </div>

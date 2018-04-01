@@ -15,7 +15,7 @@ $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));
 echo $now->format('D M-j-G:i:sa');    // MySQL datetime format
 echo "<tr>";
-echo "<th>Voucher Code</th>";
+echo "<th>Number of Vouchers</th>";
 echo "<th>Voucher Type</th>";
 echo "<th>Amount </th>";
 echo "</tr>";

@@ -17,11 +17,11 @@ echo "<tr>";
 echo "<th>Account Number</th>";
 echo "<th>Role ID</th>";
 echo "<th>Name </th>";
-echo "<th>Address</th>";
+echo "<th>Staff Location</th>";
 echo "<th>Username</th>";
 echo "<th>Actions</th>";
 echo "<th> </th>";
-echo "<th></th>";
+
 echo "</tr>";
 foreach($result as $query){
 $rid = $query['accountNo'];

@@ -15,7 +15,7 @@ $query->execute();
 if($query){
         echo '<script type="text/javascript">
               alert("Account has restored successfully!");
-              location="../view-staff-profile.php";
+              location="../view-staff-profile-archive.php";
               </script>';
     } else {
         echo '<script>alert("Restoring Failed.")</script>';
