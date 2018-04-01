@@ -71,7 +71,7 @@ $user_id = $user->getAccountId();
                       <?php
 $datenow = date("Y-m");
 require_once 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' ");
+$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' AND dateSold=CURDATE()");
 $query->execute();
 $result = $query->fetchAll();
 echo count($result);                                          

@@ -11,7 +11,7 @@ include 'connection.php';
 
 $id=$_GET['id'];
 
-$query = $pdo->prepare("UPDATE vouchers SET voucherStatus='Unsold' WHERE voucherId=$id");
+$query = $pdo->prepare("UPDATE vouchers SET voucherStatus='Unsold', dateSold=NULL WHERE voucherId=$id");
 $query->execute();
 
 if($query){
