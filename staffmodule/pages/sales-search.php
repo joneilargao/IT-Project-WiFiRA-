@@ -18,15 +18,17 @@ require '../classes/UserAccount.php';
 include 'fragments/head.php';
 ?>
   <body>
-    <?php
-//Start your session
+    
+      <?php 
 session_start();
-
-function echoActiveClassIfRequestMatches($requestUri){
+function echoActiveClassIfRequestMatches($requestUri)
+{
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
 echo 'class="active-menu"';
 }
+$user = $_SESSION["userAccount"];
+$user_id = $user->getAccountId();
 ?>
     <div id="wrapper">
       <?php include 'fragments/page-head.php'; ?>
@@ -87,7 +89,7 @@ echo 'class="active-menu"';
                     if (isset($_GET["d1"])) { $d1  = $_GET["d1"]; } else { $d1=0; }; 
                     if (isset($_GET["d2"])) { $d2  = $_GET["d2"]; } else { $d2=0; }; 
                     $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE (datePrinted BETWEEN :a AND :b) 
-                      and (voucherStatus='Sold')");
+                      and (voucherStatus='Sold') AND accountNo='$user_id'");
                     $result->bindParam(':a', $d1);
                     $result->bindParam(':b', $d2);
                     $result->execute();

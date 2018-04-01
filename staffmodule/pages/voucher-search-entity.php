@@ -99,7 +99,13 @@ require '../classes/UserAccount.php';
                                 <?php echo $row['voucherStatus']; ?>
                               </td>
                               <td>
-                                <?php echo '<a href="fragments/vouchers-unsold.php?id='.$row['voucherId'].'"><button class="btn">Sold</button></a>';
+                                <?php
+                                if ($row['voucherStatus']=='Unsold'){
+                                  echo '<a href="fragments/vouchers-sold.php?id='.$row['voucherId'].'"><button class="btn">Sold</button></a>';
+                                }
+                                else{
+                                  echo '<a href="fragments/vouchers-unsold.php?id='.$row['voucherId'].'"><button class="btn">Unsold</button></a>';
+                                }
                                 ?>
                               </td>
                 </tr>
