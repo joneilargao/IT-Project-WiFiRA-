@@ -69,7 +69,7 @@
                         header('view-profile.php');
 
                     }else{
-                        $updateWithoutPass = "update accounts set username=:username, password=:password, address=:address, name=:name where accountNo = '$accountNo';";
+                        $updateWithoutPass = "UPDATE accounts SET username=:username, password=:password, address=:address, name=:name WHERE accountNo = '$accountNo';";
                         $sql = $pdo->prepare($updateWithoutPass);
                         $sql->bindParam(':username', $username);
                         $sql->bindParam(':password', $password);
