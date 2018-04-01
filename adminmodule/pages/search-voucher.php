@@ -67,7 +67,7 @@ echo 'class="active-menu"';
                     }
                   ?>
                 </select>
-                <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
               </form>
             </div>    
           </div>
@@ -126,8 +126,6 @@ echo 'class="active-menu"';
             </table>
           </div>
           </div>
-          
-          
         </div>
       </div>
     </div>
