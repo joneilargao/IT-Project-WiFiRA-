@@ -87,7 +87,7 @@ echo 'class="active-menu"';
                     if (isset($_GET["d1"])) { $d1  = $_GET["d1"]; } else { $d1=0; }; 
                     if (isset($_GET["d2"])) { $d2  = $_GET["d2"]; } else { $d2=0; }; 
                     $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE (datePrinted BETWEEN :a AND :b) 
-                      and (voucherStatus='sold')");
+                      and (voucherStatus='Sold')");
                     $result->bindParam(':a', $d1);
                     $result->bindParam(':b', $d2);
                     $result->execute();

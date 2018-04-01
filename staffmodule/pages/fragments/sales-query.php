@@ -10,7 +10,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, ddateSold FROM vouchers where voucherStatus='sold' AND accountNo='$user_id' order by dateSold DESC");
+$query = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, dateSold FROM vouchers where voucherStatus='Sold' AND accountNo='$user_id' order by dateSold DESC");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));

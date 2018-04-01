@@ -95,7 +95,7 @@ echo 'class="active-menu"';
                 vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
                 FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
                 ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
-                (vouchers.voucherStatus='sold')");
+                (vouchers.voucherStatus='Sold')");
                 $result->bindParam(':a', $entity);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){

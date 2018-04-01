@@ -22,6 +22,9 @@ include 'fragments/head.php';
     <?php
 //Start your session
 session_start();
+$user= $_SESSION['userAccount'];
+$usr = $_SESSION['username'];
+$user_id = $user->getAccountId();
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -77,7 +80,7 @@ echo 'class="active-menu"';
                 <?php
                 include('fragments/connection.php');
                 if (isset($_GET["sy1"])) { $sy1  = $_GET["sy1"]; } else { $sy1=0; }; 
-                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Sold') and (YEAR(datePrinted)=YEAR(CURRENT_DATE()));");
+                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Sold') and (YEAR(datePrinted)=YEAR(CURRENT_DATE())) AND (accountNo='$user_id');");
                 $result->bindParam(':a', $sy1);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){

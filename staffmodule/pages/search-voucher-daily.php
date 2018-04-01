@@ -18,10 +18,12 @@ require '../classes/UserAccount.php';
 include 'fragments/head.php';
 ?>
   <body>
-    <?php
+   <?php
 //Start your session
 session_start();
-
+$user= $_SESSION['userAccount'];
+$usr = $_SESSION['username'];
+$user_id = $user->getAccountId();
 function echoActiveClassIfRequestMatches($requestUri){
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
 if ($current_file_name == $requestUri)
@@ -79,7 +81,7 @@ echo 'class="active-menu"';
 include('fragments/connection.php');
 if (isset($_GET["sd1"])) { $sd1  = $_GET["sd1"]; } else { $sd1=0; }; 
 $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a)
-   and (voucherStatus='sold') and (vouchers.datePrinted=CURDATE())");
+   and (voucherStatus='Sold') and (vouchers.datePrinted=CURDATE()) AND (accountNo='$user_id')");
 $result->bindParam(':a', $sd1);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){

@@ -86,7 +86,7 @@ echo 'class="active-menu"';
                 vouchers.dateSold, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
                 FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
                 ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
-                ((MONTH(vouchers.dateSold)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.dateSold)=YEAR(CURRENT_DATE()))) and (vouchers.voucherStatus='sold') ORDER BY vouchers.dateSold DESC");
+                ((MONTH(vouchers.dateSold)=MONTH(CURRENT_DATE())) AND (YEAR(vouchers.dateSold)=YEAR(CURRENT_DATE()))) and (vouchers.voucherStatus='Sold') ORDER BY vouchers.dateSold DESC");
                 $result->bindParam(':a', $entity);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
