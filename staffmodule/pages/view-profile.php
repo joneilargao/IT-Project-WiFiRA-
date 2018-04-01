@@ -36,7 +36,7 @@ include 'fragments/head.php';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h2 style = "font-family: Special Elite; color:#4A8162; font-size:250%;">View Profile</h2>   
+              <h2 style = "font-family: Palatino; color:#4A8162; font-size:250%;">View Profile</h2>   
             </div>    
           </div>
           <div class="jumbotron">

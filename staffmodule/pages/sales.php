@@ -40,7 +40,7 @@ echo 'class="active-menu"';
           <div class="row">
             <div class="col-md-12">
               
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sales</h1>
+              <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Sales</h1>
              
               <form action="sales-search.php" method="get" style="height:40px;">
                 From : 
@@ -50,7 +50,7 @@ echo 'class="active-menu"';
                 
               
               <form action="search-voucher.php" method="get" style="height:35px; ">
-                &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px; "/> 
+                &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px; "/> 
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>	
               </form>
               

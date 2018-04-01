@@ -37,7 +37,7 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#000000">Sales
+              <h1 style = "font-family: Palatino; color:#000000">Sales
               </h1>
               <form action="sales-search.php" method="get">
                 From : 
@@ -50,7 +50,7 @@ echo 'class="active-menu"';
               <form action="search-voucher.php" method="get">
                 Voucher Search: <input type="text" name="s1" class="tcal" value="" /> 
                 <input type="submit" value="Search" style=" font-family:monospace; font-size:18px;">
-                (xxxxxxxxxx format)
+                (xxxxx-xxxxx format)
               </form>
             </div>    
           </div>

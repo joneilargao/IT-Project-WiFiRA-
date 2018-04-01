@@ -1,18 +1,18 @@
 <?php
 /**
-* voucher-entity.php
+* sales-daily-entity.php
 *
-* Select vouchers with specified status
+* Displays the daily sales of specified entity
 * 
-* @author Darren Sison
-* @author Alfa Leones
+* @author Joneil Argao
+* @author Cyrene Dispo
 */
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">  
     <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
   </head>
   <?php
@@ -38,38 +38,44 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Unsold Vouchers</h1>
-			           <form action="search-voucher-unsold.php" method="get" >
-                  <input type="text" name="su1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/> 
-                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-                &nbsp;&nbsp;
-  			   
-          		
-              </form>
-              <form id="search-form" name="search" action="vouchers-entity.php" method="get">
-                <select name = "entity" style="height:29px;">
-                  <option value="">Choose Voucher Status
-                  </option> 
+                <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Daily Sales</h1>
+                <form action="search-voucher-daily.php" method="get" >
+                <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxx-xxxxx" style="height:29px;"/>
+                <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
+              
+
+                
+                </form>   
+              <form action="sales-daily-entity.php" method="get">
+                <select name="entity" style="height:29px;">
+                  <option value="">Choose Entity
+                  </option>
                   <?php 
 require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT voucherStatus FROM vouchers; ");
+$usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
 $usersQuerry->execute();
 $users = $usersQuerry->fetchAll();
 foreach ($users as $user){
-echo "<option>" . $user['voucherStatus'] . "</option>";
+echo "<option>" . $user['name'] . "</option>";
 }
 ?>
                 </select>
                 <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
-        
               </form>
             </div>    
           </div>
-          <div class="jumbotron">
-           <a class="btn btn-success" href="#" style="float:right; margin-bottom: 15px;">
+          <div class="jumbotron"> 
+            <div style="float:right; margin-bottom: 15px;">
+          <a class="btn btn-success" href="#">
             <i class="fa fa-file-text fa-lg" >
             </i> Generate
-          </a>  
+          </a> 
+          &nbsp;
+            <a class="btn btn-primary" href="sales-total.php"  ">
+              <i class="">
+              </i>Total Sales
+            </a>
+          </div>
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
@@ -81,7 +87,9 @@ echo "<option>" . $user['voucherStatus'] . "</option>";
                   </th>
                   <th> Date 
                   </th>
-                  <th> Status 
+                  <th> Account Name 
+                  </th>
+                  <th> Kiosk Name 
                   </th>
                 </tr>
               </thead>
@@ -89,7 +97,11 @@ echo "<option>" . $user['voucherStatus'] . "</option>";
                 <?php
 include('fragments/connection.php');
 if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
-$result = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus=:a");
+$result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
+vouchers.datePrinted, vouchers.accountNo, vouchers.kioskId, accounts.name, kioskmachine.kioskName 
+FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
+ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a) and 
+(vouchers.datePrinted=CURDATE()) and (vouchers.voucherStatus='sold') ORDER BY vouchers.datePrinted DESC");
 $result->bindParam(':a', $entity);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
@@ -108,20 +120,19 @@ for($i=0; $row = $result->fetch(); $i++){
                     <?php echo $row['datePrinted']; ?>
                   </td>
                   <td>
-                    <?php echo $row['voucherStatus']; ?>
+                    <?php echo $row['name']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['kioskName']; ?>
                   </td>
                 </tr>
                 <?php
 }
 ?>
               </tbody>
-              <?php
-?>
             </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
-          <?php
-?>
         </div>
       </div>
     </div>

@@ -58,7 +58,7 @@
                         
                     ?>
                    
-                        <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Create Vouchers</h1>
+                        <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Create Vouchers</h1>
                    
                     <div class="jumbotron">
                         <form class="form-horizontal" action="" method="post" name="reg" onsubmit="return validateForm()">

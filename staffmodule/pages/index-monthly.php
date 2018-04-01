@@ -50,7 +50,7 @@ $user_id = $user->getAccountId();
       <div id="page-wrapper" >
         <div id="page-inner"> 
         <div class="col-md-12">
-             <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Dashboard</h1>
+             <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Dashboard</h1>
                </div>             
           <div class="row" style = "font-family: special elite; color:#0F4D2A;">   
 
