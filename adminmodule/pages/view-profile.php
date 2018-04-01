@@ -45,7 +45,7 @@ include 'fragments/head.php';
                 <?php 
                 $user = $_SESSION["userAccount"];
                 $user_id = $user->getAccountId();
-                $qry = $pdo->prepare("SELECT accountNo, roleId, name as Name, username, address, emailAddress, contactNumber, image from accounts where accounts.accountNo = '$user_id'");
+                $qry = $pdo->prepare("SELECT accountNo, roleId, name as Name, username, address, emailAddress, contactNumber from accounts WHERE accounts.accountNo = '$user_id'");
                 $qry->execute();
                 $profileqry = $qry->fetch();   
                 echo '<div class="panel-heading">
