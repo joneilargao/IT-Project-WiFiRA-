@@ -110,7 +110,14 @@
                         </form>
 
                     </div>
-                        
+                        <form method='get' action='printvoucher-form.php'>
+                        <div class="form-group">
+                                  <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="submit" name="printvoucher" class="btn btn-primary" id="printvoucher" value="submit">Print Voucher</button>
+                                  </div>
+                                </div>
+                            </fieldset>
+                        </form>
                                     
                         <?php
 							if(! empty($_POST)){
