@@ -11,6 +11,7 @@
 * @author Cyrene Dispo
 * @author Katherine Turqueza
 */
+require('fragments/data-monthly.php');
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
@@ -25,12 +26,12 @@ require '../classes/UserAccount.php';
         width: 100%;
         height: auto;
       }
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </style>
     <?php   
 include_once 'fragments/connection.php';  
 ?>
   </head>
+<body>
   <?php
 include 'fragments/head.php';
 
@@ -136,16 +137,22 @@ $user_id = $user->getAccountId();
         <div class="text-box" > 
         	<div>
 	            <div id="containerChart" style=" width:100%; height:45%; background:#ffffff;">
-	              <div id="chart-container">
-	                <canvas id="mycanvas">
-	                </canvas>
-	              </div>
-	              <script type="text/javascript" src="jscript/jquery.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/Chart.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/app.js">
-	              </script>
+	              <div class="container" style="width:900px;">
+               <div id="chart"></div>
+              </div>
+                <script>
+                  Morris.Bar({
+                   element : 'chart',
+                   data:[<?php echo $chart_data; ?>],
+                   xkey:'dateSold',
+                   ykeys:['totalsales'],
+                   labels:['totalsales'],
+                   barColors: ["#33cc33"],
+                   hoverBarColor: ["#ffff99"],
+                   hideHover:'auto',
+                   stacked:true
+                  });
+                  </script>
 	            </div>
         </div>
       </div>
