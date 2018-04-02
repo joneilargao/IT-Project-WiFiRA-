@@ -5,6 +5,8 @@
 * Displays the yearly sales of specified entity
 * 
 * @author Joneil Argao
+* @Darren Sison
+* @Katherine Turqueza
 */
 require '../classes/UserAccount.php';
 ?>
@@ -165,4 +167,4 @@ newwin.document.write('</BODY>\n')
 newwin.document.write('</HTML>\n')
 newwin.document.close()
 }
-</script
+</script>

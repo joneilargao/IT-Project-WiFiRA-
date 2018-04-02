@@ -4,6 +4,7 @@
 *
 * Displays the sold vouchers for the year
 * 
+* @author Darren Sison
 * @author Joneil Argao
 * @author Katherine Turqueza
 */
@@ -19,7 +20,7 @@ require '../classes/UserAccount.php';
 include 'fragments/head.php';
 ?>
   <body>
-    <?php
+<?php
 //Start your session
 session_start();
 function echoActiveClassIfRequestMatches($requestUri){
@@ -75,7 +76,7 @@ echo 'class="active-menu"';
               </i>Total Sales
             </a>
           </div>
-              <div id="print">
+            <div id="print">
             <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
@@ -93,7 +94,7 @@ echo 'class="active-menu"';
                 <?php
                 include('fragments/connection.php');
                 if (isset($_GET["sy1"])) { $sy1  = $_GET["sy1"]; } else { $sy1=0; }; 
-                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers where (voucherCode =:a) and (voucherStatus='Sold') and (YEAR(datePrinted)=YEAR(CURRENT_DATE()));");
+                $result = $pdo->prepare("SELECT voucherCode, voucherType, voucherAmount, datePrinted FROM vouchers WHERE (voucherCode =:a) AND (voucherStatus='Sold') AND (YEAR(datePrinted)=YEAR(CURRENT_DATE()));");
                 $result->bindParam(':a', $sy1);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -152,4 +153,4 @@ newwin.document.write('</BODY>\n')
 newwin.document.write('</HTML>\n')
 newwin.document.close()
 }
-</script
+</script>
