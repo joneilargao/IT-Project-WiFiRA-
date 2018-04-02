@@ -41,12 +41,12 @@ echo 'class="active-menu"';
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Unsold Vouchers
               </h1>
               <div>
-              <form action="search-voucher-unsold.php" method="get" style="float:left;">
-                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"/> 
+              <form action="search-voucher-unsold.php" method="get" >
+                <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;margin-bottom: .5%;"/> 
                 <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
               
                </form> 
-                <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="float:right;margin-right:65%; ">
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="margin-right:65%; ">
                 <select name = "entity" style="height:29px;">
                   <option value="">Choose Staff
                   </option>
