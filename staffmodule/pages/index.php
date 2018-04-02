@@ -11,7 +11,7 @@
 * @author Cyrene Dispo
 * @author Katherine Turqueza
 */
-require('fragments/data-monthly.php');
+require('fragments/data-daily.php');
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,11 @@ require '../classes/UserAccount.php';
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <style type="text/css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -147,7 +152,7 @@ $user_id = $user->getAccountId();
                    xkey:'dateSold',
                    ykeys:['totalsales'],
                    labels:['totalsales'],
-                   barColors: ["#33cc33"],
+                   barColors: ["#009973"],
                    hoverBarColor: ["#ffff99"],
                    hideHover:'auto',
                    stacked:true

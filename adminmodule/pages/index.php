@@ -11,7 +11,7 @@
 * @author Cyrene Dispo
 * @author Katherine Turqueza
 */
-require('fragments/data-monthly.php');
+require('fragments/data-daily.php');
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
@@ -135,8 +135,7 @@ $user_id = $user->getAccountId();
               </div>
             </div>
         </div>
-
-            
+        
            
         <div class="text-box" > 
         	<div>
