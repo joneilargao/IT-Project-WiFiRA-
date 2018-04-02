@@ -11,26 +11,34 @@
 * @author Cyrene Dispo
 * @author Katherine Turqueza
 */
+require('fragments/data-monthly.php');
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
     <style type="text/css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
       #chart-container {
         width: 100%;
         height: auto;
       }
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     </style>
     <?php   
 include_once 'fragments/connection.php';  
 ?>
   </head>
+
+<body>
   <?php
 include 'fragments/head.php';
 
@@ -129,20 +137,26 @@ $user_id = $user->getAccountId();
         </div>
 
             
-            
+           
         <div class="text-box" > 
         	<div>
 	            <div id="containerChart" style=" width:100%; height:45%; background:#ffffff;">
-	              <div id="chart-container">
-	                <canvas id="mycanvas">
-	                </canvas>
-	              </div>
-	              <script type="text/javascript" src="jscript/jquery.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/Chart.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/app-daily.js">
-	              </script>
+	              <div class="container" style="width:900px;">
+               <div id="chart"></div>
+              </div>
+	              <script>
+                  Morris.Bar({
+                   element : 'chart',
+                   data:[<?php echo $chart_data; ?>],
+                   xkey:'dateSold',
+                   ykeys:['totalsales'],
+                   labels:['totalsales'],
+                   barColors: ["#33cc33"],
+                   hoverBarColor: ["#ffff99"],
+                   hideHover:'auto',
+                   stacked:true
+                  });
+                  </script>
 	            </div>
         </div>
       </div>

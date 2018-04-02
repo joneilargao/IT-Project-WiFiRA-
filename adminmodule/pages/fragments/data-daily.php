@@ -1,36 +1,12 @@
-<?php
-/**
-* data-daily.php
-*
-* Selects daily sales from the database
-* 
-* @author Joneil Argao
-*/
-header('Content-Type: application/json');
-
-define('DB_HOST', '127.0.0.1');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'wifira');
-
-$mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-if(!$mysqli){
-	die("Connection failed: " . $mysqli->error);
+<?php 
+//index.php
+$connect = mysqli_connect("localhost", "root", "", "wifira");
+$query = "SELECT COUNT(voucherId) as totalsales, dateSold FROM vouchers WHERE (dateSold is not NULL) and (WEEK(dateSold )=WEEK(CURRENT_DATE())) and ((MONTH(dateSold )=MONTH(CURRENT_DATE())) AND (YEAR(dateSold )=YEAR(CURRENT_DATE()))) group by dateSold ORDER BY dateSold asc";
+$result = mysqli_query($connect, $query);
+$chart_data = '';
+while($row = mysqli_fetch_array($result))
+{
+ $chart_data .= "{ dateSold:'".$row["dateSold"]."', totalsales:".$row["totalsales"]."}, ";
 }
-
-$squery = sprintf("SELECT COUNT(voucherId) as totalsales, dateSold as dateUsed FROM vouchers WHERE (dateSold is not NULL) and (WEEK(dateSold )=WEEK(CURRENT_DATE())) and ((MONTH(dateSold )=MONTH(CURRENT_DATE())) AND (YEAR(dateSold )=YEAR(CURRENT_DATE()))) group by dateSold ORDER BY dateSold");
-
-$sresult = $mysqli->query($squery);
-
-$sdata = array();
-foreach ($sresult as $srow) {
-	$sdata[] = $srow;
-}
-
-$sresult->close();
-
-$mysqli->close();
-
-print json_encode($sdata);
+$chart_data = substr($chart_data, 0, -2);
 ?>
