@@ -47,7 +47,7 @@ echo 'class="active-menu"';
                     <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px;  "></i></button>
                   </form>
                   
-                  <form action="search-voucher.php" method="get" style="height:35px;float:right;margin-right:38%; ">
+                  <form action="search-voucher.php" method="get" style="height:35px;float:right;margin-right:25%; ">
                     &nbsp;&nbsp; Voucher Search: <input type="text" name="s1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px; "/> 
                     <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>  
                   </form>
