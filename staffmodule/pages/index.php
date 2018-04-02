@@ -123,19 +123,19 @@ echo count($result);
 		        	</form>
 		        </div>
 	          	
-	            <div id="containerChart" style=" width:85%; height:70%; position:center; background:#ffffff;  float:right; ">
-	              <div id="chart-container">
-	                <canvas id="mycanvas">
-	                </canvas>
-	              </div>
-	              <script type="text/javascript" src="jscript/jquery.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/Chart.min.js">
-	              </script>
-	              <script type="text/javascript" src="jscript/app.js">
-	              </script>
-	            </div>
-        	</div>
+	           <div id="containerChart" style=" width:75%; height:45%; position:center; background:#ffffff;  float:right; margin-right:7%; ">
+                <div id="chart-container">
+                  <canvas id="mycanvas">
+                  </canvas>
+                </div>
+                <script type="text/javascript" src="jscript/jquery.min.js">
+                </script>
+                <script type="text/javascript" src="jscript/Chart.min.js">
+                </script>
+                <script type="text/javascript" src="jscript/app.js">
+                </script>
+              </div>
+          </div>
         </div>
       </div>
     </div>
