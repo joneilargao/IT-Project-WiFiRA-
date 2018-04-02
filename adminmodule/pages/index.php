@@ -141,7 +141,7 @@ $user_id = $user->getAccountId();
 	              </script>
 	              <script type="text/javascript" src="jscript/Chart.min.js">
 	              </script>
-	              <script type="text/javascript" src="jscript/app.js">
+	              <script type="text/javascript" src="jscript/app-daily.js">
 	              </script>
 	            </div>
         </div>
