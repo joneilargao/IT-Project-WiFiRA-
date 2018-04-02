@@ -42,15 +42,15 @@ echo 'class="active-menu"';
             <div class="col-md-12">
               <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Daily Sales</h1>
 
-              <div>
-                <form action="search-voucher-daily.php" method="get"  style="height:29px; float:left;">
+            
+                <form action="search-voucher-daily.php" method="get"  style="margin-bottom: .5%;">
                   <input type="text" name="sd1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px;"> 
                   <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 </form>
                   
-                <form action="sales-daily-entity.php" method="get"  style="height:29px;float:right;margin-right:64%; ">
+                <form action="sales-daily-entity.php" method="get"   ">
                   <select name="entity" style="height:29px">
-                    <option value="">Choose Entity
+                    <option>Choose Entity
                     </option>
                     <?php 
                       require_once 'fragments/connection.php';
@@ -64,7 +64,7 @@ echo 'class="active-menu"';
                   </select>
                   <button type="submit"><i class="fa fa-search" style=" margin-top:5px;margin-bottom: 5px; "></i></button>
                 </form>
-              </div>
+            
             </div>    
           </div>
           <div class="jumbotron">
