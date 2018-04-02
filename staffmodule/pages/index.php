@@ -9,6 +9,7 @@
 * @author James Anonuevo
 * @author Maureen Calpito
 * @author Cyrene Dispo
+* @author Katherine Turqueza
 */
 require '../classes/UserAccount.php';
 ?>
@@ -21,9 +22,10 @@ require '../classes/UserAccount.php';
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       #chart-container {
-        width: 640px;
+        width: 100%;
         height: auto;
       }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </style>
     <?php   
 include_once 'fragments/connection.php';  
@@ -36,6 +38,9 @@ include 'fragments/head.php';
 
       <?php 
 session_start();
+$user= $_SESSION['userAccount'];
+$usr = $_SESSION['username'];
+$user_id = $user->getAccountId();
 function echoActiveClassIfRequestMatches($requestUri)
 {
 $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
@@ -54,33 +59,56 @@ $user_id = $user->getAccountId();
         <div id="page-inner"> 
         <div class="col-md-12">
 
-            <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Dashboard</h1>
+            <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Dashboard</h1>
         </div>             
 
-          <div class="row" >   
+          <div class="row" align="center"  style="padding-left:2%; padding-right:2%; margin-top:3%;">   
 
-            <div class="col-md-3 col-sm-6 col-xs-6" >           
+            <div class="col-md-4 col-sm-4 col-xs-4"  >           
               <div class="alert alert-success">
                 <div class="text-box">
                   <h4 align="center">
-                    <i class="fa fa-tags fa-2x pull-left">
+                    <i class="fa fa-ticket fa-2x fa-spin pull-left" >
                     </i>
                     <strong>
                       <!-- /. Displays the number of vouches sold -->
                       <?php
-$datenow = date("Y-m");
-include 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' AND accountNo='$user_id'");
-$query->execute();
-$result = $query->fetchAll();
-echo count($result);                                          
-?> Vouchers Sold Today
+						$datenow = date("Y-m");
+						require_once 'fragments/connection.php';
+						$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Sold' AND dateSold=CURDATE() AND accountNo = '$user_id'");
+						$query->execute();
+						$result = $query->fetchAll();
+						echo count($result);                                          
+						?> <br>
+						Sold Vouchers 
                     </strong>
                   </h4>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6">      
+            <div class="col-md-4 col-sm-4 col-xs-4"  >           
+              <div class="alert alert-success">
+                <div class="text-box">
+                  <h4 align="center">
+                    <i class="fa fa-list-alt fa-2x pull-left" >
+                    </i>
+                    <strong>
+                      <!-- /. Displays the number of vouches sold -->
+                      <?php
+						$datenow = date("Y-m");
+						require_once 'fragments/connection.php';
+						$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Unsold' AND accountNo = '$user_id'");
+						$query->execute();
+						$result = $query->fetchAll();
+						echo count($result);                                          
+						?> <br>
+                        Unsold Vouchers
+                    </strong>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4" >      
               <div class="alert alert-success">
                 <div class="text-box"  >
                   <h4 align="center">
@@ -89,53 +117,36 @@ echo count($result);
                     <strong>
                       <!-- /. Displays the number of kiosk enabled -->
                       <?php
-$datenow = date("Y-m");
-require_once 'fragments/connection.php';
-$query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
-$query->execute();
-$result = $query->fetchAll();
-echo count($result);                                          
-?> Kiosks Enabled
+						$datenow = date("Y-m");
+						require_once 'fragments/connection.php';
+						$query = $pdo->prepare("SELECT * FROM `kioskmachine` WHERE kioskStatus='Enable' "); 
+						$query->execute();
+						$result = $query->fetchAll();
+						echo count($result);                                          
+						?> <br>Kiosks Enabled
                     </strong>
                   </h4>
                 </div>
               </div>
             </div>
-			</div>
-         
+        </div>
+
+            
+            
         <div class="text-box" > 
         	<div>
-	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:40px;" >
-		          	<form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
-		            	<a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;  margin:10px;" />Daily</a>
-		            </form>
-
-		            <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Weekly</a>
-		        	</form>
-
-		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-monthly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Monthly</a>
-		        	</form>
-
-		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:18px;   margin:10px;"/>Yearly</a>
-		        	</form>
-		        </div>
-	          	
-	           <div id="containerChart" style=" width:75%; height:45%; position:center; background:#ffffff;  float:right; margin-right:7%; ">
-                <div id="chart-container">
-                  <canvas id="mycanvas">
-                  </canvas>
-                </div>
-                <script type="text/javascript" src="jscript/jquery.min.js">
-                </script>
-                <script type="text/javascript" src="jscript/Chart.min.js">
-                </script>
-                <script type="text/javascript" src="jscript/app.js">
-                </script>
-              </div>
-          </div>
+	            <div id="containerChart" style=" width:100%; height:45%; background:#ffffff;">
+	              <div id="chart-container">
+	                <canvas id="mycanvas">
+	                </canvas>
+	              </div>
+	              <script type="text/javascript" src="jscript/jquery.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/Chart.min.js">
+	              </script>
+	              <script type="text/javascript" src="jscript/app.js">
+	              </script>
+	            </div>
         </div>
       </div>
     </div>
