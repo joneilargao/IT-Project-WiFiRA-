@@ -9,6 +9,7 @@
 * @author James Anonuevo
 * @author Maureen Calpito
 * @author Cyrene Dispo
+* @author Katherine Turqueza
 */
 require '../classes/UserAccount.php';
 ?>
@@ -58,13 +59,13 @@ $user_id = $user->getAccountId();
             <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Dashboard</h1>
         </div>             
 
-          <div class="row" align="center"  style="padding-left:5%;margin-top:3%;">   
+          <div class="row" align="center"  style="padding-left:2%; padding-right:2%; margin-top:3%;">   
 
-            <div class="col-md-3 col-sm-6 col-xs-6"  >           
+            <div class="col-md-4 col-sm-4 col-xs-4"  >           
               <div class="alert alert-success">
                 <div class="text-box">
                   <h4 align="center">
-                    <i class="fa fa-ticket fa-2x pull-left" >
+                    <i class="fa fa-ticket fa-2x fa-spin pull-left" >
                     </i>
                     <strong>
                       <!-- /. Displays the number of vouches sold -->
@@ -75,14 +76,36 @@ $user_id = $user->getAccountId();
 						$query->execute();
 						$result = $query->fetchAll();
 						echo count($result);                                          
-						?> 
-						Vouchers Sold Today
+						?> <br>
+						Sold Vouchers 
                     </strong>
                   </h4>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6" >      
+            <div class="col-md-4 col-sm-4 col-xs-4"  >           
+              <div class="alert alert-success">
+                <div class="text-box">
+                  <h4 align="center">
+                    <i class="fa fa-list-alt fa-2x pull-left" >
+                    </i>
+                    <strong>
+                      <!-- /. Displays the number of vouches sold -->
+                      <?php
+						$datenow = date("Y-m");
+						require_once 'fragments/connection.php';
+						$query = $pdo->prepare("SELECT * FROM vouchers WHERE voucherStatus='Unsold'");
+						$query->execute();
+						$result = $query->fetchAll();
+						echo count($result);                                          
+						?> <br>
+                        Unsold Vouchers
+                    </strong>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4" >      
               <div class="alert alert-success">
                 <div class="text-box"  >
                   <h4 align="center">
@@ -109,25 +132,7 @@ $user_id = $user->getAccountId();
             
         <div class="text-box" > 
         	<div>
-	        	<div id="DWMY" style="position:center; background:#ffffff;  float:left; padding-top:5%; padding-left:5%" >
-		          	<form style=" width:60%; height:50%; position:center; background:#ffffff;   ">
-		            	<a href="index-daily.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:130%;  margin:10%; " />Daily</a>
-		            </form>
-
-		            <form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-weekly.php" class="btn btn-warning"  class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:130%;  margin:15%; "/>Weekly</a>
-		        	</form>
-
-		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-monthly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:130%;  margin:15%;"/>Monthly</a>
-		        	</form>
-
-		        	<form style=" width:60%; height:50%; position:center; background:#ffffff;    ">
-		            	<a href="index-yearly.php" class="btn btn-warning" class="col s6" style="background-color:#4DD14D; font-family:monospace; font-size:130%;  margin:15%; "/>Yearly</a>
-		        	</form>
-		        </div>
-	          	
-	            <div id="containerChart" style=" width:75%; height:45%; position:center; background:#ffffff;  float:right; margin-right:7%; ">
+	            <div id="containerChart" style=" width:100%; height:45%; background:#ffffff;">
 	              <div id="chart-container">
 	                <canvas id="mycanvas">
 	                </canvas>
@@ -139,7 +144,6 @@ $user_id = $user->getAccountId();
 	              <script type="text/javascript" src="jscript/app.js">
 	              </script>
 	            </div>
-        	</div>
         </div>
       </div>
     </div>
