@@ -103,17 +103,17 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
         $vouchers1 = json_decode(json_encode($vouchers), true);
 //        echo $vouchers1[0];
 
-    	$voucherType = "B";
-		$voucherAmount = "20";
+    	$voucherType = "A";
+		$voucherAmount = "10";
 
 	$voucherCode = $vouchers1[0];
 	$db = mysqli_connect("localhost", "root", "", "wifira");
 
-	$voucherStatus = "Unsold";
+	$voucherStatus = "Sold";
 //	$accountNo = $user->getAccountId();
     $kioskId = '101';
 
-	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), NULL, '$kioskId')";
+	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId, dateSold) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), NULL, '$kioskId', CURDATE())";
                             $insert = $db->query($query);
 
                             if($insert){

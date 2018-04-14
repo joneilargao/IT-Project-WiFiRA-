@@ -36,7 +36,7 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 	$password = 'Password1';								//Password for controller
 	$baseurl = 'https://unifi.wifirawireless.com:8443';	//URL to access controller
 	$controllerversion = "4.7.6";						//Version of controller
-    $printername = "VoucherPrinter";				//Name of the printer from PC
+    $printername = "VoucheerPrinter";				//Name of the printer from PC
 
 
 	$unifidata = new unifiapi($username, $password, $baseurl, $siteid, $controllerversion);
@@ -78,13 +78,12 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 		$printer -> initialize();
 		$printer -> setJustification(Escpos::JUSTIFY_CENTER);		
 		
-		$printer -> setTextSize(2, 1);
-		$printer -> text("WiFiRa WISP\n\n");
+		$printer -> setTextSize(1, 1);
+		$printer -> text("WiFiRa WISP\n");
+
 	
-		$printer -> setTextSize(2, 3);
+		$printer -> setTextSize(2, 2);
 		$printer -> text($voucherstring."\n");
-        $printer -> setTextSize(1, 1);
-		$printer -> text("Usable One Time\n\n");
 		
 		$printer -> setTextSize(1, 1);
 		$printer -> text("Valid For 1 day from Login\n\n");

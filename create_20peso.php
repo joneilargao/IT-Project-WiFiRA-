@@ -53,7 +53,7 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 ////////////////////////////////////
     
 		
-            $voucherlength='120';
+            $voucherlength='1440';
             $number = '1';
             $notes='';
             $up='';
@@ -86,7 +86,7 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 		$printer -> text($voucherstring."\n");
 		
 		$printer -> setTextSize(1, 1);
-		$printer -> text("Valid For 2 Hours from Login\n\n");
+		$printer -> text("Valid For 1 day from Login\n\n");
 
 		$printer -> setTextSize(1, 1);
 		$printer -> text("Connect to Hotspot\n");
@@ -109,11 +109,11 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 	$voucherCode = $vouchers1[0];
 	$db = mysqli_connect("localhost", "root", "", "wifira");
 
-	$voucherStatus = "Unsold";
+	$voucherStatus = "Sold";
 //	$accountNo = $user->getAccountId();
     $kioskId = '101';
 
-	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), NULL, '$kioskId')";
+	$query = "INSERT INTO vouchers(voucherCode, voucherType, voucherAmount, voucherStatus, datePrinted, accountNo, kioskId, dateSold) VALUES ('$voucherCode', '$voucherType', '$voucherAmount', '$voucherStatus', CURDATE(), NULL, '$kioskId', CURDATE())";
                             $insert = $db->query($query);
 
                             if($insert){
