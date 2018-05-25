@@ -10,7 +10,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE dateSold=CURDATE() GROUP BY 2 ORDER BY dateSold");
+$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE dateSold=CURDATE() and voucherStatus='Sold' GROUP BY 2 ORDER BY dateSold");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));

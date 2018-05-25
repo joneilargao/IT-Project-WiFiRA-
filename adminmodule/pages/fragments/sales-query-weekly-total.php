@@ -10,7 +10,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE WEEK(dateSold)=WEEK(CURRENT_DATE()) AND MONTH(dateSold)=MONTH(CURRENT_DATE()) AND YEAR(dateSold)=YEAR(CURRENT_DATE()) ORDER BY dateSold");
+$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE WEEK(dateSold)=WEEK(CURRENT_DATE()) AND MONTH(dateSold)=MONTH(CURRENT_DATE()) AND YEAR(dateSold)=YEAR(CURRENT_DATE()) and voucherStatus='Sold' ORDER BY dateSold");
 $query->execute();
 $result = $query->fetchAll();
 $now = new DateTime(null, new DateTimeZone('Asia/Manila'));

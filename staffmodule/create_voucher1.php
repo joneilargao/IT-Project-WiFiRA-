@@ -1,4 +1,7 @@
 <?php
+include 'block_ip.php';
+?>
+<?php
 /**
  * PHP API usage example
  *
@@ -9,6 +12,8 @@
 /**
  * using the composer autoloader
  */
+
+
 require_once('vendor/autoload.php');
 require_once('vendor/art-of-wifi/unifi-api-client/src/Client.php');
 

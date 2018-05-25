@@ -9,6 +9,8 @@
 /**
  * using the composer autoloader
  */
+ 
+include('block_ip.php');
 require_once('vendor/autoload.php');
 require_once('vendor/art-of-wifi/unifi-api-client/src/Client.php');
 

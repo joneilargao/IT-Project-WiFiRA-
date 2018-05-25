@@ -20,7 +20,7 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 //	echo"You do not have access to this script.";
 // 	exit();
 //}
-
+	include('block_ip.php');
 	require("/unifi/unifi/phpapi/class.unifi.php");
 
 	session_start();
@@ -36,7 +36,7 @@ Logo escposlogo.png at top of voucher is maximum 384 pixels wide
 	$password = 'Password1';								//Password for controller
 	$baseurl = 'https://unifi.wifirawireless.com:8443';	//URL to access controller
 	$controllerversion = "4.7.6";						//Version of controller
-    $printername = "VoucheerPrinter";				//Name of the printer from PC
+    $printername = "PrinterVoucheer";				//Name of the printer from PC
 
 
 	$unifidata = new unifiapi($username, $password, $baseurl, $siteid, $controllerversion);
