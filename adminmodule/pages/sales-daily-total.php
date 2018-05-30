@@ -5,6 +5,8 @@
 * Displays the total sold vouchers for the day
 * 
 * @author Darren Sison
+* @author Joneil Argao
+* @author Alfa Leizel Leones
 */
 require '../classes/UserAccount.php';
 ?>
@@ -43,17 +45,18 @@ echo 'class="active-menu"';
             </div>    
             </div>
             <div class="jumbotron"> 
-                <div style="float:right; margin-bottom: 15px;">
-          <a class="btn btn-success" href="#null" onclick="printContent('dataTables-example')">
+            
+          <a class="btn btn-success" href="#null" onclick="printContent('print')" style="float:right; margin-bottom: 15px;">
             <i class="fa fa-print fa-lg" >
             </i> Print
-                </a>
-                 &nbsp;
-                 </div>
-              <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+          </a> 
+            <div id="print">
+              <h3 style = "text-align: center; color:black; font-family: "Arial Black", Gadget, sans-serif;">Daily Sales
+              </h3>
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php
-include 'fragments/sales-query-daily-total.php';
-?>
+                include 'fragments/sales-query-daily-total.php';
+                ?>
               </table>
             </div>
             <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
@@ -62,7 +65,7 @@ include 'fragments/sales-query-daily-total.php';
       </div>
       </body>
     </html>    
-    <script type="text/javascript">
+<script type="text/javascript">
 function printContent(id){
 str=document.getElementById(id).innerHTML
 newwin=window.open('','printwin','left=100,top=100,width=400,height=400')

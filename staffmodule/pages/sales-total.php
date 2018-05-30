@@ -5,6 +5,8 @@
 * Displays the total sales
 * 
 * @author Darren Sison
+* @author Joneil Argao
+* @author Alfa Leizel Leones
 */ 
 require '../classes/UserAccount.php';
 ?>
@@ -42,7 +44,15 @@ echo 'class="active-menu"';
               
               
               <div class="jumbotron"> 
-                  <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+            
+          <a class="btn btn-success" href="#null" onclick="printContent('print')" style="float:right; margin-bottom: 15px;">
+            <i class="fa fa-print fa-lg" >
+            </i> Print
+          </a> 
+            <div id="print">
+              <h3 style = "text-align: center; color:black; font-family: "Arial Black", Gadget, sans-serif;">General Total Sales
+              </h3>
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
 include 'fragments/sales-query-total.php';
 if(isset($_POST['request_done'])){
@@ -67,3 +77,31 @@ $sql->execute();
     </div>
   </body>
 </html>    
+<script type="text/javascript">
+function printContent(id){
+str=document.getElementById(id).innerHTML
+newwin=window.open('','printwin','left=100,top=100,width=400,height=400')
+newwin.document.write('<HTML>\n<HEAD>\n')
+newwin.document.write('<TITLE>Print Page</TITLE>\n')
+newwin.document.write('<script>\n')
+newwin.document.write('function chkstate(){\n')
+newwin.document.write('if(document.readyState=="complete"){\n')
+newwin.document.write('window.close()\n')
+newwin.document.write('}\n')
+newwin.document.write('else{\n')
+newwin.document.write('setTimeout("chkstate()",2000)\n')
+newwin.document.write('}\n')
+newwin.document.write('}\n')
+newwin.document.write('function print_win(){\n')
+newwin.document.write('window.print();\n')
+newwin.document.write('chkstate();\n')
+newwin.document.write('}\n')
+newwin.document.write('<\/script>\n')
+newwin.document.write('</HEAD>\n')
+newwin.document.write('<BODY onload="print_win()">\n')
+newwin.document.write(str)
+newwin.document.write('</BODY>\n')
+newwin.document.write('</HTML>\n')
+newwin.document.close()
+}
+</script>
