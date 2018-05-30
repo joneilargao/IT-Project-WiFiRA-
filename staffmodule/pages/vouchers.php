@@ -51,9 +51,13 @@ require '../classes/UserAccount.php';
             </div>    
           </div>
           <div class="jumbotron"> 
-    
+            <a class="btn btn-success" href="#null" onclick="printContent('print')" style="float:right; margin-bottom: 15px;">
+            <i class="fa fa-print fa-lg" >
+            </i> Print
+            </a> 
+
             <div id="print">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <?php
                 include 'vouchers-query.php';
               ?>
