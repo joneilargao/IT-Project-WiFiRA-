@@ -6,6 +6,7 @@
 * 
 * @author Darren Sison
 * @author Alfa Leones
+* @author Joneil Argao
 */
 require '../classes/UserAccount.php';
 ?>
@@ -64,13 +65,14 @@ echo 'class="active-menu"';
             </div>
             </div>    
           </div>
-          <div class="jumbotron">
-           <a class="btn btn-success" href="#" style="float:right; margin-bottom: 15px;">
+          <div class="jumbotron"> 
+            <a class="btn btn-success" href="#null" onclick="printContent('print')" style="float:right; margin-bottom: 15px;">
             <i class="fa fa-print fa-lg" >
             </i> Print
-          </a>  
-              <div id="print">
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+            </a> 
+
+            <div id="print">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
               <thead>
                 <tr>
                   <th> Voucher Code 
@@ -87,36 +89,36 @@ echo 'class="active-menu"';
               </thead>
               <tbody>
                 <?php
-include('fragments/connection.php');
-if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
-$result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
-                vouchers.datePrinted, vouchers.voucherStatus 
-                FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
-                ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a)");
-$result->bindParam(':a', $entity);
-$result->execute();
-for($i=0; $row = $result->fetch(); $i++){
-?>
-                <tr class="record">
-                  <td>
-                    <?php echo $row['voucherCode']; ?>
-                  </td>
-                  <td>
-                    <?php echo $row['voucherType']; ?>
-                  </td>
-                  <td>
-                    <?php echo $row['voucherAmount']; ?>
-                  </td>
-                  <td>
-                    <?php echo $row['datePrinted']; ?>
-                  </td>
-                  <td>
-                    <?php echo $row['voucherStatus']; ?>
-                  </td>
-                </tr>
-                <?php
-}
-?>
+                  include('fragments/connection.php');
+                  if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
+                  $result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
+                                  vouchers.datePrinted, vouchers.voucherStatus 
+                                  FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
+                                  ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a)");
+                  $result->bindParam(':a', $entity);
+                  $result->execute();
+                  for($i=0; $row = $result->fetch(); $i++){
+                  ?>
+                                  <tr class="record">
+                                    <td>
+                                      <?php echo $row['voucherCode']; ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row['voucherType']; ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row['voucherAmount']; ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row['datePrinted']; ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row['voucherStatus']; ?>
+                                    </td>
+                                  </tr>
+                                  <?php
+                  }
+                  ?>
               </tbody>
               
             </table>

@@ -1,10 +1,11 @@
 <?php
 /**
-* voucher-sold.php
+* voucher-entity.php
 *
-* Displays all sold vouchers
+* Select vouchers with specified status
 * 
-* @author Cyrene Dispo
+* @author Darren Sison
+* @author Alfa Leones
 * @author Joneil Argao
 */
 require '../classes/UserAccount.php';
@@ -12,9 +13,9 @@ require '../classes/UserAccount.php';
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet">		
-  <link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>	
- </head>
+    <link href="https://fonts.googleapis.com/css?family=Allura|Arima+Madurai|Cinzel+Decorative|Corben|Dancing+Script|Galindo|Gentium+Book+Basic|Great+Vibes|Henny+Penny|Indie+Flower|Kaushan+Script|Kurale|Life+Savers|Love+Ya+Like+A+Sister|Milonga|Miltonian+Tattoo|Niconne|Oregano|Original+Surfer|Pangolin|Parisienne|Philosopher|Princess+Sofia|Rancho|Risque|Salsa|Schoolbell|Special+Elite" rel="stylesheet"> 
+    <link rel="shortcut icon" type="image/png" href="assets/img/wifira_logo.png"/>
+  </head>
   <?php
 include 'fragments/head.php';
 ?>
@@ -38,16 +39,14 @@ echo 'class="active-menu"';
         <div id="page-inner">
           <div class="row">
             <div class="col-md-12">
-              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Sold Vouchers
-              </h1>
-
-              <div>
-              <form action="search-voucher-sold.php" method="get" >
+              <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Vouchers</h1>
+			           <div>
+                <form action="voucher-search-entity.php" method="get" >
                 <input type="text" name="su1" class="tcal" value="" placeholder="xxxxxxxxxx" style="height:29px; margin-bottom: .5%;"/> 
                 <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
               
                </form> 
-                <form id="search-form" name="search" action="vouchers-entity-sold.php" method="get" style="margin-right:65%; ">
+                <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="margin-right:65%; ">
                 <select name="entity" style="height:29px;">
                   <option value="">Choose Entity
                   </option>
@@ -74,20 +73,66 @@ echo 'class="active-menu"';
 
             <div id="print">
                 <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
-                  <?php
-                    include 'fragments/vouchers-sold-query.php';
-                  ?>
-                </table>
+              <thead>
+                <tr>
+                  <th> Voucher Code 
+                  </th>
+                  <th> Voucher Type 
+                  </th>
+                  <th> Amount 
+                  </th>
+                  <th> Date 
+                  </th>
+                  <th> Status 
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+include('fragments/connection.php');
+if (isset($_GET["entity"])) { $entity  = $_GET["entity"]; } else { $entity=0; }; 
+$result = $pdo->prepare("SELECT vouchers.voucherCode, vouchers.voucherType, vouchers.voucherAmount, 
+                vouchers.datePrinted, vouchers.voucherStatus 
+                FROM vouchers LEFT OUTER JOIN accounts ON vouchers.accountNo = accounts.accountNo LEFT OUTER JOIN kioskmachine 
+                ON vouchers.kioskId = kioskmachine.kioskId WHERE (accounts.name=:a OR kioskmachine.kioskName=:a)
+                and (vouchers.voucherStatus= 'Sold')");
+$result->bindParam(':a', $entity);
+$result->execute();
+for($i=0; $row = $result->fetch(); $i++){
+?>
+                <tr class="record">
+                  <td>
+                    <?php echo $row['voucherCode']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['voucherType']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['voucherAmount']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['datePrinted']; ?>
+                  </td>
+                  <td>
+                    <?php echo $row['voucherStatus']; ?>
+                  </td>
+                </tr>
+                <?php
+}
+?>
+              </tbody>
+              
+            </table>
+          </div>
             </div>
-          </div>
-          </div>
-          <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
           
         </div>
       </div>
     </div>
   </body>
-  <script type="text/javascript">
+</html>    
+
+<script type="text/javascript">
 function printContent(id){
 str=document.getElementById(id).innerHTML
 newwin=window.open('','printwin','left=100,top=100,width=400,height=400')
@@ -115,6 +160,3 @@ newwin.document.write('</HTML>\n')
 newwin.document.close()
 }
 </script>
-</html> 
-
-
