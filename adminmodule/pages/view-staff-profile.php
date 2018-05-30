@@ -80,7 +80,7 @@ echo 'class="active-menu"';
             <div class="jumbotron"> 
               <a class="btn btn-danger" href="view-staff-profile-archive.php" style="float:right; margin-bottom: 15px;">
                   <i class="fa fa-archive fa-lg">
-                  </i> Archive
+                  </i> Deactivated Accounts
                 </a>
               <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
                 <?php

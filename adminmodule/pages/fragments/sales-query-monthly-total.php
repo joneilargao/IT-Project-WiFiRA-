@@ -29,4 +29,18 @@ echo "<td>" . $query['totalsales'] . ".00</td>";
 echo "</td>";
 echo "</tr>";
 }
+$query1 = $pdo->prepare("SELECT COUNT(voucherCode) as totalVoucherCode, SUM(voucherAmount) as totalAmount FROM vouchers  WHERE MONTH(dateSold)=MONTH(CURRENT_DATE()) AND voucherStatus='Sold' AND YEAR(dateSold)=YEAR(CURRENT_DATE()) ");
+$query1->execute();
+$result1 = $query1->fetchAll();
+foreach($result1 as $query1){
+    $totalVoucherCode = $query1['totalVoucherCode'];
+    $totalAmount = $query1['totalAmount'];
+    
+}
+echo "<tr>";
+echo "<td><b>Total: </b>" . $totalVoucherCode . "</td>";
+echo "<td> </td>";
+echo "<td><b>Total: </b>". $totalAmount ."</td>";
+//echo "</td>";
+echo "</tr>";
 ?>

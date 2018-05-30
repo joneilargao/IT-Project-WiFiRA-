@@ -14,7 +14,7 @@ $query->execute();
 
 if($query){
         echo '<script type="text/javascript">
-              alert("Account has archived successfully!");
+              alert("Account has deactivate successfully!");
               location="../view-staff-profile.php";
               </script>';
     } else {

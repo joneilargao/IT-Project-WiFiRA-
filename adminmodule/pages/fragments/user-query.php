@@ -35,7 +35,7 @@ echo "<td>";
 echo '<a href="fragments/user-reset-password.php?id='.$query['accountNo'].'"><button class="btn btn-primary">Reset Password</button></a>';
 echo "</td>";
 echo "<td>";
-	echo '<a href="fragments/account-hide.php?id='.$query['accountNo'].'"><button class="btn btn-success">Archive</button></a>';
+	echo '<a href="fragments/account-hide.php?id='.$query['accountNo'].'"><button class="btn btn-success">Deactivate</button></a>';
 ?>
 </div>
 </label>

@@ -27,4 +27,18 @@ echo "<td> Php " . $query['totalsales'] . ".00</td>";
 echo "</td>";
 echo "</tr>";
 }
+$query2 = $pdo->prepare("SELECT COUNT(voucherCode) as totalVoucherCode, SUM(voucherAmount) as totalAmount FROM vouchers WHERE dateSold=CURDATE() AND accountNo='$user_id' ");
+$query2->execute();
+$result2 = $query2->fetchAll();
+foreach($result2 as $query2){
+    $totalVoucherCode = $query2['totalVoucherCode'];
+    $totalAmount = $query2['totalAmount'];
+    
+}
+echo "<tr>";
+echo "<td><b>Total: </b>" . $totalVoucherCode . "</td>";
+echo "<td> </td>";
+echo "<td><b>Total: </b>". $totalAmount ."</td>";
+//echo "</td>";
+echo "</tr>";
 ?>

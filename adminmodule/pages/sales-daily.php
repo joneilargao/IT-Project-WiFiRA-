@@ -74,7 +74,7 @@ echo 'class="active-menu"';
             </i> Print
           </a> 
           &nbsp;
-            <a class="btn btn-primary" href="sales-total.php">
+            <a class="btn btn-primary" href="sales-daily-total.php">
               <i class="">
               </i>Total Sales
             </a>
