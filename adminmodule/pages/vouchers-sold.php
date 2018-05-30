@@ -47,19 +47,18 @@ echo 'class="active-menu"';
               
                </form> 
                 <form id="search-form" name="search" action="vouchers-entity.php" method="get" style="margin-right:65%; ">
-                <select name = "entity" style="height:29px;">
-                  <option value="">Choose Staff
+                <select name="entity" style="height:29px;">
+                  <option value="">Choose Entity
                   </option>
-           <!-- /. Selects all unsold vouchers from the database -->
                   <?php 
-require_once 'fragments/connection.php';
-$usersQuerry = $pdo->prepare("SELECT DISTINCT name FROM accounts where roleId='Staff'; ");
-$usersQuerry->execute();
-$users = $usersQuerry->fetchAll();
-foreach ($users as $user){
-echo "<option>" . $user['name'] . "</option>";
-}
-?>
+                    require_once 'fragments/connection.php';
+                    $usersQuerry = $pdo->prepare("SELECT name FROM wifira.accounts  union SELECT kioskName FROM wifira.`kioskmachine`;");
+                    $usersQuerry->execute();
+                    $users = $usersQuerry->fetchAll();
+                    foreach ($users as $user){
+                    echo "<option>" . $user['name'] . "</option>";
+                    }
+                  ?>
                 </select>
                 <button type="submit"><i class="fa fa-search" style="margin-top:5px;margin-bottom: 5px;"></i></button>
               </form>
