@@ -11,7 +11,7 @@
 * @author Cyrene Dispo
 * @author Katherine Turqueza
 */
-require('fragments/data-daily.php');
+
 require '../classes/UserAccount.php';
 ?>
 <!DOCTYPE html>
@@ -141,6 +141,9 @@ $user_id = $user->getAccountId();
             
         <div class="text-box" > 
         	<div>
+            <?php
+          require('fragments/data-daily.php');
+            ?>
 	            <div id="containerChart" style=" width:100%; height:45%; background:#ffffff;">
 	              <div class="container" style="width:900px;">
                <div id="chart"></div>
