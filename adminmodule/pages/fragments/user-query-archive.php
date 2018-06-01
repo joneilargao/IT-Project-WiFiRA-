@@ -9,7 +9,7 @@
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT accountNo, roleId, name, address, username FROM accounts WHERE roleId='Staff' AND visibility='Hidden' ");
+$query = $pdo->prepare("SELECT accountNo, roleId, name, address, username FROM accounts WHERE roleId='Staff' AND (visibility='Hidden') and (accountStatus='Disable')");
 $query->execute();
 $result = $query->fetchAll();
 echo "<tr>";

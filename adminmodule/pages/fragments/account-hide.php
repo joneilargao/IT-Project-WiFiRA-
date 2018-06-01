@@ -9,7 +9,7 @@
 include 'connection.php';
 $id=$_GET['id'];
 
-$query = $pdo->prepare("UPDATE accounts SET visibility='Hidden' WHERE accountNo=$id");
+$query = $pdo->prepare("UPDATE accounts SET visibility='Hidden', accountStatus='Disable' WHERE accountNo=$id");
 $query->execute();
 
 if($query){
