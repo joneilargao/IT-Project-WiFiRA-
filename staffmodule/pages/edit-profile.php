@@ -113,7 +113,7 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                          <h1 style = "font-family: special elite; color:#4A8162; font-size: 250%;">Edit Profile</h1>   
+                          <h1 style = "font-family: Palatino; color:#4A8162; font-size: 250%;">Edit Profile</h1>   
                         </div>    
                     </div>
                         
