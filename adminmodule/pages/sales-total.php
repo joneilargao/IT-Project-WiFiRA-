@@ -69,6 +69,24 @@ echo 'class="active-menu"';
                 }
                 ?>
             </table>
+                <h3 style = "text-align: center; color:black; font-family: Arial;">Kiosk Sales</h3>
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example" name="anothercontent">
+              <?php
+                include 'fragments/sales-query-total-kiosk.php';
+                if(isset($_POST['request_done'])){
+                $rid=$_POST['requestId'];
+                $sql = $pdo->prepare("update service_request set request_status=4, end_servicing = curdate()  where request_id = '$rid';");
+                $sql->execute();
+                //echo "<meta http-equiv='refresh' content='0'>";
+                }
+                if(isset($_POST['request_cancel'])){
+                $rid=$_POST['requestId'];
+                $sql = $pdo->prepare("update service_request set request_status=5 where request_id = '$rid';");
+                $sql->execute();
+                //echo "<meta http-equiv='refresh' content='0'>";
+                }
+                ?>
+            </table>
           </div>
           <!--  <input type="submit" name='submit' class="btn btn-warning" value="Print" class="col s6" class='submit' style="background-color:#686667; font-family:monospace; font-size:18px;"/><br />    -->
           
