@@ -41,8 +41,9 @@ foreach($result1 as $query1){
     
 }
 echo "<tr>";
+echo "<td></td>";
+echo "<td></td>";
 echo "<td><b>Total Vouchers Sold: </b>" . $totalVoucherCode . "</td>";
-echo "<td> </td>";
 echo "<td><b>Total: </b>Php ". $totalAmount .".00</td>";
 //echo "</td>";
 echo "</tr>";
