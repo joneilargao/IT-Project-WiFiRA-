@@ -42,7 +42,6 @@
                 if(isset($_POST['saveprofile'])){
                     $account = $_SESSION["userAccount"];
                     $accountNo = $account->getAccountId();
-
                     $username = $_POST['inputUsername'];
                     $password = $_POST['inputPassword'];
                     $rePassword = $_POST['inputRePassword'];
@@ -54,10 +53,11 @@
                     include "fragments/connection.php";
 
                     if($password == $rePassword && $password != ''){
-                        $updateWithPass = "update accounts set username=:username, password=:password, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber where accountNo = '$accountNo';";
+                        $updateWithPass = "UPDATE accounts set username=:username, password=:password, rePassword=:rePassword, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber where accountNo = '$accountNo';";
                         $sql = $pdo->prepare($updateWithPass);
                         $sql->bindParam(':username', $username);
                         $sql->bindParam(':password', $password);
+                        $sql->bindParam(':rePassword', $rePassword);
                         $sql->bindParam(':address', $address);
                         $sql->bindParam(':name', $name);
                         $sql->bindParam(':emailAddress', $emailAddress);
@@ -73,10 +73,11 @@
                         header('view-profile.php');
 
                     }else{
-                        $updateWithoutPass = "UPDATE accounts SET username=:username, password=:password, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber WHERE accountNo = '$accountNo';";
+                        $updateWithoutPass = "UPDATE accounts SET username=:username, password=:password, rePassword=:rePassword, address=:address, name=:name, emailAddress=:emailAddress, contactNumber=:contactNumber WHERE accountNo = '$accountNo';";
                         $sql = $pdo->prepare($updateWithoutPass);
                         $sql->bindParam(':username', $username);
                         $sql->bindParam(':password', $password);
+                        $sql->bindParam(':rePassword', $rePassword);
                         $sql->bindParam(':address', $address);
                         $sql->bindParam(':name', $name);
                         $sql->bindParam(':emailAddress', $emailAddress);
@@ -105,7 +106,7 @@
                         $user_id = $user->getAccountId();
                         
                         //QUERY THE ACCOUNT DATA
-                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, contactNumber, emailAddress, password FROM accounts WHERE accountNo = '$user_id'");
+                        $qry = $pdo->prepare("SELECT accountNo, name, username, address, contactNumber, emailAddress, password, rePassword FROM accounts WHERE accountNo = '$user_id'");
                         $qry->execute();
                         $profileqry = $qry->fetch(); 
                         

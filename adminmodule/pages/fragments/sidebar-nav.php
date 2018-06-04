@@ -51,11 +51,11 @@ $print = $query->fetch();
         </div>
             
         <!--Kiosks-->
-        <button class="dropdown-btn">
-            <i class="fa fa-barcode"></i>&nbsp; Kiosks 
-        </button>
+      <a href=kioks.php>
+            <i class="fa fa-barcode"></i>&nbsp;  Kiosks
+        </a>
         <div class="dropdown-container">
-            <a  href="kiosk-manage.php">Manage Kiosks</a>
+            <a  href="kiosk-manage.php">Manage Kiosks</a> 
             <a  href="kiosk-add.php">Add Kiosk</a>
         </div>
             

@@ -70,7 +70,7 @@
                         
                     <div class="row">
                         <div class="col-md-12">
-                        	<h2 style = "font-family: Cinzel Decorative; color:#000000">Edit Profile</h2>   
+                        	<h2 style = "font-family: special elite; color:#000000">Edit Kiosk</h2>   
                         </div>    
                     </div>
                         

@@ -19,8 +19,6 @@ echo "<th>Kiosk Name</th>";
 echo "<th>Location </th>";
 echo "<th>IP Address</th>";
 echo "<th>Status</th>";
-echo "<th>Action</th>";
-echo "<th></th>";
 echo "</tr>";
 foreach($result as $query){
 $rid = $query['kioskId'];
@@ -30,17 +28,8 @@ echo "<td>" . $query['kioskName'] . "</td>";
 echo "<td>" . $query['location'] . "</td>";
 echo "<td>" . $query['ipAddress'] . "</td>";
 echo "<td>" . $query['kioskStatus'] . "</td>";
-echo "<td>";
-
-if ($query['kioskStatus']=='Disable'){
-	echo '<a href="fragments/kiosk-enable.php?id='.$query['kioskId'].'"><button class="btn btn-success">Enable</button></a>';
-}
-else{
-	echo '<a href="fragments/kiosk-disable.php?id='.$query['kioskId'].'"><button class="btn btn-danger">Disable</button></a>';
-}
 echo "</td>";
-echo "<td>";
-	echo '<a href="edit-kiosk.php?id='.$query['kioskId'].'"><button class="btn">Edit Kiosk</button></a>';
+
 ?>
 </div>
 </label>
