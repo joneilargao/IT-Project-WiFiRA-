@@ -5,16 +5,20 @@
 * Selects the total sales
 * 
 * @author Darren Sison
+* @author Joneil Argao
 */
+
+
 $user= $_SESSION['userAccount'];
 $usr = $_SESSION['username'];
 $user_id = $user->getAccountId();
-$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE voucherStatus='Sold'  GROUP BY 2 ORDER BY dateSold");
+$query = $pdo->prepare("SELECT COUNT(voucherCode) as totalvoucher, voucherType, SUM(voucherAmount) as totalsales FROM vouchers WHERE voucherStatus='Sold' GROUP BY 2");
 $query->execute();
 $result = $query->fetchAll();
-
+$now = new DateTime(null, new DateTimeZone('Asia/Manila'));
+echo $now->format('D M-j-G:i:sa');    // MySQL datetime format
 echo "<tr>";
-echo "<th>Number of Vouchers</th>";
+echo "<th>Voucher Code</th>";
 echo "<th>Voucher Type</th>";
 echo "<th>Amount </th>";
 echo "</tr>";
@@ -39,7 +43,10 @@ foreach($result1 as $query1){
 echo "<tr>";
 echo "<td><b>Total: </b>" . $totalVoucherCode . "</td>";
 echo "<td> </td>";
-echo "<td><b>Total: </b>". $totalAmount ."</td>";
+echo "<td><b>Total: </b>Php ". $totalAmount .".00</td>";
 //echo "</td>";
 echo "</tr>";
+
+
 ?>
+

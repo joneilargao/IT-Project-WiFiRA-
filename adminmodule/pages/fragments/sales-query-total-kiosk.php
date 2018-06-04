@@ -16,17 +16,16 @@ echo "<th>Kiosk Name</th>";
 echo "<th>Number of Vouchers</th>";
 echo "<th>Total Amount</th>";
 echo "</tr>";
+
+
 foreach($result as $query){
-    $kioskId = $query['kioskId'];
-    $kioskName = $query['kioskName'];
-    $totalVoucherCode = $query['totalVoucherCode'];
-    $totalAmount = $query['totalAmount'];
-    
-}
+$rid = $query['totalVoucherCode'];
 echo "<tr>";
-echo "<td>" . $kioskId . "</td>";
-echo "<td>" . $kioskName . "</td>";
-echo "<td>" . $totalVoucherCode . "</td>";
-echo "<td>". $totalAmount ."</td>";
+echo "<td>" . $query['kioskId'] . "</td>";
+echo "<td>" . $query['kioskName'] . "</td>";
+echo "<td>" . $query['totalVoucherCode'] . "</td>";
+echo "<td> Php " . $query['totalAmount'] . ".00</td>";
+echo "</td>";
 echo "</tr>";
+}
 ?>
